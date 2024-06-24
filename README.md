@@ -17,6 +17,12 @@ A respeito de mim, desde criança sempre fui muito curioso e tive gosto por mat�
 
 Concluí meu Ensino Médio em colégio militar, onde desenvolvi habilidades de trabalho em equipe e liderança. Nesse período, recebi honrarias e consegui me destacar na minha turma, sendo o aluno com melhores notas nos três anos de Ensino Médio (2019-2021). Carrego grande orgulho desse período da minha vida, pois creio que me desenvolveu muito enquanto ser humano, uma vez que necessitei constantemente de disciplina para estudar e também para cumprir as regras, algo necessário em nossas vidas todos os dias.
 
+### Hobbies
+- Praticar esportes (futebol, musculação e vôlei);
+- Programação;
+- Jogar videogame;
+- Matemática.
+
 ## Experiências Anteriores
 
 ### Bolsista de Projeto de Pesquisa
@@ -35,12 +41,6 @@ Participei como bolsista em um projeto de pesquisa colaborativo e multidisciplin
 *06/2023 - atualmente*
 
 Atuo como professor particular de Matemática, auxiliando alunos desde as séries iniciais até o ensino superior. Devido à minha grande afeição pela disciplina, sempre gostei de estudar e ajudar meus amigos. Hoje, isso se tornou uma forma de renda extra, além de uma maneira de colaborar com diversas pessoas. 
-
-### Hobbies
-- Praticar esportes (futebol, musculação e vôlei);
-- Programação;
-- Jogar videogame;
-- Matemática.
 
 ## Aprendizados
 
