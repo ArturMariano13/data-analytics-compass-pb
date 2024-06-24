@@ -7,17 +7,40 @@ ___
   <img src="https://github.com/ArturMariano13.png?size=250" alt="Foto de Artur Mariano da Silva">
 </p>
 
-Olá, me chamo Artur Mariano da Silva, sou natural de Passo Fundo/RS e atualmente estou no 5º semestre do curso de Ciência da Computação no Instituto Federal Sul-Rio-Grandense (IFSUL) Câmpus Passo Fundo. Hoje, tenho 20 anos e desde criança sempre fui muito curioso e tive gosto por matérias que envolvam raciocínio lógico e resolução de problemas. Por essas razões, a área da tecnologia me surtiu interesse e grande curiosidade. 
+- **Nome:** Artur Mariano da Silva
+- **Idade:** 20 anos
+- **Cidade:** Passo Fundo/RS 
+- **Curso/Semestre:** Ciência da Computação/5º período
+- **Instituição:** Instituto Federal Sul-Rio-Grandense - Câmpus Passo Fundo
 
-Concluí meu Ensino Médio em colégio militar, onde desenvolvi habilidades de trabalho em equipe e liderança. Além disso, vale ressaltar o desafio constante de disciplina para estudar e cumprir as regras de forma rígida que me acrescentaram muito enquanto ser humano.
+A respeito de mim, desde criança sempre fui muito curioso e tive gosto por matérias que envolvam raciocínio lógico e resolução de problemas. Além disso, sempre joguei muito videogame e pensava em um dia poder entender "como fazia" aquilo que eu jogava quando criança. Por essas razões, a área da tecnologia me surtiu interesse e grande curiosidade. 
 
-### Experiências Anteriores
-* (03/2023 - 05/2024): atuei como **bolsista de um projeto de pesquisa** do IFSUL em parceria com a Embrapa Trigo e com a UPF visando desenvolver uma armadilha eletrônica capaz de capturar, identificar e contar insetos-praga de culturas de cereais de inverno. Esse projeto consistiu em um esforço multidisciplinar visando desenvolver um protótipo de armadilha somado a um modelo inteligente capaz de identificar insetos baseado em imagens digitais com o uso da tecnologia YOLO. Nesse projeto, tive contato com diversas tecnologias, como a linguagem de programação Python, o uso de computador de placa única Raspberry Pi, o treinamento de modelo inteligente utilizando YOLO, entre outras.
+Concluí meu Ensino Médio em colégio militar, onde desenvolvi habilidades de trabalho em equipe e liderança. Nesse período, recebi honrarias e consegui me destacar na minha turma, sendo o aluno com melhores notas nos três anos de Ensino Médio (2019-2021). Carrego grande orgulho desse período da minha vida, pois creio que me desenvolveu muito enquanto ser humano, uma vez que necessitei constantemente de disciplina para estudar e também para cumprir as regras, algo necessário em nossas vidas todos os dias.
+
+## Experiências Anteriores
+
+### Bolsista de Projeto de Pesquisa
+**IFSUL - Embrapa Trigo e UPF**  
+*03/2023 - 05/2024*
+
+Participei como bolsista em um projeto de pesquisa colaborativo e multidisciplinar, com o objetivo de desenvolver uma armadilha eletrônica para capturar, identificar e contar insetos-praga de culturas de cereais de inverno. Esse projeto multidisciplinar envolveu a criação de um protótipo de armadilha e um modelo inteligente de identificação de insetos usando a tecnologia YOLO. Durante o projeto, adquiri experiência com:
+
+- Python;
+- Raspberry Pi;
+- Servidor Linux;
+- Treinamento de modelo inteligente com YOLO;
+- OpenCV.
+
+### Professor Particular de Matemática
+*06/2023 - atualmente*
+
+Atuo como professor particular de Matemática, auxiliando alunos desde as séries iniciais até o ensino superior. Devido à minha grande afeição pela disciplina, sempre gostei de estudar e ajudar meus amigos. Hoje, isso se tornou uma forma de renda extra, além de uma maneira de colaborar com diversas pessoas. 
 
 ### Hobbies
 - Praticar esportes (futebol, musculação e vôlei);
 - Programação;
-- Jogar videogame.
+- Jogar videogame;
+- Matemática.
 
 ## Aprendizados
 
