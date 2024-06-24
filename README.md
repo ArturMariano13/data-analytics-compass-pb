@@ -3,7 +3,9 @@ ___
 
 ## Apresentação
 
-![Foto de Artur Mariano da Silva](https://github.com/ArturMariano13.png?size=250)
+<div style="text-align: center;">
+    <img src="https://github.com/ArturMariano13.png?size=250" alt="Foto de Artur Mariano da Silva">
+</div>
 
 Olá, me chamo Artur Mariano da Silva, sou natural de Passo Fundo/RS e atualmente estou no 5º semestre do curso de Ciência da Computação no Instituto Federal Sul-Rio-Grandense (IFSUL) Câmpus Passo Fundo. Hoje, tenho 20 anos e desde criança sempre fui muito curioso e tive gosto por matérias que envolvam raciocínio lógico e resolução de problemas. Por essas razões, a área da tecnologia me surtiu interesse e grande curiosidade. 
 
@@ -22,12 +24,9 @@ Concluí meu Ensino Médio em colégio militar, onde desenvolvi habilidades de t
 Nesta seção, descreverei o que estou aprendendo ao longo do programa de bolsas, de forma estruturada e contínua.
 
 ### Resumo das Sprints
-1. **Sprint 1**: Fundamentos de AWS e primeiros passos em Data Analytics. Estudo das principais ferramentas e serviços oferecidos pela AWS, como S3, EC2, e RDS.
-2. **Sprint 2**: Introdução ao Machine Learning e Data Science. Primeiros projetos práticos utilizando bibliotecas como Pandas, NumPy, e Scikit-learn.
-3. **Sprint 3**: Projetos práticos e estudo de casos. Desenvolvimento de projetos integrados utilizando serviços AWS para criar pipelines de dados eficientes.
-4. ...
+1. **Sprint 1**: Fundamentos de Linux (comandos básicos, Shell, scripts), Git do básico ao avançado (comandos básicos, estrutura, GitHub) e linguagem Markdown.
 
-Na medida que avanço, adicionarei mais detalhes sobre os tópicos abordados e os projetos desenvolvidos.
+À medida que o programa for avançando, adicionarei as sprints, os conhecimentos adquiridos e os projetos desenvolvidos.
 
 ## Sprints 
 
