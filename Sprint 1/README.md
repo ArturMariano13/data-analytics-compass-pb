@@ -321,6 +321,7 @@ Exemplo:
     - Descompactar: `unzip nome-arq-compactado -d pasta-destino`
 
 ### Curso Git e GitHub
+_____
 #### Controle de Versão
 - Ajuda a gerenciar o código-fonte de uma aplicação;
 - Registrar todas as modificações do código, podendo reverter as mesmas (*rollback*);
@@ -344,13 +345,19 @@ Exemplo:
 #### Git
 1. Envio de Repositório  
 `git init` 
+
 `git add arquivos` 
-`git commit -m "First commit"` 
+
+`git commit -m "First commit"`
+
 `git branch -M main` 
+
 `git remote add origin endereco` 
+
 `git push -u origin main` 
 
 2. Verificar Alterações  
+
 `git status`
 
 3. Adicionar Arquivos 
@@ -565,3 +572,31 @@ Os títulos são criados usando o símbolo `#` seguido de um espaço. O número 
 # Título 1
 ## Título 2
 ### Título 3
+
+### Negrito e Itálico
+- **Negrito**: `**texto**` ou `__texto__`
+- *Itálico*: `*texto*` ou `_texto_`
+- **_Negrito e Itálico_**: `***texto***` ou `___texto___`
+
+### Listas
+- Lista não ordenada:
+  ```markdown
+  - Item 1
+  - Item 2
+    - Subitem 2.1
+    - Subitem 2.2
+- Lista ordenada:
+```markdown
+1. Primeiro item
+2. Segundo item
+   1. Subitem 2.1
+   2. Subitem 2.2
+
+### Links e Imagens
+- Link: `[Link](https://example.com)`
+- Imagem: `![Imagem](https://example.com/imagem.jpg)`
+
+### Código
+- Código inline: ``código``
+- Bloco de código:
+```
