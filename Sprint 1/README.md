@@ -572,6 +572,7 @@ Os títulos são criados usando o símbolo `#` seguido de um espaço. O número 
 # Título 1
 ## Título 2
 ### Título 3
+```
 
 ### Negrito e Itálico
 - **Negrito**: `**texto**` ou `__texto__`
@@ -580,17 +581,19 @@ Os títulos são criados usando o símbolo `#` seguido de um espaço. O número 
 
 ### Listas
 - Lista não ordenada:
-  ```markdown
-  - Item 1
-  - Item 2
-    - Subitem 2.1
-    - Subitem 2.2
+```markdown
+    - Item 1
+    - Item 2
+        - Subitem 2.1
+        - Subitem 2.2
+```
 - Lista ordenada:
 ```markdown
 1. Primeiro item
 2. Segundo item
    1. Subitem 2.1
    2. Subitem 2.2
+```
 
 ### Links e Imagens
 - Link: `[Link](https://example.com)`
@@ -599,4 +602,6 @@ Os títulos são criados usando o símbolo `#` seguido de um espaço. O número 
 ### Código
 - Código inline: ``código``
 - Bloco de código:
+```
+Código
 ```
