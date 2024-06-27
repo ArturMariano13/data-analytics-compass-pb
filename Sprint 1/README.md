@@ -143,26 +143,26 @@ OBS.: CTRL + R = para encontrar comandos já dados.
 OBS.: atualmente, o "-get" não é mais necessários, apenas o "apt" resolve.
 
 ###### FILTRO E BUSCAS DE ARQUIVOS E DIRETÓRIOS
-- **head:** para ver as primeiras linhas de um arquivo
-    - <code>head -n 1 documento.txt</code> --> mostra 1 linha do documento.
+- **<code>head</code>:** para ver as primeiras linhas de um arquivo
+    - <code>head -n 1 documento.txt</code> - mostra 1 linha do documento.
 
-- **tail:** para ver o fim de um arquivo. Mesma regra de cima.
-    - **tail -f documento.txt** --> motra alterações em tempo real. Utilizado para acompanhar LOGS.
+- **<code>tail</code>:** para ver o fim de um arquivo. Mesma regra de cima.
+    - <code>tail -f documento.txt</code> - motra alterações em tempo real. Utilizado para acompanhar LOGS.
 
-- **grep:** buscar um trecho em um documento (*case-sensitive*).
-    - **grep 'Artur' documento.txt** --> destaca as ocorrências de 'Artur';
-    - **grep -c 'Artur' documento.txt** --> retorna o nº de vezes que aparece a palavra.
-    - **grep 'Artur' -r** --> procura a palavra recursivamente em todos os arquivos.
+- **<code>grep</code>:** buscar um trecho em um documento (*case-sensitive*).
+    - <code>grep 'Artur' documento.txt</code> - destaca as ocorrências de 'Artur';
+    - <code>grep -c 'Artur' documento.txt</code> - retorna o nº de vezes que aparece a palavra.
+    - <code>grep 'Artur' -r**</code> - procura a palavra recursivamente em todos os arquivos.
 
-- **find:** encontrar arquivos ou diretórios
-    - **find -name 'documento.txt'** --> busca o diretório pelo nome;
-    - **find iname documento.txt'** --> despreza *case-sensitive*;
-    - **find -iname 'documento*'** --> retorna tudo que começa com documento...;
-    - **find -empty** --> retorna diretórios e arquivos vazios.
+- **<code>find</code>:** encontrar arquivos ou diretórios
+    - <code>find -name 'documento.txt'</code> - busca o diretório pelo nome;
+    - <code>find iname documento.txt'</code> - despreza *case-sensitive*;
+    - <code>find -iname 'documento*'</code> - retorna tudo que começa com documento...;
+    - <code>find -empty</code> - retorna diretórios e arquivos vazios.
         - **-type f** --> apenas arquivos.
         - **-type d** --> apenas diretórios.
 
-- **locate:** busca na base de dados do SO --> maior desempenho.
+- **<code>locate:</code>** busca na base de dados do SO --> maior desempenho.
     - Nem sempre encontra (quando é muito recente).
     - Bom para arquivos antigos.
 
