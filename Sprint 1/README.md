@@ -354,3 +354,91 @@ Exemplo:
 
 2. Verificar Alterações <br/>
 <code>git status</code>
+
+3. Adicionar Arquivos<br/>
+- Serão monitorados pelo Git;
+- Interessante fazer de tempos em tempos - depois *commit*.
+<code>git add</code><br/>
+<code>git add .</code> - adiciona tudo
+
+4. Salvar Alterações no Projeto<br/>
+- Boa prática: enviar uma mensagem por commit ("-m");
+- **"-a"**: para commitar todos os arquivos (*-all*).<br/>
+<code>git commit</code>
+
+5. Enviar Arquivos ao Repositório Remoto<br/>
+<code>git push</code>
+
+6. Receber Alterações
+- Busca-se as alterações (atualizações) no servidor remoto.<br/>
+<code>git pull</code>
+
+7. Clonar Repositórios
+- Baixa um repositório de um servidor remoto;
+- Quando se entra em um novo projeto (já criado);
+- '.': clona no diretório atual.<br/>
+<code>git clone endereco</code>
+
+8. Remover Arquivos do Repositório
+- Deleta do monitoramento do git;
+- Deleta da máquina local também.<br/>
+<code>git rm nomedoarquivo</code>
+
+9. Histórico de Alterações
+- Acessar um log de modificações do projeto;
+- Retorna o histórico de *commits*.<br/>
+<code>git log</code>
+
+10. Mover/Renomear Arquivos
+- Pode-se renomear um arquivo;
+- Pode-se mover o arquivo para outra pasta;
+- Igual ao Linux.<br/>
+<code>git mv</code>
+
+11. Desfazer Alterações
+- Pode-se retornar ao estado original (do repositório);
+- Reseta o arquivo.<br/>
+<code>git checkout</code>
+
+12. Ignorar Arquivos
+- Inserir *.gitignore* na raiz do projeto e nesse arquivo inserir os arquivos/diretórios que não se deseja enviar ao git.
+
+13. Resetar Branches
+- Geralmente usado com a flag "--hard";
+- Reseta e exclui tudo até o último "push".<br/>
+<code>git reset</code><br/>
+<code>git reset --hard origin/main</code>
+
+##### BRANCHES
+- Ramificações do projeto;
+- Forma de separar as versões do projeto;
+- Geralmente, cada *feature* nova de um projeto fica em uma *branch* separada;
+- Ao final, as *branches* são unidas --> ***merge***
+
+1. Criar Branches e Visualizar<br/>
+<code>git branch</code> - mostra as branches<br/>
+<code>git branch nome</code> - cria uma branch
+
+2. Deletar
+- Nâo é comum, apenas quando se cria errado.<br/>
+<code>git branch -d nomebranch</code>
+
+3. Mudar de Branch
+- **Atenção:** ao alterar a branch, podemos levar alterações que não foram commitadas junto.
+- "-b": muda e cria a branch;
+- Sempre criar uma branch a partir da main e fazer <code>git pull</code><br/>
+<code>git checkout nome</code>
+
+4. Unir Branches<br/>
+<code>git merge nome</code>
+
+5. Stash
+- Reseta a branch para a versão de acordo com o repositório;
+- Não perde o código.<br/>
+<code>git stash</code>
+- Recuperando Stash
+    - <code>git stash list</code> - mostra as stashes criadas
+    - <code>git stash nome</code> - recupera uma stash
+
+
+
