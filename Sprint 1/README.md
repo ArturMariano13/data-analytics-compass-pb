@@ -319,3 +319,38 @@ Exemplo:
 - **zip**
     - Compactar: <code>zip -r nomedefinido.zip pasta-a-compactar</code>
     - Descompactar: <code>unzip nome-arq-compactado -d pasta-destino</code>
+
+### Curso Git e GitHub
+#### Controle de Versão
+- Ajuda a gerenciar o código-fonte de uma aplicação;
+- Registrar todas as modificações do código, podendo reverter as mesmas (*rollback*);
+- Cada nenbri oide trabalhar em uma versão diferente (*branch*).
+
+#### Git
+- Sistema de **controle de versão**;
+- Baseado em **repositórios**, contendo todas as versões do código;
+- Operações **otimizadas** para ter **alto desempenho**;
+- Projeto de **código aberto**;
+- Protegidos com **criptografia**.
+
+#### Repositório
+- É onde o código está armazenado;
+- Criamos um ao iniciar o projeto;
+- Pode ir para servidores que os gerenciam (*GitHub* e *GitBucket*).
+- **Criação:**
+<code>git init</code> - cria os arquivos necessários - pasta '.git'
+
+#### GitHub
+- Serviço para gerenciar repositórios;
+- Pode-se enviar projetos para o GitHub.
+
+1. Envio de Repositório
+<code>git init</code>
+<code>git add arquivos</code>
+<code>git commit -m "First commit"</code>
+<code>git branch -M main</code>
+<code>git remote add origin endereco</code>
+<code>git push -u origin main</code>
+
+2. Verificar Alterações
+<code>git status</code>
