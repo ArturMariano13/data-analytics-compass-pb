@@ -340,10 +340,8 @@ Exemplo:
 - **Criação:**
 <code>git init</code> - cria os arquivos necessários - pasta '.git'
 
-#### GitHub
-- Serviço para gerenciar repositórios;
-- Pode-se enviar projetos para o GitHub.
 
+#### Git
 1. Envio de Repositório <br/>
 <code>git init</code><br/>
 <code>git add arquivos</code><br/>
@@ -439,6 +437,131 @@ Exemplo:
 - Recuperando Stash
     - <code>git stash list</code> - mostra as stashes criadas
     - <code>git stash nome</code> - recupera uma stash
+        - <code>git stash apply 0</code>
+- Remover Stash
+    - <code>git stash clear</code> - limpa totalmente
+    - <code>git stash drop numero</code> - deleta uma stash específica
 
+6. Criar Tags
+- Funcionam como *checkpoints* de branch.<br/>
+<code>git tag -a nome -m "mensagem"</code>
 
+- <code>git tag</code> - mostra todas as tags.
+- Verificar e Alterar Tags
+    - <code>git show nome</code> - para ver
+    - <code>git checkout nome</code> - para alterar
+- Enviar Tags ao Repositório
+    - <code>git push origin nome</code> - envia uma
+    - <code>git push origin --tags</code> - envia várias tags
 
+##### Encontrando Branches 
+<code>git fetch</code>
+- Atualiza-me de todas as branches e tags não reconhecidos por mim;
+- "-a": all.
+
+##### Receber Alterações
+<code>git pull</br>
+
+##### Remote
+- Pode-se remover ou adicionar um repositório remoto.<br/>
+- <code>git remote -v</code> - mostra o repositório remoto
+- <code>git remote rm origin</code> - remove
+- <code>git remote add origin url</code> - adiciona o repositório remoto
+
+##### Submódulos
+- Maneira de possuir dois ou mais projetos em um repositório.
+- <code>git submodule</code> - mostra a lista dos submódulos
+- <code>git submodule add repo</code> - adiciona um submódulo ao repositório
+
+**Atualizar Submódulos**
+- 1º commita
+- Envio: <code>git push --recurse-submodules=on-demand</code>
+
+##### Análise e Inspeção de Repositórios
+**Exibindo detalhes de branches e tags**
+- <code>git show</code> - informações do branch atual e de seus commits.
+- <code>git show tag</code> - informações de uma tag
+
+**Exibir diferenças**
+- <code>git diff</code> - diferenças de uma branch com o repositório
+- <code>git diff arq1 arq2</code> - diferenças entre dois arquivos
+
+**Log resumido**
+- <code>git shortlog</code> - dá um log resumido do projeto
+- Cada commit será unido por nome do autor.
+
+##### Administração de Repositórios
+- <code>git clean</code> - vertifica e limpa arquivos não trackeados (sem git add) - usado geralmente para arquivos gerados automaticamente.
+
+**Otimizar Repositório**
+- <code>git gc</code> - garbage collector - identifica arquivos não necessários e os exclui
+
+**Verificar Integridade de Arquivos**
+- <code>git fsck</code> - verifica a integridade dos arquivos - comando de rotina
+
+**Reflog**
+- <code>git reflog</code> - mapeia todos os passos no repositório - salvos até 30 dias
+
+**Comprimir Repositório**
+- <code>git archive --format zip --output master_files.zip branch</code> - zipa uma branch de um repo.
+
+##### Commits
+- Precisam ser padronizados - facilita a **manutenção do projeto**.
+
+**Técnica de *Private Branches***
+- Quando criamos branches que não serão compartilhadas no repositório.
+- Ao fim, fazemos um *rebase*.
+- <code>git rebase branch1 branch2</code>
+
+**Boas mensagens de commit**
+- Separar assunto do corpo da mensagem;
+- Assunto com no máximo 50 caracteres e letra inicial maiúscula;
+- Corpo: máximo 72 caracteres;
+- Explicar por que e como do commit.
+- **Exemplo:** <code>git commit -a -m "Criada função de adição de produto</code>
+    >> A função foi criada para os novos clientes, ...
+
+#### GitHub
+- Serviço para gerenciar repositórios;
+- Pode-se enviar projetos para o GitHub;
+- Dividido em abas.
+
+##### Aba Code
+- Possui os arquivos e o README.md.
+
+##### Aba Issue
+- Para reportar problemas/bugs/melhorias necessárias aos colaboradores do projeto.
+
+##### Aba Pull Request
+- Onde colaboradores enviam código para solucionar *issues*;
+- Código deve ser analisado antes de ser inserido na *main*;
+- Vem de novos *branches*.
+
+##### Aba Actions
+- Onde se cria as automatizações de *deploy* com integração em outros serviços;
+- Incluindo CI/CD;
+- Podemos criar uma rotina de atualizar a *main* automaticamente (exemplo).
+
+##### Aba Projects
+- Processo de criação é conhecido como *Kanban*;
+- Tela lembra o *Trello*;
+- *Backlog*, retorno de qualidade, teste, finalizadas.
+
+##### Aba Wiki
+- Podemos criar uma **documentação** mais extensa;
+- Descrever funcionalidades, bugs conhecidos e não-solucionados.
+
+##### Aba Insights
+- Mostra as informações da evolução do repositório (*commits*, *forks*, etc).
+
+#### Markdown
+Markdown é uma linguagem de marcação simples usada para formatar texto. Foi criada com o objetivo de ser fácil de escrever e ler.
+
+## Comandos Básicos
+
+### Títulos
+Os títulos são criados usando o símbolo `#` seguido de um espaço. O número de `#` indica o nível do título.
+```markdown
+# Título 1
+## Título 2
+### Título 3
