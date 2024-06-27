@@ -212,53 +212,110 @@ OBS.: atualmente, o "-get" não é mais necessários, apenas o "apt" resolve.
         - **:%s/palavraparasubstituir/palavraasersubstituida/g** - replace.
 
 ###### GERENCIAMENTO DE USUÁRIOS
-    - Adicionar: 
-<code>sudo adduser nome</code>
-    - Deletar:
-<code>sudo userdel --remove nome</code>
-    - Renomear:
-<code>sudo usermod -c 'novonome' 'nomeantigo'</code> - muda nome da pessoa (no display de login)
-<code>sudo usermod -l 'novonome' -d /home/novonome -m 'nomeantigo'</code> - muda nome do user e do diretório do user
-OBS.: não usar aspas
-    - Bloquear e Desbloquear Usuários
-<code>sudo usermod -L nomeuser</code> - bloquear
-<code> sudo usermod -U nomeuser</code> - desbloquear
-    - Grupos Linux
-        1. Criar
-            - <code>sudo groupadd -g 9999 nomegrupo</code> - o número é o ID
-        2. Deletar
-            - <code>sudo groupdel nomegrupo</code>
-        3. Mover Usuário para Grupo
-            - <code>groups nomeuser</code> - mostra a quais grupos o usuário pertence
-            - <code>sudo usermod -a -G nomegrupo nomeuser</code> - adiciona no grupo
-            - <code>sudo gpasswd -d nomeuser nomegrupo</code> - remove do grupo
+- **Adicionar:** <code>sudo adduser nome</code>
+- **Deletar:** <code>sudo userdel --remove nome</code>
+- **Renomear:** 
+    - <code>sudo usermod -c 'novonome' 'nomeantigo'</code> - muda nome da pessoa (no display de login
+    - <code>sudo usermod -l 'novonome' -d /home/novonome -m 'nomeantigo'</code> - muda nome do user e do diretório do user
+    OBS.: não usar aspas
+- **Bloquear e Desbloquear Usuários**
+    - <code>sudo usermod -L nomeuser</code> - bloquear
+    - <code> sudo usermod -U nomeuser</code> - desbloquear
+- **Grupos Linux**
+    1. Criar
+        - <code>sudo groupadd -g 9999 nomegrupo</code> - o número é o ID
+    2. Deletar
+        - <code>sudo groupdel nomegrupo</code>
+    3. Mover Usuário para Grupo
+        - <code>groups nomeuser</code> - mostra a quais grupos o usuário pertence
+        - <code>sudo usermod -a -G nomegrupo nomeuser</code> - adiciona no grupo
+        - <code>sudo gpasswd -d nomeuser nomegrupo</code> - remove do grupo
     OBS.: <code>sudo su</code> - para virar super usuário
         <code>passwd</code> - para mudar a senha do usuário
 
 ###### GERENCIAMENTO DE PERMISSÕES 
-    - Leitura (R);
-    - Escrita (W);
-    - Execução (X).
+- Leitura (R);
+- Escrita (W);
+- Execução (X).
     
-    - **1 222 333 444**
-        - 1: diretório/arquivo
-        - 2: permissões do dono
-        - 3: permissões do grupo
-        - 4: permissões dos demais usuários
-    Exemplo:
-        - **drw-rw-r--**: diretório, dono e grupo com permissão de ler e escrever, demais com permissão somente de ler.
+- **1 222 333 444**
+    - 1: diretório/arquivo
+    - 2: permissões do dono
+    - 3: permissões do grupo
+    - 4: permissões dos demais usuários
+Exemplo:
+    - **drw-rw-r--**: diretório, dono e grupo com permissão de ler e escrever, demais com permissão somente de ler.
 
-    - **Permissão Numérica**
-<code>chmod xxx arquivo/diretorio</code>
-        - 0: sem permissão (--)
-        - 1: executar (--x)
-        - 2: escrever (-w-)
-        - 3: escrever e executar (-wx)
-        - 4: ler (r--)
-        - 5: ler e executar (r-x)
-        - 6: ler e escrever (rw-)
-        - 7: ler, escrever e executar (rwx)
+- **Permissão Numérica**
+    <code>chmod xxx arquivo/diretorio</code>
+    - 0: sem permissão (--)
+    - 1: executar (--x)
+    - 2: escrever (-w-)
+    - 3: escrever e executar (-wx)
+    - 4: ler (r--)
+    - 5: ler e executar (r-x)
+    - 6: ler e escrever (rw-)
+    - 7: ler, escrever e executar (rwx)
     - **Exemplo**: 
         - <code>chmod 777</code> - todos têm todas as permissões
         - <code>chmod 400</code> - só o dono tem permissão de leitura
 
+- **Alterar proprietário do arquivo**
+    - <code>sudo chown novoproprietario nomearquivo</code>
+    - <code>sudo chown nomeprop:nomegrupo nomearquivo</code> - muda dono e grupo
+    - <code>sudo chgrp nomegrupo nomearquivo</code> - muda grupo do arquivo
+
+##### DICAS
+- CTRL + SHIFT + C: copiar no terminal
+- CTRL + SHIFT + V: colar no terminal
+- "*history*" no terminal: mostra histórico de comandos
+
+###### GERENCIAMENTO BÁSICO DE REDES
+- **Como a Web funciona?**
+    1. Envio de requisição para um domínio (DNS)
+    2. Verificação de Domínio (IP == DNS)
+    3. Requisição da resposta para o servidor que pertence a este domínio
+    4. Retorno da resposta a quem solicitou
+- **DNS**
+    - *Domain Name System*;
+    - Traduz IP em domínios;
+    - Para não termos que gravar endereços IP.
+
+- **Portas**
+    - *Endpoint*;
+    - Sempre associada a um IP.
+    - Exemplos:
+        - 20: FTP
+        - 22: SSH
+        - 80: HTTP
+        - 443: HTTPS
+
+- **TCP**
+    - Protocolo para transmissão de dados pela rede (seguro).
+    - Mais lento, garante a entrega.
+    - SMTP (emails);
+    - FTP (transferência de arquivos);
+    - HTTP.
+
+- **UDP**
+    - Protocolo também para a transmissão de dados pela rede.
+    - Preocupa-se mais com a velocidade do envio do que com a confiabilidade.
+    - Exemplos: jogos online, *streaming*...
+
+- **Comandos**
+    - <code>ping</code>
+        - Exemplos: <code>ping google.com</code> - para o DNS
+                    <code>ping 8.8.8.8</code> - para o IP
+    - <code>netstat</code> - para ver as conexões, tabelas de roteamento e interfaces de rede.
+    - <code>ifconfig</code> - mostra as interfaces de rede e informação delas.
+    - <code>nslookup</code> - mostra o IP através do DNS.
+    - <code>hostname -I</code> - mostra o IP da máquina
+
+###### COMPACTAÇÃO E DESCOMPACTAÇÃO DE ARQUIVOS
+- **tar**
+    - Compactar: <code>tar -czvf nome.tar.gz diretorio</code>
+    - Compactar múltiplos arquivos em um só: <code>tar -czvf nome.tar.gz nomearquivo nomearquivo2 ...</code>
+    - Descompactar arquivos: <code>tar -xzvf nomepastacompactada</code> ou <code>tar -xzvf nomepastacompactada -C pastadestino</code>
+- **zip**
+    - Compactar: <code>zip -r nomedefinido.zip pasta-a-compactar</code>
+    - Descompactar: <code>unzip nome-arq-compactado -d pasta-destino</code>
