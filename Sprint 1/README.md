@@ -344,13 +344,13 @@ Exemplo:
 - Serviço para gerenciar repositórios;
 - Pode-se enviar projetos para o GitHub.
 
-1. Envio de Repositório
-<code>git init</code>
-<code>git add arquivos</code>
-<code>git commit -m "First commit"</code>
-<code>git branch -M main</code>
-<code>git remote add origin endereco</code>
-<code>git push -u origin main</code>
+1. Envio de Repositório <br/>
+<code>git init</code><br/>
+<code>git add arquivos</code><br/>
+<code>git commit -m "First commit"</code><br/>
+<code>git branch -M main</code><br/>
+<code>git remote add origin endereco</code><br/>
+<code>git push -u origin main</code><br/>
 
-2. Verificar Alterações
+2. Verificar Alterações <br/>
 <code>git status</code>
