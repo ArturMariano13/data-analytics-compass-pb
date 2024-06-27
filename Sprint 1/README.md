@@ -16,7 +16,7 @@ Algumas delas são: Ubuntu, Debian, LinuxMint (considerada leve, boa para situa�
 - Gerencia CPU, memória, etc.
 
 <p align="center">
-  <img src="https://digilent.com/blog/wp-content/uploads/2015/05/1280px-Kernel_Layout.svg_.png" alt="Demonstração do Kernel do Linux">
+  <img src="https://digilent.com/blog/wp-content/uploads/2015/05/1280px-Kernel_Layout.svg_.png?size=250" alt="Demonstração do Kernel do Linux">
 </p>
 
 #### Por que utilizar Linux?
@@ -53,92 +53,92 @@ Algumas delas são: Ubuntu, Debian, LinuxMint (considerada leve, boa para situa�
 - **'/var':** tem arquivos de log (variáveis).
 
 ##### COMANDOS
-- **cd:** *change directory* (muda de diretório)
-    - **cd ..** --> move para o diretório superior;
-    - **cd -** --> volta para o diretório anterior (em que se estava antes);
-    - **cd ~** --> volta para a '/home'.
+- **<code>cd</code>:** *change directory* (muda de diretório)
+    - <code>cd ..</code> - move para o diretório superior;
+    - <code>cd -</code> - volta para o diretório anterior (em que se estava antes);
+    - <code>cd ~</code> - volta para a '/home'.
 
     OBS.: pode ser concatenado com outro comando. Exemplo: ***cd /etc && ls***
 
-- **ls:** *list directory contents* (lista o conteúdo do diretório)
-    - **ls -l** --> mostra com detalhes os arquivos e diretórios;
-    - **ls -a** --> mostra arquivos ocultos do diretório (*-all*);
-    - **ls -la** --> junta os dois de cima (com detalhes e todos os arquivos);
-    - **ls -lh** --> mostra dados para humanos lerem;
-    - **ls -ltr** --> mostra com detalhes e em ordem crescente de modificação;
-    - **ls -lr** --> mostra na ordem inversa;
-    - **ls -R** --> mostra subdiretórios/arquivos dos diretórios listados pelo ls;
-    - **ls -lS** --> ordena pelo tamanho do arquivo;
-    - **ls -m** --> lista com vírgulas os diretórios e arquivos.
+- **<code>ls</code>:** *list directory contents* (lista o conteúdo do diretório)
+    - <code>ls -l</code> - mostra com detalhes os arquivos e diretórios;
+    - <code>ls -a</code> - mostra arquivos ocultos do diretório (*-all*);
+    - <code>ls -la</code> - junta os dois de cima (com detalhes e todos os arquivos);
+    - <code>ls -lh</code> - mostra dados para humanos lerem;
+    - <code>ls -ltr</code> - mostra com detalhes e em ordem crescente de modificação;
+    - <code>ls -lr</code> - mostra na ordem inversa;
+    - <code>ls -R</code> - mostra subdiretórios/arquivos dos diretórios listados pelo ls;
+    - <code>ls -lS</code> - ordena pelo tamanho do arquivo;
+    - <code>ls -m</code> - lista com vírgulas os diretórios e arquivos.
 
-- **clear:** limpa a tela do terminal.
+- **<code>clear</code>:** limpa a tela do terminal.
 
-- **cat:** cria arquivo ou permite-nos ver um arquivo.
-    - **cat arq1 arq2 > arq3** --> junta o conteúdo do arq1 e do arq2 em outro arquivo (3);
-    - **cat -n** --> adiciona números nas linhas do arquivo mostrado;
-    - **cat -e** --> adiciona um "$" a cada fim de linha;
-    - **cat arq4 >> arq5** --> concatena no arquivo 5 o conteúdo do arquivo 4.
+- **<code>cat</code>:** cria arquivo ou permite-nos ver um arquivo.
+    - <code>cat arq1 arq2 > arq3</code> - junta o conteúdo do arq1 e do arq2 em outro arquivo (3);
+    - <code>cat -n</code> - adiciona números nas linhas do arquivo mostrado;
+    - <code>cat -e</code> - adiciona um "$" a cada fim de linha;
+    - <code>cat arq4 >> arq5</code> - concatena no arquivo 5 o conteúdo do arquivo 4.
 
-- **touch:** cria arquivos e modifica a data de alteração de um arquivo.
+- **<code>touch</code>:** cria arquivos e modifica a data de alteração de um arquivo.
     - Pode-se criar um ou mais arquivos.
 
-- **man:** manual
-    - **man ls** --> apresenta o manual do comando "ls".
+- **<code>man</code>:** manual
+    - <code>man ls</code> --> apresenta o manual do comando "ls".
 
 OBS.: CTRL + R = para encontrar comandos já dados.
 
 ###### GERENCIAMENTO DE ARQUIVOS
-- **mkdir:** cria diretórios.
-    - **mkdir dir1 dir2 dir3** --> cria 3 diretórios em 1 comando;
-    - **mkdir -v dir1 dir2** --> cria os dois diretórios e mostra uma mensagem de confirmação;
-    - **mkdir -p dir2/dir3/dir4** --> cria o diretório 2, o diretório 3 dentro dele, e o diretório 4 dentro do 3.
+- **<code>mkdir</code>:** cria diretórios.
+    - <code>mkdir dir1 dir2 dir3</code> --> cria 3 diretórios em 1 comando;
+    - <code>mkdir -v dir1 dir2</code> - cria os dois diretórios e mostra uma mensagem de confirmação;
+    - <code>mkdir -p dir2/dir3/dir4</code> - cria o diretório 2, o diretório 3 dentro dele, e o diretório 4 dentro do 3.
 
-- **rm:** remove/deleta arquivos.
-    - **rm 1.txt 2.txt 3.txt** --> remove os 3 arquivos em 1 comando;
-    - **rm -i 1.txt** --> pergunta se confirma a deleção ('y' or 'n');
-    - **rm -dv dir1** --> remove diretórios VAZIOS;
-    - **rm -rfv dir1** --> remove diretórios e arquivos/diretórios dentro dele.
+- **<code>rm</code>:** remove/deleta arquivos.
+    - <code>rm 1.txt 2.txt 3.txt</code> - remove os 3 arquivos em 1 comando;
+    - <code>rm -i 1.txt</code> - pergunta se confirma a deleção ('y' or 'n');
+    - <code>rm -dv dir1</code> - remove diretórios VAZIOS;
+    - <code>rm -rfv dir1</code> - remove diretórios e arquivos/diretórios dentro dele.
 
-- **rmdir:** remove apenas diretórios.
-    - **rmdir dir1/dir2/dir3** --> remove os 3 diretórios.
+- **<code>rmdir</code>:** remove apenas diretórios.
+    - <code>rmdir dir1/dir2/dir3</code> - remove os 3 diretórios.
 
-- **cp:** copia diretórios ou arquivos.
-    - **cp doc.txt doc2.txt** --> faz a cópia de doc para doc2;
-    - **cp doc.txt dir1** --> copia o arquivo 'doc' para dentro do diretório 'dir1';
-    - **cp -r dir1 dir2** --> copia um diretório para dentro de outro = mantém a estrutura do diretório copiado.
-    - **cp -r dir1/* dir2** --> o '*' faz com que todos os arquivos do dir1 sejam copiados.
+- **<code>cp</code>:** copia diretórios ou arquivos.
+    - <code>cp doc.txt doc2.txt</code> - faz a cópia de doc para doc2;
+    - <code>cp doc.txt dir1</code> - copia o arquivo 'doc' para dentro do diretório 'dir1';
+    - <code>cp -r dir1 dir2</code> - copia um diretório para dentro de outro = mantém a estrutura do diretório copiado.
+    - <code>cp -r dir1/* dir2</code> - o '*' faz com que todos os arquivos do dir1 sejam copiados.
 
-- **mv:** mover arquivos (CTRL + X)
-    - **mv doc1.txt doc2.txt** --> doc1 não existe mais, agora chama-se doc2;
-    - **mv docl.txt Downloads/** --> move doc1 para Downloads;
-    - **mv * dir** --> move todos os arquivos para dentro de dir.
+- <code>mv</code>: mover arquivos (CTRL + X)
+    - <code>mv doc1.txt doc2.txt</code> - doc1 não existe mais, agora chama-se doc2;
+    - <code>mv docl.txt Downloads/</code> - move doc1 para Downloads;
+    - <code>mv * dir</code> - move todos os arquivos para dentro de dir.
 
-- **pwd:** mostra onde se está (caminho).
+- **<code>pwd</code>:** mostra onde se está (caminho).
 
 ###### GERENCIAMENTO DE PACOTES
 
 **1. Atualizar repositórios:** para estar na versão mais recente.
     - Busca as atualizações/versões + recentes.
 
-<center><code>sudo apt-get update</code></center>
+    <code>sudo apt-get update</code>
 
 **2. Atualizar aplicativos/pacotes:** atualiza o necessário.
-<center><code>sudo apt-get upgrade</code></center>
+    <code>sudo apt-get upgrade</code>
 
 **3. Instalar pacotes/aplicativos**
-<center><code>sudo apt-get install nome-do-app</code></center>
+    <code>sudo apt-get install nome-do-app</code>
 
 **4. Deletar pacotes/aplicativos**
-<center><code>sudo apt-get purge nome-do-app</code></center>
+    <code>sudo apt-get purge nome-do-app</code>
 
 **5. Atualizar Linux**
-<center><code>sudo apt-get dist-upgrade</code></center>
+    <code>sudo apt-get dist-upgrade</code>
 
 **6. Limpar pacotes/aplicativos desnecessários**
-<center><code>sudo apt-get autoremove</code></center>
+    <code>sudo apt-get autoremove</code>
 
 **7. Buscar pacotes/aplicativos**
-<center><code>apt-cache search nome-do-app</code></center>
+    <code>apt-cache search nome-do-app</code>
 
 OBS.: atualmente, o "-get" não é mais necessários, apenas o "apt" resolve.
 
