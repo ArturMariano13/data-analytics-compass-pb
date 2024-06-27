@@ -120,25 +120,31 @@ OBS.: CTRL + R = para encontrar comandos já dados.
 **1. Atualizar repositórios:** para estar na versão mais recente.
     - Busca as atualizações/versões + recentes.
 
-    <code>sudo apt-get update</code>
+<code>sudo apt-get update</code>
 
 **2. Atualizar aplicativos/pacotes:** atualiza o necessário.
-    <code>sudo apt-get upgrade</code>
+    
+<code>sudo apt-get upgrade</code>
 
 **3. Instalar pacotes/aplicativos**
-    <code>sudo apt-get install nome-do-app</code>
+   
+<code>sudo apt-get install nome-do-app</code>
 
 **4. Deletar pacotes/aplicativos**
-    <code>sudo apt-get purge nome-do-app</code>
+
+<code>sudo apt-get purge nome-do-app</code>
 
 **5. Atualizar Linux**
-    <code>sudo apt-get dist-upgrade</code>
+
+<code>sudo apt-get dist-upgrade</code>
 
 **6. Limpar pacotes/aplicativos desnecessários**
-    <code>sudo apt-get autoremove</code>
+
+<code>sudo apt-get autoremove</code>
 
 **7. Buscar pacotes/aplicativos**
-    <code>apt-cache search nome-do-app</code>
+
+<code>apt-cache search nome-do-app</code>
 
 OBS.: atualmente, o "-get" não é mais necessários, apenas o "apt" resolve.
 
@@ -171,3 +177,88 @@ OBS.: atualmente, o "-get" não é mais necessários, apenas o "apt" resolve.
 - **nano**
     - Vem por padrão com o Ubuntu.
     - **Comandos**
+        - <code>nano</code> - apenas abre um arquivo em branco.
+        - CTRL + O: salva e pede o nome do arquivo;
+        - CTRL + X: sai do arquivo;
+        - CTRL + R: adiciona um arquivo (outro) para esse que está aberto;
+        - CTRL + K: recorta trecho selecionado;
+        - CTRL + U: cola;
+        - ALT + A: seleciona;
+        - ALT + 6: copia trecho selecionado;
+        - <code>nano nome-do-arquivo</code> - abre um arquivo para a edição.
+    - **Movimentação dentro de um arquivo**
+        - ALT + /: vai para o FIM do arquivo;
+        - ALT + \: vai para o INÍCIO do arquivo;
+        - ALT + G: pede a linha para onde se deseja ir.
+    - **Busca e *replace***
+        - CTRL + W: busca palavras;
+        - ALT + R: *replace*.
+
+- **vim**
+    - <code>sudo apt-get install vim</code>
+    - <code>vim nome-do-arquivo</code> - abre ou cria arquivo no modo de comandos
+        - 'I': ativa modo de inserção (edição);
+        - 'ESC': volta para o modo de comandos.
+    - **Modo de comandos**
+        - **:x** - salva e sai do arquivo;
+        - **:w** - apenas salva alterações;
+        - **:q** - apenas sai do arquivo;
+        - **u** - desfaz alterações;
+        - **CTRL + R** - refaz o que foi desfeito;
+        - **dd** - deleta linha inteira;
+        - **:q!** - sai sem salvar.
+    - **Busca e *replace***
+        - **/palavrabuscada** - vai até a próxima ocorrência a cada 'ENTER' (SHIFT + ENTER volta para a ocorrência anterior).
+        - **:%s/palavraparasubstituir/palavraasersubstituida/g** - replace.
+
+###### GERENCIAMENTO DE USUÁRIOS
+    - Adicionar: 
+<code>sudo adduser nome</code>
+    - Deletar:
+<code>sudo userdel --remove nome</code>
+    - Renomear:
+<code>sudo usermod -c 'novonome' 'nomeantigo'</code> - muda nome da pessoa (no display de login)
+<code>sudo usermod -l 'novonome' -d /home/novonome -m 'nomeantigo'</code> - muda nome do user e do diretório do user
+OBS.: não usar aspas
+    - Bloquear e Desbloquear Usuários
+<code>sudo usermod -L nomeuser</code> - bloquear
+<code> sudo usermod -U nomeuser</code> - desbloquear
+    - Grupos Linux
+        1. Criar
+            - <code>sudo groupadd -g 9999 nomegrupo</code> - o número é o ID
+        2. Deletar
+            - <code>sudo groupdel nomegrupo</code>
+        3. Mover Usuário para Grupo
+            - <code>groups nomeuser</code> - mostra a quais grupos o usuário pertence
+            - <code>sudo usermod -a -G nomegrupo nomeuser</code> - adiciona no grupo
+            - <code>sudo gpasswd -d nomeuser nomegrupo</code> - remove do grupo
+    OBS.: <code>sudo su</code> - para virar super usuário
+        <code>passwd</code> - para mudar a senha do usuário
+
+###### GERENCIAMENTO DE PERMISSÕES 
+    - Leitura (R);
+    - Escrita (W);
+    - Execução (X).
+    
+    - **1 222 333 444**
+        - 1: diretório/arquivo
+        - 2: permissões do dono
+        - 3: permissões do grupo
+        - 4: permissões dos demais usuários
+    Exemplo:
+        - **drw-rw-r--**: diretório, dono e grupo com permissão de ler e escrever, demais com permissão somente de ler.
+
+    - **Permissão Numérica**
+<code>chmod xxx arquivo/diretorio</code>
+        - 0: sem permissão (--)
+        - 1: executar (--x)
+        - 2: escrever (-w-)
+        - 3: escrever e executar (-wx)
+        - 4: ler (r--)
+        - 5: ler e executar (r-x)
+        - 6: ler e escrever (rw-)
+        - 7: ler, escrever e executar (rwx)
+    - **Exemplo**: 
+        - <code>chmod 777</code> - todos têm todas as permissões
+        - <code>chmod 400</code> - só o dono tem permissão de leitura
+
