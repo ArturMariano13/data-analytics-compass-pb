@@ -16,7 +16,7 @@ Algumas delas são: Ubuntu, Debian, LinuxMint (considerada leve, boa para situa�
 - Gerencia CPU, memória, etc.
 
 <p align="center">
-  <img src="https://digilent.com/blog/wp-content/uploads/2015/05/1280px-Kernel_Layout.svg_.png?size=250" alt="Demonstração do Kernel do Linux">
+  <img src="https://digilent.com/blog/wp-content/uploads/2015/05/1280px-Kernel_Layout.svg_.png" alt="Demonstração do Kernel do Linux" width="400">
 </p>
 
 #### Por que utilizar Linux?
@@ -601,7 +601,7 @@ Os títulos são criados usando o símbolo `#` seguido de um espaço. O número 
 
 ### Código
 - Código inline: ``código``
-- Bloco de código:
+- Bloco de código: ```
 ```
 Código
 ```
