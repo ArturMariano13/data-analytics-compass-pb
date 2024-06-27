@@ -53,122 +53,122 @@ Algumas delas são: Ubuntu, Debian, LinuxMint (considerada leve, boa para situa�
 - **'/var':** tem arquivos de log (variáveis).
 
 ##### COMANDOS
-- **<code>cd</code>:** *change directory* (muda de diretório)
-    - <code>cd ..</code> - move para o diretório superior;
-    - <code>cd -</code> - volta para o diretório anterior (em que se estava antes);
-    - <code>cd ~</code> - volta para a '/home'.
+- **`cd`:** *change directory* (muda de diretório)
+    - `cd ..` - move para o diretório superior;
+    - `cd -` - volta para o diretório anterior (em que se estava antes);
+    - `cd ~` - volta para a '/home'.
 
     OBS.: pode ser concatenado com outro comando. Exemplo: ***cd /etc && ls***
 
-- **<code>ls</code>:** *list directory contents* (lista o conteúdo do diretório)
-    - <code>ls -l</code> - mostra com detalhes os arquivos e diretórios;
-    - <code>ls -a</code> - mostra arquivos ocultos do diretório (*-all*);
-    - <code>ls -la</code> - junta os dois de cima (com detalhes e todos os arquivos);
-    - <code>ls -lh</code> - mostra dados para humanos lerem;
-    - <code>ls -ltr</code> - mostra com detalhes e em ordem crescente de modificação;
-    - <code>ls -lr</code> - mostra na ordem inversa;
-    - <code>ls -R</code> - mostra subdiretórios/arquivos dos diretórios listados pelo ls;
-    - <code>ls -lS</code> - ordena pelo tamanho do arquivo;
-    - <code>ls -m</code> - lista com vírgulas os diretórios e arquivos.
+- **`ls`:** *list directory contents* (lista o conteúdo do diretório)
+    - `ls -l` - mostra com detalhes os arquivos e diretórios;
+    - `ls -a` - mostra arquivos ocultos do diretório (*-all*);
+    - `ls -la` - junta os dois de cima (com detalhes e todos os arquivos);
+    - `ls -lh` - mostra dados para humanos lerem;
+    - `ls -ltr` - mostra com detalhes e em ordem crescente de modificação;
+    - `ls -lr` - mostra na ordem inversa;
+    - `ls -R` - mostra subdiretórios/arquivos dos diretórios listados pelo ls;
+    - `ls -lS` - ordena pelo tamanho do arquivo;
+    - `ls -m` - lista com vírgulas os diretórios e arquivos.
 
-- **<code>clear</code>:** limpa a tela do terminal.
+- **`clear`:** limpa a tela do terminal.
 
-- **<code>cat</code>:** cria arquivo ou permite-nos ver um arquivo.
-    - <code>cat arq1 arq2 > arq3</code> - junta o conteúdo do arq1 e do arq2 em outro arquivo (3);
-    - <code>cat -n</code> - adiciona números nas linhas do arquivo mostrado;
-    - <code>cat -e</code> - adiciona um "$" a cada fim de linha;
-    - <code>cat arq4 >> arq5</code> - concatena no arquivo 5 o conteúdo do arquivo 4.
+- **`cat`:** cria arquivo ou permite-nos ver um arquivo.
+    - `cat arq1 arq2 > arq3` - junta o conteúdo do arq1 e do arq2 em outro arquivo (3);
+    - `cat -n` - adiciona números nas linhas do arquivo mostrado;
+    - `cat -e` - adiciona um "$" a cada fim de linha;
+    - `cat arq4 >> arq5` - concatena no arquivo 5 o conteúdo do arquivo 4.
 
-- **<code>touch</code>:** cria arquivos e modifica a data de alteração de um arquivo.
+- **`touch`:** cria arquivos e modifica a data de alteração de um arquivo.
     - Pode-se criar um ou mais arquivos.
 
-- **<code>man</code>:** manual
-    - <code>man ls</code> --> apresenta o manual do comando "ls".
+- **`man`:** manual
+    - `man ls` --> apresenta o manual do comando "ls".
 
 OBS.: CTRL + R = para encontrar comandos já dados.
 
 ###### GERENCIAMENTO DE ARQUIVOS
-- **<code>mkdir</code>:** cria diretórios.
-    - <code>mkdir dir1 dir2 dir3</code> --> cria 3 diretórios em 1 comando;
-    - <code>mkdir -v dir1 dir2</code> - cria os dois diretórios e mostra uma mensagem de confirmação;
-    - <code>mkdir -p dir2/dir3/dir4</code> - cria o diretório 2, o diretório 3 dentro dele, e o diretório 4 dentro do 3.
+- **`mkdir`:** cria diretórios.
+    - `mkdir dir1 dir2 dir3` --> cria 3 diretórios em 1 comando;
+    - `mkdir -v dir1 dir2` - cria os dois diretórios e mostra uma mensagem de confirmação;
+    - `mkdir -p dir2/dir3/dir4` - cria o diretório 2, o diretório 3 dentro dele, e o diretório 4 dentro do 3.
 
-- **<code>rm</code>:** remove/deleta arquivos.
-    - <code>rm 1.txt 2.txt 3.txt</code> - remove os 3 arquivos em 1 comando;
-    - <code>rm -i 1.txt</code> - pergunta se confirma a deleção ('y' or 'n');
-    - <code>rm -dv dir1</code> - remove diretórios VAZIOS;
-    - <code>rm -rfv dir1</code> - remove diretórios e arquivos/diretórios dentro dele.
+- **`rm`:** remove/deleta arquivos.
+    - `rm 1.txt 2.txt 3.txt` - remove os 3 arquivos em 1 comando;
+    - `rm -i 1.txt` - pergunta se confirma a deleção ('y' or 'n');
+    - `rm -dv dir1` - remove diretórios VAZIOS;
+    - `rm -rfv dir1` - remove diretórios e arquivos/diretórios dentro dele.
 
-- **<code>rmdir</code>:** remove apenas diretórios.
-    - <code>rmdir dir1/dir2/dir3</code> - remove os 3 diretórios.
+- **`rmdir`:** remove apenas diretórios.
+    - `rmdir dir1/dir2/dir3` - remove os 3 diretórios.
 
-- **<code>cp</code>:** copia diretórios ou arquivos.
-    - <code>cp doc.txt doc2.txt</code> - faz a cópia de doc para doc2;
-    - <code>cp doc.txt dir1</code> - copia o arquivo 'doc' para dentro do diretório 'dir1';
-    - <code>cp -r dir1 dir2</code> - copia um diretório para dentro de outro = mantém a estrutura do diretório copiado.
-    - <code>cp -r dir1/* dir2</code> - o '*' faz com que todos os arquivos do dir1 sejam copiados.
+- **`cp`:** copia diretórios ou arquivos.
+    - `cp doc.txt doc2.txt` - faz a cópia de doc para doc2;
+    - `cp doc.txt dir1` - copia o arquivo 'doc' para dentro do diretório 'dir1';
+    - `cp -r dir1 dir2` - copia um diretório para dentro de outro = mantém a estrutura do diretório copiado.
+    - `cp -r dir1/* dir2` - o '*' faz com que todos os arquivos do dir1 sejam copiados.
 
-- <code>mv</code>: mover arquivos (CTRL + X)
-    - <code>mv doc1.txt doc2.txt</code> - doc1 não existe mais, agora chama-se doc2;
-    - <code>mv docl.txt Downloads/</code> - move doc1 para Downloads;
-    - <code>mv * dir</code> - move todos os arquivos para dentro de dir.
+- `mv`: mover arquivos (CTRL + X)
+    - `mv doc1.txt doc2.txt` - doc1 não existe mais, agora chama-se doc2;
+    - `mv docl.txt Downloads/` - move doc1 para Downloads;
+    - `mv * dir` - move todos os arquivos para dentro de dir.
 
-- **<code>pwd</code>:** mostra onde se está (caminho).
+- **`pwd`:** mostra onde se está (caminho).
 
 ###### GERENCIAMENTO DE PACOTES
 
 **1. Atualizar repositórios:** para estar na versão mais recente.
     - Busca as atualizações/versões + recentes.
 
-<code>sudo apt-get update</code>
+`sudo apt-get update`
 
 **2. Atualizar aplicativos/pacotes:** atualiza o necessário.
     
-<code>sudo apt-get upgrade</code>
+`sudo apt-get upgrade`
 
 **3. Instalar pacotes/aplicativos**
    
-<code>sudo apt-get install nome-do-app</code>
+`sudo apt-get install nome-do-app`
 
 **4. Deletar pacotes/aplicativos**
 
-<code>sudo apt-get purge nome-do-app</code>
+`sudo apt-get purge nome-do-app`
 
 **5. Atualizar Linux**
 
-<code>sudo apt-get dist-upgrade</code>
+`sudo apt-get dist-upgrade`
 
 **6. Limpar pacotes/aplicativos desnecessários**
 
-<code>sudo apt-get autoremove</code>
+`sudo apt-get autoremove`
 
 **7. Buscar pacotes/aplicativos**
 
-<code>apt-cache search nome-do-app</code>
+`apt-cache search nome-do-app`
 
 OBS.: atualmente, o "-get" não é mais necessários, apenas o "apt" resolve.
 
 ###### FILTRO E BUSCAS DE ARQUIVOS E DIRETÓRIOS
-- **<code>head</code>:** para ver as primeiras linhas de um arquivo
-    - <code>head -n 1 documento.txt</code> - mostra 1 linha do documento.
+- **`head`:** para ver as primeiras linhas de um arquivo
+    - `head -n 1 documento.txt` - mostra 1 linha do documento.
 
-- **<code>tail</code>:** para ver o fim de um arquivo. Mesma regra de cima.
-    - <code>tail -f documento.txt</code> - motra alterações em tempo real. Utilizado para acompanhar LOGS.
+- **`tail`:** para ver o fim de um arquivo. Mesma regra de cima.
+    - `tail -f documento.txt` - motra alterações em tempo real. Utilizado para acompanhar LOGS.
 
-- **<code>grep</code>:** buscar um trecho em um documento (*case-sensitive*).
-    - <code>grep 'Artur' documento.txt</code> - destaca as ocorrências de 'Artur';
-    - <code>grep -c 'Artur' documento.txt</code> - retorna o nº de vezes que aparece a palavra.
-    - <code>grep 'Artur' -r**</code> - procura a palavra recursivamente em todos os arquivos.
+- **`grep`:** buscar um trecho em um documento (*case-sensitive*).
+    - `grep 'Artur' documento.txt` - destaca as ocorrências de 'Artur';
+    - `grep -c 'Artur' documento.txt` - retorna o nº de vezes que aparece a palavra.
+    - `grep 'Artur' -r**` - procura a palavra recursivamente em todos os arquivos.
 
-- **<code>find</code>:** encontrar arquivos ou diretórios
-    - <code>find -name 'documento.txt'</code> - busca o diretório pelo nome;
-    - <code>find iname documento.txt'</code> - despreza *case-sensitive*;
-    - <code>find -iname 'documento*'</code> - retorna tudo que começa com documento...;
-    - <code>find -empty</code> - retorna diretórios e arquivos vazios.
+- **`find`:** encontrar arquivos ou diretórios
+    - `find -name 'documento.txt'` - busca o diretório pelo nome;
+    - `find iname documento.txt'` - despreza *case-sensitive*;
+    - `find -iname 'documento*'` - retorna tudo que começa com documento...;
+    - `find -empty` - retorna diretórios e arquivos vazios.
         - **-type f** --> apenas arquivos.
         - **-type d** --> apenas diretórios.
 
-- **<code>locate:</code>** busca na base de dados do SO --> maior desempenho.
+- **`locate:`** busca na base de dados do SO --> maior desempenho.
     - Nem sempre encontra (quando é muito recente).
     - Bom para arquivos antigos.
 
@@ -177,7 +177,7 @@ OBS.: atualmente, o "-get" não é mais necessários, apenas o "apt" resolve.
 - **nano**
     - Vem por padrão com o Ubuntu.
     - **Comandos**
-        - <code>nano</code> - apenas abre um arquivo em branco.
+        - `nano` - apenas abre um arquivo em branco.
         - CTRL + O: salva e pede o nome do arquivo;
         - CTRL + X: sai do arquivo;
         - CTRL + R: adiciona um arquivo (outro) para esse que está aberto;
@@ -185,7 +185,7 @@ OBS.: atualmente, o "-get" não é mais necessários, apenas o "apt" resolve.
         - CTRL + U: cola;
         - ALT + A: seleciona;
         - ALT + 6: copia trecho selecionado;
-        - <code>nano nome-do-arquivo</code> - abre um arquivo para a edição.
+        - `nano nome-do-arquivo` - abre um arquivo para a edição.
     - **Movimentação dentro de um arquivo**
         - ALT + /: vai para o FIM do arquivo;
         - ALT + \: vai para o INÍCIO do arquivo;
@@ -195,8 +195,8 @@ OBS.: atualmente, o "-get" não é mais necessários, apenas o "apt" resolve.
         - ALT + R: *replace*.
 
 - **vim**
-    - <code>sudo apt-get install vim</code>
-    - <code>vim nome-do-arquivo</code> - abre ou cria arquivo no modo de comandos
+    - `sudo apt-get install vim`
+    - `vim nome-do-arquivo` - abre ou cria arquivo no modo de comandos
         - 'I': ativa modo de inserção (edição);
         - 'ESC': volta para o modo de comandos.
     - **Modo de comandos**
@@ -212,26 +212,26 @@ OBS.: atualmente, o "-get" não é mais necessários, apenas o "apt" resolve.
         - **:%s/palavraparasubstituir/palavraasersubstituida/g** - replace.
 
 ###### GERENCIAMENTO DE USUÁRIOS
-- **Adicionar:** <code>sudo adduser nome</code>
-- **Deletar:** <code>sudo userdel --remove nome</code>
+- **Adicionar:** `sudo adduser nome`
+- **Deletar:** `sudo userdel --remove nome`
 - **Renomear:** 
-    - <code>sudo usermod -c 'novonome' 'nomeantigo'</code> - muda nome da pessoa (no display de login
-    - <code>sudo usermod -l 'novonome' -d /home/novonome -m 'nomeantigo'</code> - muda nome do user e do diretório do user
+    - `sudo usermod -c 'novonome' 'nomeantigo'` - muda nome da pessoa (no display de login
+    - `sudo usermod -l 'novonome' -d /home/novonome -m 'nomeantigo'` - muda nome do user e do diretório do user
     OBS.: não usar aspas
 - **Bloquear e Desbloquear Usuários**
-    - <code>sudo usermod -L nomeuser</code> - bloquear
-    - <code> sudo usermod -U nomeuser</code> - desbloquear
+    - `sudo usermod -L nomeuser` - bloquear
+    - ` sudo usermod -U nomeuser` - desbloquear
 - **Grupos Linux**
     1. Criar
-        - <code>sudo groupadd -g 9999 nomegrupo</code> - o número é o ID
+        - `sudo groupadd -g 9999 nomegrupo` - o número é o ID
     2. Deletar
-        - <code>sudo groupdel nomegrupo</code>
+        - `sudo groupdel nomegrupo`
     3. Mover Usuário para Grupo
-        - <code>groups nomeuser</code> - mostra a quais grupos o usuário pertence
-        - <code>sudo usermod -a -G nomegrupo nomeuser</code> - adiciona no grupo
-        - <code>sudo gpasswd -d nomeuser nomegrupo</code> - remove do grupo
-    OBS.: <code>sudo su</code> - para virar super usuário
-        <code>passwd</code> - para mudar a senha do usuário
+        - `groups nomeuser` - mostra a quais grupos o usuário pertence
+        - `sudo usermod -a -G nomegrupo nomeuser` - adiciona no grupo
+        - `sudo gpasswd -d nomeuser nomegrupo` - remove do grupo
+    OBS.: `sudo su` - para virar super usuário
+        `passwd` - para mudar a senha do usuário
 
 ###### GERENCIAMENTO DE PERMISSÕES 
 - Leitura (R);
@@ -247,7 +247,7 @@ Exemplo:
     - **drw-rw-r--**: diretório, dono e grupo com permissão de ler e escrever, demais com permissão somente de ler.
 
 - **Permissão Numérica**
-    <code>chmod xxx arquivo/diretorio</code>
+    `chmod xxx arquivo/diretorio`
     - 0: sem permissão (--)
     - 1: executar (--x)
     - 2: escrever (-w-)
@@ -257,13 +257,13 @@ Exemplo:
     - 6: ler e escrever (rw-)
     - 7: ler, escrever e executar (rwx)
     - **Exemplo**: 
-        - <code>chmod 777</code> - todos têm todas as permissões
-        - <code>chmod 400</code> - só o dono tem permissão de leitura
+        - `chmod 777` - todos têm todas as permissões
+        - `chmod 400` - só o dono tem permissão de leitura
 
 - **Alterar proprietário do arquivo**
-    - <code>sudo chown novoproprietario nomearquivo</code>
-    - <code>sudo chown nomeprop:nomegrupo nomearquivo</code> - muda dono e grupo
-    - <code>sudo chgrp nomegrupo nomearquivo</code> - muda grupo do arquivo
+    - `sudo chown novoproprietario nomearquivo`
+    - `sudo chown nomeprop:nomegrupo nomearquivo` - muda dono e grupo
+    - `sudo chgrp nomegrupo nomearquivo` - muda grupo do arquivo
 
 ##### DICAS
 - CTRL + SHIFT + C: copiar no terminal
@@ -303,22 +303,22 @@ Exemplo:
     - Exemplos: jogos online, *streaming*...
 
 - **Comandos**
-    - <code>ping</code>
-        - Exemplos: <code>ping google.com</code> - para o DNS
-                    <code>ping 8.8.8.8</code> - para o IP
-    - <code>netstat</code> - para ver as conexões, tabelas de roteamento e interfaces de rede.
-    - <code>ifconfig</code> - mostra as interfaces de rede e informação delas.
-    - <code>nslookup</code> - mostra o IP através do DNS.
-    - <code>hostname -I</code> - mostra o IP da máquina
+    - `ping`
+        - Exemplos: `ping google.com` - para o DNS
+                    `ping 8.8.8.8` - para o IP
+    - `netstat` - para ver as conexões, tabelas de roteamento e interfaces de rede.
+    - `ifconfig` - mostra as interfaces de rede e informação delas.
+    - `nslookup` - mostra o IP através do DNS.
+    - `hostname -I` - mostra o IP da máquina
 
 ###### COMPACTAÇÃO E DESCOMPACTAÇÃO DE ARQUIVOS
 - **tar**
-    - Compactar: <code>tar -czvf nome.tar.gz diretorio</code>
-    - Compactar múltiplos arquivos em um só: <code>tar -czvf nome.tar.gz nomearquivo nomearquivo2 ...</code>
-    - Descompactar arquivos: <code>tar -xzvf nomepastacompactada</code> ou <code>tar -xzvf nomepastacompactada -C pastadestino</code>
+    - Compactar: `tar -czvf nome.tar.gz diretorio`
+    - Compactar múltiplos arquivos em um só: `tar -czvf nome.tar.gz nomearquivo nomearquivo2 ...`
+    - Descompactar arquivos: `tar -xzvf nomepastacompactada` ou `tar -xzvf nomepastacompactada -C pastadestino`
 - **zip**
-    - Compactar: <code>zip -r nomedefinido.zip pasta-a-compactar</code>
-    - Descompactar: <code>unzip nome-arq-compactado -d pasta-destino</code>
+    - Compactar: `zip -r nomedefinido.zip pasta-a-compactar`
+    - Descompactar: `unzip nome-arq-compactado -d pasta-destino`
 
 ### Curso Git e GitHub
 #### Controle de Versão
@@ -338,74 +338,74 @@ Exemplo:
 - Criamos um ao iniciar o projeto;
 - Pode ir para servidores que os gerenciam (*GitHub* e *GitBucket*).
 - **Criação:**
-<code>git init</code> - cria os arquivos necessários - pasta '.git'
+`git init` - cria os arquivos necessários - pasta '.git'
 
 
 #### Git
-1. Envio de Repositório <br/>
-<code>git init</code><br/>
-<code>git add arquivos</code><br/>
-<code>git commit -m "First commit"</code><br/>
-<code>git branch -M main</code><br/>
-<code>git remote add origin endereco</code><br/>
-<code>git push -u origin main</code><br/>
+1. Envio de Repositório  
+`git init` 
+`git add arquivos` 
+`git commit -m "First commit"` 
+`git branch -M main` 
+`git remote add origin endereco` 
+`git push -u origin main` 
 
-2. Verificar Alterações <br/>
-<code>git status</code>
+2. Verificar Alterações  
+`git status`
 
-3. Adicionar Arquivos<br/>
+3. Adicionar Arquivos 
 - Serão monitorados pelo Git;
 - Interessante fazer de tempos em tempos - depois *commit*.
-<code>git add</code><br/>
-<code>git add .</code> - adiciona tudo
+`git add` 
+`git add .` - adiciona tudo
 
-4. Salvar Alterações no Projeto<br/>
+4. Salvar Alterações no Projeto 
 - Boa prática: enviar uma mensagem por commit ("-m");
-- **"-a"**: para commitar todos os arquivos (*-all*).<br/>
-<code>git commit</code>
+- **"-a"**: para commitar todos os arquivos (*-all*). 
+`git commit`
 
-5. Enviar Arquivos ao Repositório Remoto<br/>
-<code>git push</code>
+5. Enviar Arquivos ao Repositório Remoto 
+`git push`
 
 6. Receber Alterações
-- Busca-se as alterações (atualizações) no servidor remoto.<br/>
-<code>git pull</code>
+- Busca-se as alterações (atualizações) no servidor remoto. 
+`git pull`
 
 7. Clonar Repositórios
 - Baixa um repositório de um servidor remoto;
 - Quando se entra em um novo projeto (já criado);
-- '.': clona no diretório atual.<br/>
-<code>git clone endereco</code>
+- '.': clona no diretório atual. 
+`git clone endereco`
 
 8. Remover Arquivos do Repositório
 - Deleta do monitoramento do git;
-- Deleta da máquina local também.<br/>
-<code>git rm nomedoarquivo</code>
+- Deleta da máquina local também. 
+`git rm nomedoarquivo`
 
 9. Histórico de Alterações
 - Acessar um log de modificações do projeto;
-- Retorna o histórico de *commits*.<br/>
-<code>git log</code>
+- Retorna o histórico de *commits*. 
+`git log`
 
 10. Mover/Renomear Arquivos
 - Pode-se renomear um arquivo;
 - Pode-se mover o arquivo para outra pasta;
-- Igual ao Linux.<br/>
-<code>git mv</code>
+- Igual ao Linux. 
+`git mv`
 
 11. Desfazer Alterações
 - Pode-se retornar ao estado original (do repositório);
-- Reseta o arquivo.<br/>
-<code>git checkout</code>
+- Reseta o arquivo. 
+`git checkout`
 
 12. Ignorar Arquivos
 - Inserir *.gitignore* na raiz do projeto e nesse arquivo inserir os arquivos/diretórios que não se deseja enviar ao git.
 
 13. Resetar Branches
 - Geralmente usado com a flag "--hard";
-- Reseta e exclui tudo até o último "push".<br/>
-<code>git reset</code><br/>
-<code>git reset --hard origin/main</code>
+- Reseta e exclui tudo até o último "push". 
+`git reset` 
+`git reset --hard origin/main`
 
 ##### BRANCHES
 - Ramificações do projeto;
@@ -413,97 +413,97 @@ Exemplo:
 - Geralmente, cada *feature* nova de um projeto fica em uma *branch* separada;
 - Ao final, as *branches* são unidas --> ***merge***
 
-1. Criar Branches e Visualizar<br/>
-<code>git branch</code> - mostra as branches<br/>
-<code>git branch nome</code> - cria uma branch
+1. Criar Branches e Visualizar 
+`git branch` - mostra as branches 
+`git branch nome` - cria uma branch
 
 2. Deletar
-- Nâo é comum, apenas quando se cria errado.<br/>
-<code>git branch -d nomebranch</code>
+- Nâo é comum, apenas quando se cria errado. 
+`git branch -d nomebranch`
 
 3. Mudar de Branch
 - **Atenção:** ao alterar a branch, podemos levar alterações que não foram commitadas junto.
 - "-b": muda e cria a branch;
-- Sempre criar uma branch a partir da main e fazer <code>git pull</code><br/>
-<code>git checkout nome</code>
+- Sempre criar uma branch a partir da main e fazer `git pull` 
+`git checkout nome`
 
-4. Unir Branches<br/>
-<code>git merge nome</code>
+4. Unir Branches 
+`git merge nome`
 
 5. Stash
 - Reseta a branch para a versão de acordo com o repositório;
-- Não perde o código.<br/>
-<code>git stash</code>
+- Não perde o código. 
+`git stash`
 - Recuperando Stash
-    - <code>git stash list</code> - mostra as stashes criadas
-    - <code>git stash nome</code> - recupera uma stash
-        - <code>git stash apply 0</code>
+    - `git stash list` - mostra as stashes criadas
+    - `git stash nome` - recupera uma stash
+        - `git stash apply 0`
 - Remover Stash
-    - <code>git stash clear</code> - limpa totalmente
-    - <code>git stash drop numero</code> - deleta uma stash específica
+    - `git stash clear` - limpa totalmente
+    - `git stash drop numero` - deleta uma stash específica
 
 6. Criar Tags
-- Funcionam como *checkpoints* de branch.<br/>
-<code>git tag -a nome -m "mensagem"</code>
+- Funcionam como *checkpoints* de branch. 
+`git tag -a nome -m "mensagem"`
 
-- <code>git tag</code> - mostra todas as tags.
+- `git tag` - mostra todas as tags.
 - Verificar e Alterar Tags
-    - <code>git show nome</code> - para ver
-    - <code>git checkout nome</code> - para alterar
+    - `git show nome` - para ver
+    - `git checkout nome` - para alterar
 - Enviar Tags ao Repositório
-    - <code>git push origin nome</code> - envia uma
-    - <code>git push origin --tags</code> - envia várias tags
+    - `git push origin nome` - envia uma
+    - `git push origin --tags` - envia várias tags
 
 ##### Encontrando Branches 
-<code>git fetch</code>
+`git fetch`
 - Atualiza-me de todas as branches e tags não reconhecidos por mim;
 - "-a": all.
 
 ##### Receber Alterações
-<code>git pull</br>
+`git pull`
 
 ##### Remote
-- Pode-se remover ou adicionar um repositório remoto.<br/>
-- <code>git remote -v</code> - mostra o repositório remoto
-- <code>git remote rm origin</code> - remove
-- <code>git remote add origin url</code> - adiciona o repositório remoto
+- Pode-se remover ou adicionar um repositório remoto.
+- `git remote -v` - mostra o repositório remoto
+- `git remote rm origin` - remove
+- `git remote add origin url` - adiciona o repositório remoto
 
 ##### Submódulos
 - Maneira de possuir dois ou mais projetos em um repositório.
-- <code>git submodule</code> - mostra a lista dos submódulos
-- <code>git submodule add repo</code> - adiciona um submódulo ao repositório
+- `git submodule` - mostra a lista dos submódulos
+- `git submodule add repo` - adiciona um submódulo ao repositório
 
 **Atualizar Submódulos**
 - 1º commita
-- Envio: <code>git push --recurse-submodules=on-demand</code>
+- Envio: `git push --recurse-submodules=on-demand`
 
 ##### Análise e Inspeção de Repositórios
 **Exibindo detalhes de branches e tags**
-- <code>git show</code> - informações do branch atual e de seus commits.
-- <code>git show tag</code> - informações de uma tag
+- `git show` - informações do branch atual e de seus commits.
+- `git show tag` - informações de uma tag
 
 **Exibir diferenças**
-- <code>git diff</code> - diferenças de uma branch com o repositório
-- <code>git diff arq1 arq2</code> - diferenças entre dois arquivos
+- `git diff` - diferenças de uma branch com o repositório
+- `git diff arq1 arq2` - diferenças entre dois arquivos
 
 **Log resumido**
-- <code>git shortlog</code> - dá um log resumido do projeto
+- `git shortlog` - dá um log resumido do projeto
 - Cada commit será unido por nome do autor.
 
 ##### Administração de Repositórios
-- <code>git clean</code> - vertifica e limpa arquivos não trackeados (sem git add) - usado geralmente para arquivos gerados automaticamente.
+- `git clean` - vertifica e limpa arquivos não trackeados (sem git add) - usado geralmente para arquivos gerados automaticamente.
 
 **Otimizar Repositório**
-- <code>git gc</code> - garbage collector - identifica arquivos não necessários e os exclui
+- `git gc` - garbage collector - identifica arquivos não necessários e os exclui
 
 **Verificar Integridade de Arquivos**
-- <code>git fsck</code> - verifica a integridade dos arquivos - comando de rotina
+- `git fsck` - verifica a integridade dos arquivos - comando de rotina
 
 **Reflog**
-- <code>git reflog</code> - mapeia todos os passos no repositório - salvos até 30 dias
+- `git reflog` - mapeia todos os passos no repositório - salvos até 30 dias
 
 **Comprimir Repositório**
-- <code>git archive --format zip --output master_files.zip branch</code> - zipa uma branch de um repo.
+- `git archive --format zip --output master_files.zip branch` - zipa uma branch de um repo.
 
 ##### Commits
 - Precisam ser padronizados - facilita a **manutenção do projeto**.
@@ -511,14 +511,14 @@ Exemplo:
 **Técnica de *Private Branches***
 - Quando criamos branches que não serão compartilhadas no repositório.
 - Ao fim, fazemos um *rebase*.
-- <code>git rebase branch1 branch2</code>
+- `git rebase branch1 branch2`
 
 **Boas mensagens de commit**
 - Separar assunto do corpo da mensagem;
 - Assunto com no máximo 50 caracteres e letra inicial maiúscula;
 - Corpo: máximo 72 caracteres;
 - Explicar por que e como do commit.
-- **Exemplo:** <code>git commit -a -m "Criada função de adição de produto</code>
+- **Exemplo:** `git commit -a -m "Criada função de adição de produto`
     >> A função foi criada para os novos clientes, ...
 
 #### GitHub
