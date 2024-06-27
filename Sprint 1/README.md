@@ -319,9 +319,9 @@ Exemplo:
 - **zip**
     - Compactar: `zip -r nomedefinido.zip pasta-a-compactar`
     - Descompactar: `unzip nome-arq-compactado -d pasta-destino`
+___
 
 ### Curso Git e GitHub
-_____
 #### Controle de Versão
 - Ajuda a gerenciar o código-fonte de uma aplicação;
 - Registrar todas as modificações do código, podendo reverter as mesmas (*rollback*);
@@ -561,7 +561,7 @@ _____
 ##### Aba Insights
 - Mostra as informações da evolução do repositório (*commits*, *forks*, etc).
 
-#### Markdown
+#### Linguagem Markdown
 Markdown é uma linguagem de marcação simples usada para formatar texto. Foi criada com o objetivo de ser fácil de escrever e ler.
 
 ## Comandos Básicos
