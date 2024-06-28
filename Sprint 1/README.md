@@ -2,16 +2,16 @@
 # SPRINT 1 - Markdown, Linux e Git
 
 ## Certificados
-Para maiores informações sobre os certificados, siga o link: [Certificados](certificados/README.md)
+Para maiores informações sobre os certificados, siga o link: [certificados](certificados)
 
 ## Desafio
-Para maiores informações sobre o desafio final, siga o link: [Desafio](desafio/README.md)
+Para maiores informações sobre o desafio final, siga o link: [desafio](desafio)
 
 ## Evidências
-Para maiores informações sobre as evidências, siga o link: [Evidências](evidencias/README.md)
+Para maiores informações sobre as evidências, siga o link: [evidências](evidencias)
 
 ## Exercícios
-Para maiores informações sobre os exercícios, siga o link: [Exercícios](exercicios/README.md)
+Para maiores informações sobre os exercícios, siga o link: [exercícios](exercicios)
 
 
 ## Resumo dos estudos
