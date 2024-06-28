@@ -1,27 +1,25 @@
 # Data & Analytics AWS - Programa de Bolsas CompassUOL
 ___
 
-## Apresentação
+## Sobre mim
 
 <p align="center">
   <img src="https://github.com/ArturMariano13.png?size=250" alt="Foto de Artur Mariano da Silva">
 </p>
 
-- **Nome:** Artur Mariano da Silva
-- **Idade:** 20 anos
-- **Cidade:** Passo Fundo/RS 
-- **Curso/Semestre:** Ciência da Computação/5º período
-- **Instituição:** Instituto Federal Sul-Rio-Grandense - Câmpus Passo Fundo
+Artur Mariano da Silva, 20 anos
+- :house: Passo Fundo/RS 
+- 🎓 Estudando Ciência da Computação no Instituto Federal Sul-Rio-Grandense - Câmpus Passo Fundo.
 
 A respeito de mim, desde criança sempre fui muito curioso e tive gosto por matérias que envolvam raciocínio lógico e resolução de problemas. Além disso, sempre joguei muito videogame e pensava em um dia poder entender "como fazia" aquilo que eu jogava quando criança. Por essas razões, a área da tecnologia me surtiu interesse e grande curiosidade. 
 
 Concluí meu Ensino Médio em colégio militar, onde desenvolvi habilidades de trabalho em equipe e liderança. Nesse período, recebi honrarias e consegui me destacar na minha turma, sendo o aluno com melhores notas nos três anos de Ensino Médio (2019-2021). Carrego grande orgulho desse período da minha vida, pois creio que me desenvolveu muito enquanto ser humano, uma vez que necessitei constantemente de disciplina para estudar e também para cumprir as regras, algo necessário em nossas vidas todos os dias.
 
 ### Hobbies
-- Praticar esportes (futebol, musculação e vôlei);
-- Programação;
-- Jogar videogame;
-- Matemática.
+- :soccer: Apaixonado por esportes
+- :computer: Programação
+- :video_game: jogar videogames
+- :pencil2: Matemática.
 
 ## Experiências Anteriores
 
@@ -31,16 +29,19 @@ Concluí meu Ensino Médio em colégio militar, onde desenvolvi habilidades de t
 
 Participei como bolsista em um projeto de pesquisa colaborativo e multidisciplinar, com o objetivo de desenvolver uma armadilha eletrônica para capturar, identificar e contar insetos-praga de culturas de cereais de inverno. Esse projeto multidisciplinar envolveu a criação de um protótipo de armadilha e um modelo inteligente de identificação de insetos usando a tecnologia YOLO. Durante o projeto, adquiri experiência com:
 
-- Python;
-- Raspberry Pi;
-- Servidor Linux;
-- Treinamento de modelo inteligente com YOLO;
-- OpenCV.
+- ![Python](https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+- ![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi-C51A4A?style=for-the-badge&logo=Raspberry-Pi)
+- ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+- ![YOLO](https://img.shields.io/badge/YOLO-00FFFF?style=for-the-badge&logo=yolo)
+- ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+
 
 ### Professor Particular de Matemática
 *06/2023 - atualmente*
 
 Atuo como professor particular de Matemática, auxiliando alunos desde as séries iniciais até o ensino superior. Devido à minha grande afeição pela disciplina, sempre gostei de estudar e ajudar meus amigos. Hoje, isso se tornou uma forma de renda extra, além de uma maneira de colaborar com diversas pessoas. 
+
+___
 
 ## Aprendizados
 
