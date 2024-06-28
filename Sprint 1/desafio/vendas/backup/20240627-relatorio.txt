@@ -1,0 +1,16 @@
+Data do sistema operacional: 2024/06/27 15:27
+Data do primeiro registro de venda: 01/09/2022
+Data do Ãºltimo registro de venda: 30/08/2024
+Quantidade total de itens diferentes vendidos: 24
+
+Primeiras 10 linhas do arquivo backup-dados-20240627.csv:
+id,produto,quantidade,preÃ§o,data
+524,teclado musical eletrônico,1,199.00,01/09/2022
+523,estojo de ferramentas completo,1,129.00,07/10/2022
+522,telescópio astronômico,1,299.00,13/11/2022
+521,barbeador elétrico,1,89.90,19/12/2022
+520,console de videogame,1,499.00,27/01/2023
+519,conjunto de malas de viagem,1,249.00,03/02/2023
+518,conjunto de panelas antiaderentes,1,179.00,11/03/2023
+517,impressora laser monocromática,1,179.00,18/04/2023
+516,luminária de mesa LED,2,39.90,25/05/2023

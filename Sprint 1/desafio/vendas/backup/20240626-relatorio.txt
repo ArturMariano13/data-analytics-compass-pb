@@ -1,0 +1,16 @@
+Data do sistema operacional: 2024/06/26 15:27
+Data do primeiro registro de venda: 23/05/2024 
+Data do Ãºltimo registro de venda: 14/02/2022
+Quantidade total de itens diferentes vendidos: 26
+
+Primeiras 10 linhas do arquivo backup-dados-20240626.csv:
+id,produto,quantidade,preÃ§o,data
+34,cafeteira elétrica,1,99.90,23/05/2024 
+65,aspirador de pó robô,2,499.00,12/04/2024 
+87,smartwatch esportivo,3,249.00,09/03/2024 
+101,impressora multifuncional jato de tinta,1,359.00,21/02/2024 
+114,drone com câmera,1,1299.00,18/01/2024 
+129,óculos de sol polarizados,4,59.90,14/12/2023 
+142,kit churrasco com 12 peças,1,149.00,11/11/2023 
+157,tenda para camping 2 pessoas,1,199.00,08/10/2023 
+170,mesa dobrável para camping,1,89.90,05/09/2023 

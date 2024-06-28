@@ -1,0 +1,63 @@
+RelatÃ³rio Consolidado de Vendas
+===========================================================================================
+
+RelatÃ³rio 1
+------------------------------------------------------
+Data do sistema operacional: 2024/06/25 15:27
+Data do primeiro registro de venda: 01/01/2023
+Data do Ãºltimo registro de venda: 31/01/2023
+Quantidade total de itens diferentes vendidos: 66
+
+Primeiras 10 linhas do arquivo backup-dados-20240625.csv:
+id,produto,quantidade,preÃ§o,data
+1,camiseta,2,29.90,01/01/2023
+2,calÃ§a,5,80.00,02/01/2023
+3,sapato,3,100.00,03/01/2023
+4,meia,20,5.00,04/01/2023
+5,cinto,8,15.00,05/01/2023
+6,camisa,7,40.00,06/01/2023
+7,bermuda,6,50.00,07/01/2023
+8,tÃªnis,4,120.00,08/01/2023
+9,bone,12,10.00,09/01/2023
+
+
+RelatÃ³rio 2
+------------------------------------------------------
+Data do sistema operacional: 2024/06/26 15:27
+Data do primeiro registro de venda: 23/05/2024 
+Data do Ãºltimo registro de venda: 14/02/2022
+Quantidade total de itens diferentes vendidos: 26
+
+Primeiras 10 linhas do arquivo backup-dados-20240626.csv:
+id,produto,quantidade,preÃ§o,data
+34,cafeteira elétrica,1,99.90,23/05/2024 
+65,aspirador de pó robô,2,499.00,12/04/2024 
+87,smartwatch esportivo,3,249.00,09/03/2024 
+101,impressora multifuncional jato de tinta,1,359.00,21/02/2024 
+114,drone com câmera,1,1299.00,18/01/2024 
+129,óculos de sol polarizados,4,59.90,14/12/2023 
+142,kit churrasco com 12 peças,1,149.00,11/11/2023 
+157,tenda para camping 2 pessoas,1,199.00,08/10/2023 
+170,mesa dobrável para camping,1,89.90,05/09/2023 
+
+
+RelatÃ³rio 3
+------------------------------------------------------
+Data do sistema operacional: 2024/06/27 15:27
+Data do primeiro registro de venda: 01/09/2022
+Data do Ãºltimo registro de venda: 30/08/2024
+Quantidade total de itens diferentes vendidos: 24
+
+Primeiras 10 linhas do arquivo backup-dados-20240627.csv:
+id,produto,quantidade,preÃ§o,data
+524,teclado musical eletrônico,1,199.00,01/09/2022
+523,estojo de ferramentas completo,1,129.00,07/10/2022
+522,telescópio astronômico,1,299.00,13/11/2022
+521,barbeador elétrico,1,89.90,19/12/2022
+520,console de videogame,1,499.00,27/01/2023
+519,conjunto de malas de viagem,1,249.00,03/02/2023
+518,conjunto de panelas antiaderentes,1,179.00,11/03/2023
+517,impressora laser monocromática,1,179.00,18/04/2023
+516,luminária de mesa LED,2,39.90,25/05/2023
+
+
