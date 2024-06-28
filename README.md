@@ -1,5 +1,4 @@
 # Data & Analytics AWS - Programa de Bolsas CompassUOL
-___
 
 ## Sobre mim
 
@@ -14,19 +13,21 @@ ___
 
 <p align="center">
   :house: Passo Fundo/RS  
+</p>
 
+<p align="center">
   🎓 Estudando Ciência da Computação no Instituto Federal Sul-Rio-Grandense - Câmpus Passo Fundo
 </p>
 
-A respeito de mim, desde criança sempre fui muito curioso e tive gosto por matérias que envolvam raciocínio lógico e resolução de problemas. Além disso, sempre joguei muito videogame e pensava em um dia poder entender "como fazia" aquilo que eu jogava quando criança. Por essas razões, a área da tecnologia me surtiu interesse e grande curiosidade. 
+A respeito de mim, desde criança sempre fui muito curioso e tive gosto por matérias que envolvam raciocínio lógico e resolução de problemas. Além disso, sempre joguei muito videogame e pensava em um dia poder entender "como fazia" aquilo que eu jogava quando criança. Por essas razões, a área da tecnologia 🖥️ me surtiu interesse e grande curiosidade. 
 
-Concluí meu Ensino Médio em colégio militar, onde desenvolvi habilidades de trabalho em equipe e liderança. Nesse período, recebi honrarias e consegui me destacar na minha turma, sendo o aluno com melhores notas nos três anos de Ensino Médio (2019-2021). Carrego grande orgulho desse período da minha vida, pois creio que me desenvolveu muito enquanto ser humano, uma vez que necessitei constantemente de disciplina para estudar e também para cumprir as regras, algo necessário em nossas vidas todos os dias.
+Concluí meu Ensino Médio em colégio militar :cop:, onde desenvolvi habilidades de trabalho em equipe e liderança. Nesse período, recebi honrarias 🏅 e consegui me destacar na minha turma, sendo o aluno com melhores notas nos três anos de Ensino Médio (2019-2021). Carrego grande orgulho desse período da minha vida, pois creio que me desenvolveu muito enquanto ser humano, uma vez que necessitei constantemente de disciplina para estudar e também para cumprir as regras, algo necessário em nossas vidas todos os dias.
 
 ### Hobbies
 - :soccer: Apaixonado por esportes
 - :computer: Programação
 - :video_game: jogar videogames
-- :pencil2: Matemática.
+- ➕ Matemática.
 
 ## Experiências Anteriores
 
