@@ -1,0 +1,5 @@
+Por fim, necessitei gravar o vídeo. Esse processo levou três dias, pois iniciei ele na terça-feira (25/06) e encerrei na quinta-feira (27/06).
+Decidi fazer dessa forma, pois mostrei a geração dos três relatórios em tempo real, além de executar ao final o script consolidador.
+Tive alguns percalços na execução, haja vista que temos de resumir o trabalho de duas semanas em cinco minutos, porém consegui.
+Além disso, não possuía um equipamento de captação de som específico, captando pelo meu notebook. Isso afetou o som do meu vídeo, mas para as próximas sprints providenciarei um equipamento melhor.
+Após gravar as três partes, editei o vídeo e juntei as partes, obtendo assim um vídeo mostrando a execução dos meus scripts e explicando como procedi na realização do desafio.

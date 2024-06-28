@@ -1,0 +1,4 @@
+Primeiramente, foi necessária a preparação do ambiente para a execução do desafio. Com isso, fiz o download do arquivo dados_de_vendas.csv para a minha máquina local.
+Tendo o WSL instalado na minha máquina, que é Windows, movi o arquivo para dentro do WSL, no meu diretório pessoal (/home/artur).
+Após, fiz o clone do meu repositório no WSL e criei o diretório ecommerce dentro do diretório desafio da sprint 1, conforme print inserido. Após, inseri o arquivo dados_de_vendas.csv dentro de ecommerce.
+Nesse sentido, busquei formas de desenvolver o script para gerar um relatório partindo do arquivo "dados_de_vendas.csv". Para isso, tive de buscar vídeos no Youtube, materiais na web que me auxiliassem a elaborar o código. Uma vez isso concluído, criei o diretório "ecommerce" por meio do comando `mkdir ecommerce` e movi o arquivo "dados_de_vendas.csv" para dentro dele: `mv dados_de_vendas.csv ecommerce`.
