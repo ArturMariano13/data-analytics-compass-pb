@@ -53,3 +53,14 @@ Essa seção possui os links para o arquivo README.md de cada Sprint, em que se 
 
 No decorrer do programa, serão inseridas as outras Sprints no repositório, além de seus respectivos arquivos.
 ___
+
+### Onde me encontrar
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/seu-perfil-linkedin/">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+  </a>
+  <a href="mailto:seu-email@gmail.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email">
+  </a>
+</p>
