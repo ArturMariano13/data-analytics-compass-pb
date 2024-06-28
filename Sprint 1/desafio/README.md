@@ -7,10 +7,10 @@ Posteriormente, deveríamos gravar um vídeo apresentando a realização do desa
 ## Resolução
 Para isso, foi necessário utilizar dos conceitos aprendidos no curso de Linux e em buscas em materiais alternativos (fora da plataforma de cursos). Dividi o desafio em quatro etapas, as quais podem ser acessadas e lidas com maiores detalhes por meio dos links abaixo:
 
-[Etapa 1](etapas/etapa-1/entrega.txt): download e ajuste de ambiente para desenvolver os scripts.
-[Etapa 2](etapas/etapa-2/entrega.txt): escrita dos códigos.
-[Etapa 3](etapas/etapa-3/entrega.txt): alteração do crontab e testes.
-[Etapa 4](etapas/etapa-4/entrega.txt): gravação do vídeo.
+- [Etapa 1](etapas/etapa-1/entrega.txt): download e ajuste de ambiente para desenvolver os scripts.
+- [Etapa 2](etapas/etapa-2/entrega.txt): escrita dos códigos.
+- [Etapa 3](etapas/etapa-3/entrega.txt): alteração do crontab e testes.
+- [Etapa 4](etapas/etapa-4/entrega.txt): gravação do vídeo.
 
 ## Vídeo
 Para o vídeo, criei um roteiro para ele. Decidi dividir em três dias de gravação, haja vista que os meus scripts estavam prontos antes da terça-feira (data mínima para funcionar plenamente de acordo com o desafio).
