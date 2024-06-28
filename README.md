@@ -14,6 +14,7 @@ ___
 
 <p align="center">
   :house: Passo Fundo/RS  
+
   🎓 Estudando Ciência da Computação no Instituto Federal Sul-Rio-Grandense - Câmpus Passo Fundo
 </p>
 
@@ -63,7 +64,7 @@ ___
 ### Onde me encontrar
 
 <p align="center">
-  <a href="www.linkedin.com/in/artur-mariano-da-silva-435321240">
+  <a href="https://www.linkedin.com/in/artur-mariano-da-silva-435321240/">
     <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
   </a>
   <a href="https://github.com/ArturMariano13">
