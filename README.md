@@ -26,8 +26,8 @@ Concluí meu Ensino Médio em colégio militar :cop:, onde desenvolvi habilidade
 ### Hobbies
 - :soccer: Apaixonado por esportes
 - :computer: Programação
-- :video_game: jogar videogames
-- ➕ Matemática.
+- :video_game: Jogar videogames
+- ➕ Matemática
 
 ## Experiências Anteriores
 
