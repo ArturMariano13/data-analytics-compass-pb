@@ -1,0 +1,2 @@
+# Certificados da Sprint 1
+Essa Sprint não exige certificados, haja vista que todos os cursos propostos são da Udemy. No entanto, considerei importante por organização de futuro portfólio inserir todos os certificados obtidos.
