@@ -16,26 +16,27 @@ Para maiores informações sobre os exercícios, siga o link: [exercícios](exer
 ## Resumo dos estudos
 
 ### Linguagem SQL para análise de dados
+#### 🛠 Instalação
 - Fazer download do ***PostgreSQL*** e do ***PGAdmin***.
 - Criar *Schema* sales no *database* postgres.
 
-#### Comandos Básicos
-##### SELECT
-Comando usado para selecionar colunas de tabelas
+#### 📚 Comandos Básicos
+`SELECT`
+- Usado para selecionar colunas de tabelas;
 - Quando selecionar mais de uma coluna, elas devem ser separadas por vírgula sem conter vírgula antes do comando FROM;
 - Pode-se utilizar o asterisco (*) para selecionar todas as colunas da tabela.
 
 **Sintaxe:** `SELECT coluna_1, coluna_2, coluna_3 FROM schema_1.tabela_1` 
 
-##### DISTINCT
-Comando usado para remover linhas duplicadas e mostrar apenas linhas distintas
-- Muito usado na etapa de exploração das bases 
+`DISTINCT`
+- Usado para remover linhas duplicadas e mostrar apenas linhas distintas;
+- Muito usado na etapa de exploração das bases; 
 - Caso mais de uma coluna seja selecionada, o comando SELECT DISTINCT irá retornar todas as combinações distintas.
 
 **Sintaxe:** `SELECT DISTINCT coluna_1, coluna_2, coluna_3 FROM schema_1.tabela_1`
 
-##### WHERE
-Comando utilizado para filtrar linhas de acordo com uma condição.
+`WHERE`
+- Usado para filtrar linhas de acordo com uma condição;
 - No PostgreSQL são utilizadas **aspas simples** para delimitar *strings*;
 - *string* = sequência de caracteres = texto;
 - Pode-se combinar mais de uma condição utilizando os operadores lógicos (*or*, *and*);
@@ -43,21 +44,21 @@ Comando utilizado para filtrar linhas de acordo com uma condição.
 
 **Sintaxe:** `SELECT coluna_1, coluna_2, coluna_3 FROM schema_1.tabela_1 WHERE condicao`
 
-##### ORDER BY
-Comando utilizado para ordenar a seleção de acordo com uma regra definida.
+`ORDER BY`
+- Usado para ordenar a seleção de acordo com uma regra definida;
 - Por padrão o comando ordena na ordem crescente. Para mudar para a ordem decrescente, basta usar o comando DESC;
 - No caso de *strings* a ordenação será seguirá a ordem alfabética.
 
 **Sintaxe:** `SELECT coluna_1, coluna_2, coluna_3 FROM schema_1.tabela_1 WHERE condicao=true ORDER BY coluna_1`
 
-##### LIMIT
-Comando utilizado para limitar o nº de linhas da consulta.
+`LIMIT`
+- Usado para limitar o nº de linhas da consulta;
 - Muito utilizado na etapa de exploração dos dados (com bases de dados muito grandes);
 - Muito utilizado em conjunto com o comando ORDER BY quando o que importa são os TOP N. Exemplo: "N pagamentos mais recentes", "N produtos mais caros".
 
 **Sintaxe:** `SELECT coluna_1, coluna_2, coluna_3 FROM schema_1.tabela_1 WHERE condicao=true ORDER BY coluna_1 LIMIT N`
 
-#### Operadores
+#### 🔢 Operadores
 ##### Operadores Aritméticos
 Servem para executar operações matemáticas.
 - Muito utilizado para criar colunas calculadas;
@@ -66,13 +67,13 @@ Servem para executar operações matemáticas.
 - No caso de strings o operador de adição (||) irá concatenar as strings.
 
 **Tipos**
-- **+**
-- **-**
-- __*__
-- **/**
-- **^**
-- **%**
-- **||** - não é operador aritmético (faz concatenação de *strings*).
+- `+`
+- `-`
+- `*`
+- `/`
+- `^`
+- `%`
+- `||` - não é operador aritmético (faz concatenação de *strings*).
     - Exemplo: `SELECT first_name || ' ' || last_name AS nome_completo FROM schema_1.tabela_1` - irá mostrar o nome e sobrenome das pessoas
 
 OBS.: `current_date` é uma função que retorna a data atual.
@@ -84,33 +85,33 @@ Servem para comparar dois valores retornando TRUE ou FALSE.
 - Utilizados para criar colunas *Flag* que retornem TRUE ou FALSE.
 
 **Tipos**
-- **=**
-- **>**
-- **<**
-- **>=**
-- **<=**
-- **<>** - "diferente de"
+- `=`
+- `>`
+- `<`
+- `>=`
+- `<=`
+- `<>` - "diferente de"
 
 - Exemplo: `SELECT first_name, professional_status, (professional_status = 'clt') AS cliente_clt FROM schema_1.tabela_1`
 - irá retornar TRUE para os profissionais que forem clt e FALSE para os que não forem.
 
 ##### Operadores Lógicos
 Usados para unir expressões simples em uma expressão composta.
-- **AND**: Verifica se duas comparações são simultaneamente verdadeiras;
+- `AND`: Verifica se duas comparações são simultaneamente verdadeiras;
     - Exemplo: `SELECT * FROM schema_1.tabela_1 WHERE price >= 100000 AND price <= 200000` - pode-se substituir por *beetwen*.
-- **OR**: Verifica se uma ou outra comparação é verdadeiras;
+- `OR`: Verifica se uma ou outra comparação é verdadeiras;
     - Exemplo: `SELECT * FROM schema_1.tabela_1 WHERE price < 100000 OR price > 200000` - pode-se substituir por *NOT BETWEEN*
-- **BETWEEN**: Verifica quais valores estão dentro do range definido;
+- `BETWEEN`: Verifica quais valores estão dentro do range definido;
     - Exemplo: `SELECT * FROM schema_1.tabela_1 WHERE price BETWEEN 100000 AND 200000`
-- **IN**: Funciona como multiplos ORs;
+- `IN`: Funciona como multiplos ORs;
     - Exemplo: `SELECT * FROM schema_1.tabela_1 WHERE brand IN ('brand_1', 'brand_2', 'brand_3')`
-- **LIKE** e **ILIKE**: Comparam textos e são sempre utilizados em conjunto com o operador %, que funciona como um coringa, indicando que qualquer texto pode aparecer no lugar do campo;
+- `LIKE` e `ILIKE`: Comparam textos e são sempre utilizados em conjunto com o operador %, que funciona como um coringa, indicando que qualquer texto pode aparecer no lugar do campo;
     - Exemplo: `SELECT first_name FROM schema_1.tabela_1 WHERE first_name LIKE 'ARTUR%'` - o coringa poderia estar em qualquer outro lugar da palavra (começar com ARTUR, terminar com ARTUR...);
-    - **ILIKE** ignora se o campo tem letras maiúsculas ou minúsculas na comparação.
-- **IS NULL**: Verifica se o campo é nulo.
+    - `ILIKE` ignora se o campo tem letras maiúsculas ou minúsculas na comparação.
+- `IS NULL`: Verifica se o campo é nulo.
     - Exemplo: `SELECT * FROM schema_1.tabela_1 WHERE paid_date IS NULL` - retorna clientes em que as datas de pagamento nulas.
 
-#### Funções Agregadas
+#### 🧮 Funções Agregadas
 ##### Funções de Agregação
 Servem para executar operações aritmética nos registros de uma coluna.
 
@@ -150,8 +151,8 @@ Servem para executar operações aritmética nos registros de uma coluna.
 - Essas funções são frequentemente usadas em consultas SQL para realizar cálculos e análises de dados;
 - COUNT(DISTINCT) irá contar apenas os valores exclusivos.
 
-##### GROUP BY
-Serve para agrupar registros semelhantes de uma coluna.
+🗂 `GROUP BY`
+- Serve para agrupar registros semelhantes de uma coluna;
 - A cláusula `GROUP BY` é usada em conjunto com funções agregadas (`COUNT()`, `SUM()`, `MIN()`, `MAX()`, `AVG()`) para agrupar os resultados de uma consulta SQL por uma ou mais colunas;
 - Pode-se referenciar a coluna a ser agrupada pela sua posição ordinal; 
 - Ex: GROUP BY 1,2,3 irá agrupar pelas 3 primeiras colunas da tabela; 
@@ -163,7 +164,7 @@ Serve para agrupar registros semelhantes de uma coluna.
     GROUP BY departamento;
     ```
 
-##### HAVING
+🎛 `HAVING`
 Serve para filtrar linhas da seleção por uma coluna agrupada.
 - Tem a mesma função do WHERE mas pode ser usado para filtrar os resultados das funções agregadas enquanto o WHERE possui essa limitação;
 - A função HAVING também pode filtrar colunas não agregadas.
@@ -190,8 +191,8 @@ HAVING COUNT(empregado_id) > 10;
     - __Explicação:__ o primeiro exemplo usa WHERE para filtrar empregados com salário maior que 50.000 antes de qualquer agregação. O segundo exemplo usa HAVING para filtrar departamentos onde a média salarial é maior que 50.000 após a agregação.
 
 
-#### JOINS
-Servem para combinar colunas de uma ou mais tabelas.
+🔗 `JOINS`
+- Servem para combinar colunas de uma ou mais tabelas.
 - **Sintaxe:**
     ``` sql
     -- A sintaxe é a mesma para todos os tipos de join
@@ -205,14 +206,14 @@ Servem para combinar colunas de uma ou mais tabelas.
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLit1uPMgSEZLuA3W3hMJ_0h8CVirELz3dgw&s" alt="Demonstração do Kernel do Linux" width="400">
 </p>
 
-- **LEFT JOIN:** retorna todas as linhas da tabela à esquerda, e as linhas correspondentes da tabela à direita. Se não houver correspondência, os resultados da tabela à direita serão NULL.
-- **RIGHT JOIN:** retorna todas as linhas da tabela à direita, e as linhas correspondentes da tabela à esquerda. Se não houver correspondência, os resultados da tabela à esquerda serão NULL.
+- `LEFT JOIN`: retorna todas as linhas da tabela à esquerda, e as linhas correspondentes da tabela à direita. Se não houver correspondência, os resultados da tabela à direita serão NULL.
+- `RIGHT JOIN`: retorna todas as linhas da tabela à direita, e as linhas correspondentes da tabela à esquerda. Se não houver correspondência, os resultados da tabela à esquerda serão NULL.
     - A sintaxe é a mesma do left join.
-- **INNER JOIN:** retorna apenas as linhas que têm correspondência em ambas as tabelas.
-- **FULL JOIN:** retorna todas as linhas quando há correspondência em uma das tabelas. Se não houver correspondência, os resultados serão NULL para a tabela sem correspondência.
+- `INNER JOIN`: retorna apenas as linhas que têm correspondência em ambas as tabelas.
+- `FULL JOIN`: retorna todas as linhas quando há correspondência em uma das tabelas. Se não houver correspondência, os resultados serão NULL para a tabela sem correspondência.
 
-#### UNION
-A cláusula `UNION` é usada para combinar os resultados de duas ou mais consultas `SELECT` em um único conjunto de resultados.
+🌐 `UNION`
+- A cláusula `UNION` é usada para combinar os resultados de duas ou mais consultas `SELECT` em um único conjunto de resultados.
 - Por padrão, o `UNION` remove as duplicatas. Para incluir todas as duplicatas, use `UNION ALL`.
     - `UNION ALL` é mais leve, quando se tiver certeza de que as duas tabelas são completamente distintas, optar por ele.
 - **Regras**
@@ -226,19 +227,19 @@ A cláusula `UNION` é usada para combinar os resultados de duas ou mais consult
     SELECT nome, cidade FROM clientes_2024;
     ```
 
-#### SUBQUERIES
+📦 **SUBQUERIES**
 Servem para consultar dados de outras consultas.
 - Para que as subqueries no WHERE e no SELECT funcionem, elas devem retornar apenas um único valor;
 - Não é recomendado utilizar subqueries diretamente dentro do FROM pois isso dificulta a legibilidade da query. 
 ##### Tipos de Subquery
-1. *Subquery* no WHERE
+1. *Subquery* no `WHERE`
 - Exemplo: Informar qual é o produto mais barato da tabela "products".
 ``` sql
 SELECT *
 FROM sales.products
 WHERE price = (SELECT MIN(price) FROM sales.products)
 ```
-2. *Subquery* com WITH
+2. *Subquery* com `WITH`
 - Exemplo: Calcular a idade média dos clientes por status profissional.
 ```sql
 WITH alguma_tabela as (
@@ -256,7 +257,7 @@ GROUP BY professional_status
 - A tabela criada com *with* possui todos os status dos trabalhadores e os seus respectivos salários.
 - A segunda consulta retorna apenas a média dos salários, agrupado por status.
 
-3. *Subquery* no FROM
+3. *Subquery* no `FROM`
 - Exemplo: Calcular a média de idade dos clientes por status profissional.
 ```sql
 SELECT 
@@ -270,7 +271,7 @@ GROUP BY professional_status
 ```
 - Não muito recomendada, preferível utilizar a cláusula **WITH**.
 
-4. *Subquery* no SELECT
+4. *Subquery* no `SELECT`
 - Exemplo: Criar uma coluna que informe o número de visitas acumuladas que a loja recebeu até o momento.
 ```sql
 SELECT
@@ -289,11 +290,11 @@ LEFT JOIN sales.stores AS sto
 ORDER BY sto.store_name, fun.visit_page_date
 ```
 
-#### Tratamento de Dados
+#### 🛠 Tratamento de Dados
 1. Conversão de Unidades
-    - O operador :: e o CAST() são funções utilizadas para converter um dado para a unidade desejada. 
-    - O operador :: é mais "clean", porém, em algumas ocasiões não funciona, sendo necessário utilizar a função CAST().
-    1. Operador **::**
+    - O operador `::` e o `CAST()` são funções utilizadas para converter um dado para a unidade desejada. 
+    - O operador `::` é mais "clean", porém, em algumas ocasiões não funciona, sendo necessário utilizar a função `CAST()`.
+    1. Operador `::`
         - Exemplo 1: Conversão de texto em data.
         ```sql
         SELECT '2024-06-29' - '2024-07-01' -- INCORRETO
@@ -551,5 +552,3 @@ Um motivo que leva os clientes a migrar tão rapidamente para a nuvem é a vasta
 4. **🔐 Segurança**: com os serviços de segurança da AWS, os clientes podem automatizar tarefas manuais como proteção de dados, gerenciamento de identidade e acesso, proteção de rede e aplicativo, resposta a incidentes e relatórios de conformidade. 
 5. **🛠️ Gerenciamento**: com os serviços de gerenciamento e governança da AWS, os clientes podem provisionar e operar seus ambientes para obter agilidade de negócios e controle de governança. Os casos de uso comuns incluem gerenciamento centralizado, nuvem, gerenciamento financeiro e conformidade automatizada. 
 6. **🌐 Redes**: com os serviços de redes e entrega de conteúdo da AWS, os clientes podem executar toda carga de trabalho em uma rede global, segura e confiável. Alguns casos de uso comum são: simplificar a execução de recursos, conectar infraestrutura híbrida e fornecer aplicativos mais rapidamente com redes Edge. 
-
-
