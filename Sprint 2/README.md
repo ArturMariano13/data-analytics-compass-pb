@@ -450,9 +450,9 @@ ORDER BY sto.store_name, fun.visit_page_date
 
 2. **Deleção:** para deletar uma tabela utiliza-se o comando `DROP TABLE`.
 
-        ```sql
-        DROP TABLE temp_tables.profissoes
-        ```
+```sql
+    DROP TABLE temp_tables.profissoes
+```
 
 ##### Linhas
 
@@ -523,18 +523,9 @@ ___
 
 Computação em nuvem é a entrega de recursos de TI sob demanda pela Internet com pagamento conforme o uso. Em vez de comprar e manter data centers e servidores físicos, você acessa os serviços de tecnologia conforme sua necessidade. 
 
-**Tendências na Evolução da Computação**
-
-<p align="center">
-  <img src="https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1720206000/PwI_2vw9KB2Ifnu1Wj_qUQ/tincan/938093_1660191117_p1ga5heg5o1r7smji17jp1pi816hpk_zip/assets/W2x0PdjNp-fhiQxf_5wTpzqMPOuLWrx7h.jpg" alt="Tendência da Evolução da Computação" width="400">
-</p>
-
 **Padrões entre clientes da AWS**
 
 Em relação ao caminho para a adoção da nuvem, cada cliente traça um roteiro diferente. Muitos fatores internos e externos influenciam o processo de tomada de decisões e determinam onde eles começam na jornada. As adoções nem sempre são lineares, e os clientes podem estar em qualquer uma das quatro fases diferentes (às vezes ao mesmo tempo). 
-<p align="center">
-  <img src="https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1720206000/PwI_2vw9KB2Ifnu1Wj_qUQ/tincan/938093_1660191117_p1ga5heg5o1r7smji17jp1pi816hpk_zip/assets/sYt4HzkUcwsATJW3_b5vsb0hjEjius9j2.jpg" alt="Padrões de clientes da AWS" width="400">
-</p>
 
 OBS.: “Integral” não significa estar 100% na nuvem. Poucos clientes estão 100% na nuvem, principalmente aqueles que começaram com sistemas on-premises.
 
