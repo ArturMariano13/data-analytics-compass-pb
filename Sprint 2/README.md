@@ -518,38 +518,38 @@ Para fazer qualquer modificação nas colunas de uma tabela utiliza-se o comando
     ```
 ___
 ### AWS Skill Builder - AWS Partner: Sales Accreditation (Business)
-#### Conceitos de Nuvem e Serviços da AWS
-**O que é Computação em Nuvem?**
+#### 🌥️ Conceitos de Nuvem e Serviços da AWS ☁️
+**💡 O que é Computação em Nuvem?**
 
 Computação em nuvem é a entrega de recursos de TI sob demanda pela Internet com pagamento conforme o uso. Em vez de comprar e manter data centers e servidores físicos, você acessa os serviços de tecnologia conforme sua necessidade. 
 
-**Padrões entre clientes da AWS**
+**📈 Padrões entre clientes da AWS**
 
 Em relação ao caminho para a adoção da nuvem, cada cliente traça um roteiro diferente. Muitos fatores internos e externos influenciam o processo de tomada de decisões e determinam onde eles começam na jornada. As adoções nem sempre são lineares, e os clientes podem estar em qualquer uma das quatro fases diferentes (às vezes ao mesmo tempo). 
 
-OBS.: “Integral” não significa estar 100% na nuvem. Poucos clientes estão 100% na nuvem, principalmente aqueles que começaram com sistemas on-premises.
+🔍 Observação: “Integral” não significa estar 100% na nuvem. Poucos clientes estão 100% na nuvem, principalmente aqueles que começaram com sistemas on-premises.
 
-**Serviços da AWS**
+**🛠️ Serviços da AWS**
 
 A variedade de serviços refere-se à ampla gama de produtos e serviços da AWS. A profundidade do serviço refere-se às muitas e crescentes funcionalidades desses serviços.
 
 Um motivo que leva os clientes a migrar tão rapidamente para a nuvem é a vasta gama de serviços oferecidos, especialmente pela AWS. Cerca de 90% do que criamos é baseado no que é importante para clientes e parceiros segundo eles mesmos, e os demais 10% são invenções em nome do cliente. 
 
-- Análise;
-- Integração de Aplicativos;
-- Computação;
-- Bancos de Dados;
-- *Machine Learning*;
-- Armazenamento;
-- Serviços de Mídia;
+- 📊 Análise;
+- 🔗 Integração de Aplicativos;
+- 💻 Computação;
+- 🗄️ Bancos de Dados;
+- 🤖 *Machine Learning*;
+- 🗂️ Armazenamento;
+- 📺 Serviços de Mídia;
 - ...
 
-**Categorias de Serviço**
-1. **Computação**: a *Amazon Elastic Compute Cloud* (Amazon EC2) oferece computação segura e dimensionável aos clientes. Os clientes podem escolher o processador, o armazenamento, a redes e o SO de acordo com as exigências da carga de trabalho. Entre os casos de uso estão aplicativos empresariais, computação de alto desempenho (HPC) e ML.
-2. **Armazenamento**: com o armazenamento na nuvem da AWS, os clientes acessam rapidamente o objeto, o arquivo ou o armazenamento em bloco, sem o complexo planejamento de capacidade. Entre os casos de uso comum estão data lakes, backup e restauração, arquivo e desenvolvimento de aplicativos modernos.
-3. **Banco de Dados**: a AWS oferece bancos de dados com propósito específico para cargas de trabalho empresariais essenciais, que entregam aos clientes alta disponibilidade, confiabilidade e segurança. Os mecanismos de banco de dados incluem estes tipos: relacional, chave-valor, documentos, na memória, gráficos, séries temporais e livros contábeis.
-4. **Segurança**: com os serviços de segurança da AWS, os clientes podem automatizar tarefas manuais como proteção de dados, gerenciamento de identidade e acesso, proteção de rede e aplicativo, resposta a incidentes e relatórios de conformidade. 
-5. **Gerenciamento**: com os serviços de gerenciamento e governança da AWS, os clientes podem provisionar e operar seus ambientes para obter agilidade de negócios e controle de governança. Os casos de uso comuns incluem gerenciamento centralizado, nuvem, gerenciamento financeiro e conformidade automatizada. 
-6. **Redes**: com os serviços de redes e entrega de conteúdo da AWS, os clientes podem executar toda carga de trabalho em uma rede global, segura e confiável. Alguns casos de uso comum são: simplificar a execução de recursos, conectar infraestrutura híbrida e fornecer aplicativos mais rapidamente com redes Edge. 
+**📦 Categorias de Serviço**
+1. **💻 Computação**: a *Amazon Elastic Compute Cloud* (Amazon EC2) oferece computação segura e dimensionável aos clientes. Os clientes podem escolher o processador, o armazenamento, a redes e o SO de acordo com as exigências da carga de trabalho. Entre os casos de uso estão aplicativos empresariais, computação de alto desempenho (HPC) e ML.
+2. **🗂️ Armazenamento**: com o armazenamento na nuvem da AWS, os clientes acessam rapidamente o objeto, o arquivo ou o armazenamento em bloco, sem o complexo planejamento de capacidade. Entre os casos de uso comum estão data lakes, backup e restauração, arquivo e desenvolvimento de aplicativos modernos.
+3. **🗄️ Banco de Dados**: a AWS oferece bancos de dados com propósito específico para cargas de trabalho empresariais essenciais, que entregam aos clientes alta disponibilidade, confiabilidade e segurança. Os mecanismos de banco de dados incluem estes tipos: relacional, chave-valor, documentos, na memória, gráficos, séries temporais e livros contábeis.
+4. **🔐 Segurança**: com os serviços de segurança da AWS, os clientes podem automatizar tarefas manuais como proteção de dados, gerenciamento de identidade e acesso, proteção de rede e aplicativo, resposta a incidentes e relatórios de conformidade. 
+5. **🛠️ Gerenciamento**: com os serviços de gerenciamento e governança da AWS, os clientes podem provisionar e operar seus ambientes para obter agilidade de negócios e controle de governança. Os casos de uso comuns incluem gerenciamento centralizado, nuvem, gerenciamento financeiro e conformidade automatizada. 
+6. **🌐 Redes**: com os serviços de redes e entrega de conteúdo da AWS, os clientes podem executar toda carga de trabalho em uma rede global, segura e confiável. Alguns casos de uso comum são: simplificar a execução de recursos, conectar infraestrutura híbrida e fornecer aplicativos mais rapidamente com redes Edge. 
 
 
