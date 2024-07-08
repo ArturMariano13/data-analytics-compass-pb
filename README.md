@@ -58,6 +58,7 @@ Essa seção possui os links para o arquivo README.md de cada Sprint, em que se 
 ### Sprints 
 
 1. [Sprint 1](Sprint%201/README.md): Markdown, Git e Linux
+2. [Sprint 2](Sprint%202/README.md): Linguagem SQL e Introdução AWS
 
 No decorrer do programa, serão inseridas as outras Sprints no repositório, além de seus respectivos arquivos.
 ___
