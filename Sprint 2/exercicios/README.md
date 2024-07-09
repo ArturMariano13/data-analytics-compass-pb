@@ -1,2 +1,2 @@
 # Exercícios da Sprint 2
-Essa Sprint não possui exercícios, portanto não há nenhum arquivo nesse diretório.
+Os exercícios realizados nessa Sprint foram disponibilizados na Udemy e testados na própria plataforma. Esse diretório consta todos esses exercícios com seus respectivos números e seções.

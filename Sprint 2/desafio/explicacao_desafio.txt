@@ -1,0 +1,46 @@
+NORMALIZAÇÃO DA TABELA tb_locacoes
+Primeiramente, deve-se analisar se ela está na 1ª forma normal que consiste no seguinte de acordo com material disponibilizado no ambiente da Udemy: 
+"Cada campo de sua tabela deve conter somente um único tipo de dado, e cada parcela de dado deve ser armazenada em somente um lugar (atomicidade)."
+Primeira pergunta: há atributos multivalorados? Não!
+Segunda pergunta: há atributos compostos? Não!
+Com isso, pode-se perceber que a tabela tb_locacoes já está na primeira forma normal, não sendo necessários ajustes para realizar este primeiro passo.
+
+Por conseguinte, para a realização da segunda forma normal. Vale ressaltar que estar na segunda forma normal consiste em cada tabela conter dados sobre uma e somente uma entidade, em que as colunas que dependem parcialmente da PK (dependência funcional parcial) devem formar novas tabelas.
+Outro fator importante a ser observado consiste na presença de uma chave primária simples (apenas um atributo a compõe). Com isso, essa tabela não pode possuir dependências funcionais parciais.
+Por isso, essa tabela já está na segunda forma normal também.
+
+Por outro lado, a terceira forma normal consiste em eliminar as dependências transitivas das tabelas. Pode-se perceber diversas dessas na tabela "tb_locacao".
+Um exemplo ocorre com os atributos dependentes de idCliente:
+- nomeCliente
+- cidadeCliente
+- estadoCliente
+- paisCliente
+Por isso, devemos criar a tabela "cliente" que conterá todos esses atributos supracitados, e a tabela de locações deve permanecer com o atributo idCliente sendo chave estrangeira.
+O mesmo ocorrerá com os dependentes do atributo idVendedor:
+- nomeVendedor
+- sexoVendedor
+- estadoVendedor
+Com isso, necessitamos criar a tabela vendedores com esses atributos supracitados.
+O mesmo acontecerá com os dependentes de idCarro:
+- kmCarro
+- chassiCarro
+- marcaCarro
+- modeloCarro
+- anoCarro
+- tipoCombustivel
+- idCombustivel
+Necessitamos criar a tabela carros com esses atributos acima.
+Ainda nessa tabela de carros, há outra dependência transitiva em tipoCombustivel.
+Esse atributo depende exclusivamente do idCombustivel, sendo assim necessitamos criar uma tabela de combustíveis e manter idCombustivel na tabela carros como chave estrangeira.
+Vale ressaltar que todas as tabelas criadas mantêm os seus respectivos "ids" na tabela de locações, sendo essa chave estrangeira para as tabelas criadas após a terceira etapa de normalização.
+A não ser a chave idCombustivel, que se encontra na tabela de carros.
+Após a realização desses ajustes, o esquema se encontra na segunda forma normal e com as seguintes tabelas:
+- locacoes;
+- clientes;
+- vendedores;
+- carros;
+- combustiveis.
+
+Com isso, o esquema se encontra normalizado.
+
+
