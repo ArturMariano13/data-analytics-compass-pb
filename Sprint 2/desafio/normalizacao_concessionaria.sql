@@ -45,30 +45,22 @@ CREATE TABLE locacoes (
 	FOREIGN KEY (idVendedor) REFERENCES vendedores(idVendedor)
 );
 
-
+-- INSERÇÕES
 
 -- inserção na tabela clientes
 INSERT INTO clientes (idCliente, nomeCliente, cidadeCliente, estadoCliente, paisCliente)
 SELECT DISTINCT idCliente, nomeCliente, cidadeCliente, estadoCliente, paisCliente 
 FROM tb_locacao;
 
-SELECT * FROM clientes;
-
-
 -- inserção na tabela vendedores
 INSERT INTO vendedores (idVendedor, nomeVendedor, sexoVendedor, estadoVendedor)
 SELECT DISTINCT idVendedor, nomeVendedor, sexoVendedor, estadoVendedor 
 FROM tb_locacao;
 
-SELECT * FROM vendedores;
-
-
 -- inserção na tabela combustiveis
 INSERT INTO combustiveis (idCombustivel, tipoCombustivel)
 SELECT DISTINCT idCombustivel, tipoCombustivel
 FROM tb_locacao;
-
-SELECT * FROM combustiveis;
 
 -- inserção na tabela carros
 INSERT INTO carros (idCarro, kmCarro, chassiCarro, marcaCarro, modeloCarro, anoCarro, idCombustivel)
@@ -87,14 +79,7 @@ FROM tb_locacao t1
 JOIN LatestKm t2
 ON t1.classicarro = t2.classicarro AND t1.kmcarro = t2.max_kmcarro;
 
-SELECT * FROM carros;
-
-
 -- inserção na tabela locacoes
 INSERT INTO locacoes (idLocacao, idCliente, idCarro, idVendedor, dataLocacao, horaLocacao, qtdDiaria, vlrDiaria, dataEntrega, horaEntrega)
 SELECT idLocacao, idCliente, idCarro, idVendedor, dataLocacao, horaLocacao, qtdDiaria, vlrDiaria, dataEntrega, horaEntrega
 FROM tb_locacao;
-
-SELECT * FROM locacoes
-
-
