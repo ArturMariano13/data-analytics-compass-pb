@@ -3,7 +3,7 @@ DIMENSIONAL
 Combustíveis e Carros eram duas tabelas, mas após dimensionar tornaram-se uma tabela apenas
 - Modificar nomes dos campos para melhorar a visualização
 
-Venda é um FATO
+Locação é um FATO
 O restante são dimensões
 
 1. Mostrar passo a passo da normalização

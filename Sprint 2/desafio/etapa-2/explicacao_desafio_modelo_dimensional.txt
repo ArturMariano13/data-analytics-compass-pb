@@ -1,0 +1,23 @@
+Modelo Relacional:
+
+O modelo relacional original consiste em várias tabelas inter-relacionadas que armazenam informações detalhadas sobre clientes, vendedores, carros, combustíveis e locações. Essas tabelas são:
+
+    clientes
+    vendedores
+    combustiveis
+    carros
+    locacoes
+
+Modelo Dimensional:
+
+O modelo dimensional reestrutura esses dados em duas componentes principais: dimensões e fatos. Dimensões são estruturas que categorizam e descrevem os dados nos fatos, permitindo uma análise detalhada. Os fatos são os eventos principais que ocorrem, armazenando medidas e métricas associadas a esses eventos.
+
+    Dimensões: São tabelas que armazenam os atributos descritivos dos dados. Em nosso modelo, temos as seguintes dimensões:
+        dim_Cliente: Contém informações sobre os clientes, como código, nome, cidade, estado e país.
+        dim_Vendedor: Armazena dados dos vendedores, incluindo código, nome, sexo e estado.
+        dim_Carro: Inclui detalhes dos carros, como código, quilometragem, chassi, marca, modelo, ano e tipo de combustível.
+        dim_DataLocacao: Contém a data e a hora da locação, além de atributos derivados como ano, mês e dia da locação.
+        dim_DataEntrega: Armazena a data e a hora da entrega, juntamente com ano, mês e dia da entrega.
+
+    Fatos: São tabelas que armazenam as medições ou métricas associadas aos eventos principais. Em nosso modelo, temos a seguinte tabela de fatos:
+        fato_Locacao: Armazena os dados de cada locação, incluindo o código da locação, o código do cliente, do carro, do vendedor, a quantidade de diárias e o valor diário.
