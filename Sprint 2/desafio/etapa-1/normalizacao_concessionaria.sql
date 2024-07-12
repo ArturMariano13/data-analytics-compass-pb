@@ -1,7 +1,7 @@
 CREATE TABLE clientes(
 	idCliente INTEGER PRIMARY KEY NOT NULL,
 	nomeCliente VARCHAR(100) NOT NULL,
-	cidadeCliente VARCHAR(40) NOT NULL,
+	cidadeCliente VARCHAR(40),
 	estadoCliente VARCHAR(40),
     paisCliente VARCHAR(40)
 );
@@ -15,7 +15,7 @@ CREATE TABLE vendedores (
 
 CREATE TABLE combustiveis (
 	idCombustivel INTEGER PRIMARY KEY NOT NULL,
-	tipoCombustivel VARCHAR(20)
+	tipoCombustivel VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE carros (
@@ -36,7 +36,7 @@ CREATE TABLE locacoes (
 	idVendedor INTEGER NOT NULL,
 	dataLocacao DATETIME NOT NULL,
 	horaLocacao TIME NOT NULL,
-	qtdDiaria INTEGER NOT NULL,
+	qtdDiaria INTEGER,
 	vlrDiaria DECIMAL(18,2) NOT NULL,
 	dataEntrega DATE,
 	horaEntrega TIME,
