@@ -239,6 +239,235 @@ print(f'Nome: {nome} Idade: {idade}')
 ```
 
 #### Estrutura de Controle
+##### WHILE
+- Execute enquanto...
+```python
+def fibonacci():
+    penultimo = 0
+    ultimo = 1
+
+    print(penultimo)
+    print(ultimo)
+
+    while True:
+        proximo = penultimo + ultimo
+        print(proximo)
+        penultimo = ultimo
+        ultimo = proximo
+
+
+if __name__ == '__main__':
+    fibonacci()
+```
+- O exemplo acima consiste em um while infinito, sem condição de parada.
+```python
+def fibonacci(limite):
+    penultimo = 0
+    ultimo = 1
+
+    print(penultimo)
+    print(ultimo)
+
+    while ultimo < limite:
+        proximo = penultimo + ultimo
+        print(proximo)
+        penultimo = ultimo
+        ultimo = proximo
+
+
+if __name__ == '__main__':
+    fibonacci(1000)
+```
+- Este exemplo, em contrapartida, possui uma condição de parada, que é quando atingir o limite passado por parâmetro.
+
+##### FOR
+- Estrutura usada para **iterar sobre uma sequência** (que pode ser uma lista, uma tupla, um dicionário, um conjunto ou uma *string*).
+- Exemplo 1 (loop dentro de uma lista):
+```python
+fruits = ["apple", "banana", "cherry"]
+
+for x in fruits:
+  print(x) # irá printar apple, banana e cherry
+```
+- Exemplo 2 (loop dentro de uma string):
+```python
+for x in "banana":
+  print(x)  # irá printar as letras de banana
+```
+
+- Ao declarar `break` dentro de uma estrutura for, o loop é interrompido, finalizando antes de percorrer todos os itens.
+- Ao declarar `continue` dentro de uma estrutura for, a iteração atual é interrompida, "pulando" diretamente para a próxima.
+- **Função `range()`**: retorna uma sequência de números, iniciando em 0 por padrão e incrementando de 1 em 1. 
+    - Exemplos:
+        ```python
+        for x in range(6):
+            print(x) 
+        # 0,1,2,3,4,5
+
+        for x in range(2, 6):
+            print(x)
+        # adição de um parâmetro de início do FOR
+        # 2,3,4,5
+
+        for x in range(2, 30, 3):
+            print(x)
+        # o terceiro parâmetro consiste no valor do incremento (3)
+        # 2,5,8,11,14,17,20,23,26,29
+        ```
+
+#### Manipulação de Arquivos
+##### Leitura 
+1. **Leitura Básica de Arquivos**
+```python
+arquivo = open('nome_arquivo') # abre o arquivo
+dados = arquivo.read() # armazena os dados na variável dados
+arquivo.close()
+
+for registro in dados.splitlines():
+    print('Nome: {}, Idade: {}'.format(*registro.split(',')))
+```
+
+2. **Leitura Stream**
+```python
+arquivo = open('arquivo')
+for registro in arquivo:
+    print('Nome: {}, Idade: {}'.format(*registro.split(',')))
+
+arquivo.close()
+```
+
+3. **Try-Finally para contornar erros**
+```python
+try:
+    arquivo = open('arquivo')
+    for registro in arquivo:
+        print('Nome: {}, Idade: {}'.format(*registro.split(',')))
+
+finally:
+    print('finally')
+    arquivo.close()
+
+# nesse caso, se ocorrer um erro no FOR ou na abertura do arquivo, ele com certeza será fechado
+```
+
+4. **Leitura com bloco WITH:** simplifica o fechamento do arquivo. Ele fecha automaticamente após o fim do "with".
+```python
+with open('nome_arquivo') as arquivo:
+    for registro in arquivo:
+        print('Nome: {}, Idade: {}'.format(*registro.strip().split(',')))
+
+if arquivo.closed:
+    print('Arquivo fechado com sucesso!')
+```
+
+##### Escrever Arquivo
+- Um arquivo pode ser aberto no formato de escrita ('w').
+- O exemplo abaixo pega os dados de um arquivo e escreve em outro.
+```python
+with open('nome_arquivo') as arquivo:
+    with open('nome_arquivo_escrita', 'w') as saida:
+        pessoa = registro.strip().split(',')
+        print('Nome: {}, Idade: {}'.format(*pessoa), file=saida)
+
+if arquivo.closed:
+    print('Arquivo fechado com sucesso!') 
+```
+
+#### Comprehension
+##### List Comprehension
+- Forma mais concisa de criar listas.
+```python
+dobros = [i * 2 for i in range(10)]
+# [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+```
+- Pode-se inserir condições na criação da lista. Exemplo:
+```python
+dobros_dos_pares = [i * 2 for i in range(10) if i % 2 == 0]
+# 0, 4, 8, 12, 16
+```
+
+##### Generators
+- É gerado sob demanda, não gera tudo de uma vez só.
+- Utiliza menos memória.
+```python
+generator = (i ** 2 for i in range(10) if i % 2 == 0)
+print(next(generator)) # 0
+print(next(generator)) # 4
+print(next(generator)) # 16
+print(next(generator)) # 36
+print(next(generator)) # 64
+# print(next(generator)) # erro
+```
+
+- OBS.: A mesma coisa pode ser realizada com os dicionários (*dict comprehension*), apenas utiliza chaves {} e tem chave e valor.
+
+
+#### Funções
+##### Tipos de Parâmetros
+**Parâmetro posicional**
+- A posição do parâmetro da lista determina a ordem dos argumentos, todos os posicionais são obrigatórios, menos o especial (*star arg*) que utiliza *unpacking* para receber todo o excesso de argumentos posicionais.
+
+**Parâmetro nomeado**
+- A associação entre o argumento e o parâmetro ocorre através do nome, porém excesso de argumentos posicionais (em relação aos parâmetros definidos) podem ser atribuídos aos parâmetros nomeados na ordem em que aparecem (esquerda para direita) ou até encontrar o parâmetro especial posicional (*star arg*) que é precedido de um asterisco. Os nomeados também possuem um especial que “pega” qualquer excesso de argumentos nomeados que é precedido de dois asteriscos. Os parâmetros nomeados devem ter um valor *default*.
+
+**Parâmetro × Argumento**
+- Quando usamos parâmetro nos referimos à variável que receberá o valor passado pela chamada da função, enquanto argumento é exatamente o valor passado.
+
+**Parâmetros Opcionais**
+```python
+def tag_bloco(texto, classe='success'):
+    return f'<div class="{classe}">{texto}</div>'
+
+# texto é um parâmetro obrigatório e classe opcional (o padrão é success)
+
+if __name__ == '__main__':
+    # Testes (assertions)
+    assert tag_bloco('Incluído com sucesso!') == \
+        '<div class="success">Incluído com sucesso!</div>'
+    # executa sem erros
+```
+
+#### Programação Orientada a Objetos
+**Classe VS Objeto**
+- Classe é um molde, representa uma estrutura de dados personalizada.
+- Objeto é uma instância criada a partir do molde (classe).
+
+**Pilares da Orientação a Objetos**
+1. **Herança**: capacidade de fornecer a outras classes o comportamento de outra (ela herda características/comportamentos).
+2. **Polimorfismo**: é um mecanismo por meio do qual selecionamos as funcionalidades utilizadas de forma dinâmica por um programa no decorrer de sua execução.
+3. **Encapsulamento**: capacidade de utilizar objetos do mundo real sem entender o interno dele (basta conhecer os parâmetros necessários).
+4. **Abstração**: capacidade de abstrair informações desnecessárias para o programa em questão.
+
+##### Membros
+```python
+class Data:
+    def __str__(self):
+        return f'{self.dia}/{self.mes}/{self.ano}'
+    
+d1 = Data()     # criação de uma instância de Data
+d1.dia = 5
+d1.mes = 12
+d1. ano = 2020
+print(d1) # 5/12/2020
+```
+- `self`: consiste na chamada do objeto criado naquela execução.
+
+##### Construtor
+```python
+class Data:
+    def __init__(self, dia, mes, ano):
+        self.dia = dia
+        self.mes = mes
+        self.ano = ano
+
+        print('Este é o método construtor')
+
+    def __str__(self):
+        return f'{self.dia}/{self.mes}/{self.ano}'
+
+d1 = Data(5, 12, 2020)
+```
+- Python NÃO PERMITE mais de UM construtor.
 
 
 ___
@@ -277,7 +506,7 @@ A MPA ajuda a determinar os seguintes fatores:
 
 A MPA fornece uma base sólida para o planejamento da migração, agrupando e priorizando ondas de migração de aplicativos e servidores.
 
----
+___
 
 
 

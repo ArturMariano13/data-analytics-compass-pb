@@ -14,4 +14,5 @@ def imprime_parametros(*args, **kwargs):
     for value in kwargs.values():
         print(value)
 
+
 imprime_parametros(1, 3, 4, 'hello', parametro_nomeado='alguma coisa', x=20)
