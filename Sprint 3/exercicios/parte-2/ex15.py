@@ -10,3 +10,24 @@ Para testar sua classe:
     3. Desligue a Lampada
     4. Imprima: A lâmpada ainda está ligada? False
 """
+
+class Lampada:
+    
+    def __init__(self, ligada):
+        self.ligada = ligada
+    
+    def liga(self):
+        self.ligada = True
+    
+    def desliga(self):
+        self.ligada = False
+        
+    def esta_ligada(self):
+        return self.ligada
+        
+if __name__ == '__main__':
+    l = Lampada(False)
+    l.liga()
+    print(f'A lâmpada está ligada? {l.esta_ligada()}')
+    l.desliga()
+    print(f'A lâmpada ainda está ligada? {l.esta_ligada()}')
