@@ -1,0 +1,10 @@
+top5_instalados = tabela.sort_values(by=['Installs']).tail(5)
+
+DÚVIDAS
+1. Colunas que não possuem informações (NaN) -> devemos remover a linha ou 
+inserir 0 (já que a maioria é reviews)
+REMOCAO: df.dropna(subset=Reviews'], inplace = True)
+2. Todos ficarão com a mesma quantidade no ex1
+3. Muitas categorias. Até 2% será "outras"
+
+
