@@ -20,10 +20,15 @@ Devemos ler o arquivo de estatísticas da loja do Google [googleplaystore.csv](g
 7. Criar mais dois cálculos sobre o dataset (um em formato de lista e outro em formato de valor)
 8. Criar mais duas outras formas gráficas de exibição dos indicadores (*matplotlib*)
 
-### Código
-[Script](script.IPYNB)
 
 ### Explicação do desafio
 A explicação foi feita no próprio script do desafio, haja vista que o Jupyter permite a inclusão de trechos *markdown* no meio do código Python.
 
-Acessar script do item acima para verificar a explicação.
+Além disso, há uma explicação mais detalhada na seção de evidências: [Evidências Desafio](../evidencias/ev_desafio/README.md)
+
+### Código
+[Script](script.IPYNB)
+
+### Resultados
+Podem ser observados no diretório de evidências, tanto os códigos quanto os gráficos gerados na execução do desafio.
+- [Evidências](../evidencias/ev_desafio/)
