@@ -27,7 +27,7 @@ A explicação foi feita no próprio script do desafio, haja vista que o Jupyter
 Além disso, há uma explicação mais detalhada na seção de evidências: [Evidências Desafio](../evidencias/ev_desafio/README.md)
 
 ### Código
-[Script](script.IPYNB)
+- [Script](script.IPYNB)
 
 ### Resultados
 Podem ser observados no diretório de evidências, tanto os códigos quanto os gráficos gerados na execução do desafio.

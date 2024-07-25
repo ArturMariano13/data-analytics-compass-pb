@@ -2,7 +2,9 @@
 Este diretório contém as evidências da sprint 3. Aqui você encontrará prints comprovando a execução correta dos exercícios e do desafio, explicações da resolução de cada um deles e muito mais. As seções abaixo te direcionarão para aquilo que desejas encontrar.
 
 ## Desafio
-
+Esta seção aborda o desafio da sprint. Soluções, resultados obtidos, dificuldades encontradas... tudo se encontra nos links abaixo.
+- [Desafio](../desafio/README.md) 
+- [Evidências Desafio](ev_desafio/README.md)
 ___
 ## Exercícios
 Esta seção aborda as evidências de cada exercício inseridas neste diretório. Alguns exercícios contêm apenas a validação da Udemy, outros contêm logs com erros obtidos e explicações de como solucionei. Para acessar os exercícios (códigos), basta acessar o primeiro link:
