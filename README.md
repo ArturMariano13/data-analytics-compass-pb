@@ -33,9 +33,9 @@ Concluí meu Ensino Médio em colégio militar :cop:, onde desenvolvi habilidade
 
 ### Bolsista de Projeto de Pesquisa
 **IFSUL - Embrapa Trigo e UPF**  
-*03/2023 - 05/2024*
+*03/2023 - atualmente*
 
-Participei como bolsista em um projeto de pesquisa colaborativo e multidisciplinar, com o objetivo de desenvolver uma armadilha eletrônica para capturar, identificar e contar insetos-praga de culturas de cereais de inverno. Esse projeto multidisciplinar envolveu a criação de um protótipo de armadilha e um modelo inteligente de identificação de insetos usando a tecnologia YOLO. Durante o projeto, adquiri experiência com:
+Sou bolsista em um projeto de pesquisa colaborativo e multidisciplinar, com o objetivo de desenvolver uma armadilha eletrônica para capturar, identificar e contar insetos-praga de culturas de cereais de inverno. Esse projeto multidisciplinar envolveu a criação de um protótipo de armadilha e um modelo inteligente de identificação de insetos usando a tecnologia YOLO. Durante o projeto, adquiri experiência com:
 
 - ![Python](https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 - ![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi-C51A4A?style=for-the-badge&logo=Raspberry-Pi)
@@ -59,6 +59,7 @@ Essa seção possui os links para o arquivo README.md de cada Sprint, em que se 
 
 1. [Sprint 1](Sprint%201/README.md): Markdown, Git e Linux
 2. [Sprint 2](Sprint%202/README.md): Linguagem SQL e Introdução AWS
+3. [Sprint 3](Sprint%203/README.md): Python e Introdução AWS
 
 No decorrer do programa, serão inseridas as outras Sprints no repositório, além de seus respectivos arquivos.
 ___
