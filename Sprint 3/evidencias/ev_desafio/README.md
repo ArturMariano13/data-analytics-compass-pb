@@ -10,6 +10,7 @@ Como nunca havia tido contato com tratamento de dados, necessitei buscar materia
 Primeiramente fiz a leitura dos dados utilizando a biblioteca `pandas` e utilizando um *dataframe* conforme pode ser percebido em [Leitura csv](1_leitura.png).
 
 **TRATAMENTO**
+
 **1. Correção de tipos incorretos**
     - ***Reviews*:** É do tipo *string*, mas deve ser um valor inteiro.
         - [Verificando Reviews](1_tratamento_reviews1.png)
