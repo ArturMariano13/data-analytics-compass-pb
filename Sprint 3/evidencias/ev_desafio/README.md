@@ -12,30 +12,30 @@ Primeiramente fiz a leitura dos dados utilizando a biblioteca `pandas` e utiliza
 **TRATAMENTO**
 
 **1. Correção de tipos incorretos**
-    - ***Reviews*:** É do tipo *string*, mas deve ser um valor inteiro.
-        - [Verificando Reviews](1_tratamento_reviews1.png)
-        - [Erro na linha 10472](1_tratamento_reviews2.png)
-        - [Conversão de tipo Reviews](1_tratamento_reviews3.png)
-    - ***Size*:** É do tipo *string*, mas deve ser um valor *float*.
-        - [Verificando Size](1_tratamento_size1.png)
-        - [Corrigindo tipo Size](1_tratamento_size2.png)
-    - ***Installs*:** É do tipo *string*, mas deveria ser um valor inteiro.
-        - [Verificando Installs](1_tratamento_installs1.png)
-        - [Corrigindo campo](1_tratamento_installs2.png)
-    - ***Price*:** É do tipo *string*, mas deveria ser um valor *float*.
-        - [Verificando Price](1_tratamento_price1.png)
-        - [Corrigindo campo](1_tratamento_price2.png)
-    - ***Last Updated*:** É do tipo *string*, mas deveria ser do tipo *datetime*.
-        - [Verificação e correção Last Updated](1_tratamento_lastupdated.png)
+- ***Reviews*:** É do tipo *string*, mas deve ser um valor inteiro.
+    - [Verificando Reviews](1_tratamento_reviews1.png)
+    - [Erro na linha 10472](1_tratamento_reviews2.png)
+    - [Conversão de tipo Reviews](1_tratamento_reviews3.png)
+- ***Size*:** É do tipo *string*, mas deve ser um valor *float*.
+    - [Verificando Size](1_tratamento_size1.png)
+    - [Corrigindo tipo Size](1_tratamento_size2.png)
+- ***Installs*:** É do tipo *string*, mas deveria ser um valor inteiro.
+    - [Verificando Installs](1_tratamento_installs1.png)
+    - [Corrigindo campo](1_tratamento_installs2.png)
+- ***Price*:** É do tipo *string*, mas deveria ser um valor *float*.
+    - [Verificando Price](1_tratamento_price1.png)
+    - [Corrigindo campo](1_tratamento_price2.png)
+- ***Last Updated*:** É do tipo *string*, mas deveria ser do tipo *datetime*.
+    - [Verificação e correção Last Updated](1_tratamento_lastupdated.png)
 
 **2. Correção de dados *missing***
-    - [Identificação](1_tratamento_missing1.png)
-    - [Rating nulos](1_tratamento_missing_rating.png)
-    - [Size e Type nulos](1_tratamento_missing_size_type.png)
-    - [Current Ver & Android Ver](1_tratamento_missing_version.png)
+- [Identificação](1_tratamento_missing1.png)
+- [Rating nulos](1_tratamento_missing_rating.png)
+- [Size e Type nulos](1_tratamento_missing_size_type.png)
+- [Current Ver & Android Ver](1_tratamento_missing_version.png)
 
 **3. Eliminação de duplicados**
-    - [Remoção de duplicados](1_tratamento_nodups.png)
+- [Remoção de duplicados](1_tratamento_nodups.png)
 
 ### 2. Gráfico de barras com os top 5 apps por número de instalação
 Primeiramente, ordenei o *dataframe* de forma decrescente de acordo com o número de instalações. Após isso, armazenei em nova variável os 5 primeiros registros utilizando o `.head(5)`.
