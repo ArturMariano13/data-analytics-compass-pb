@@ -1,17 +1,15 @@
-# Evidências do desafio da Sprint 3
-Necessitei fazer o download das bibliotecas `pandas` e `matplotlib`, além da extensão do Jupyter para o VSCode. 
+# 📈 Evidências do desafio da Sprint 3
+Necessitei fazer o download das bibliotecas pandas e matplotlib, além da extensão do Jupyter para o VSCode. Como nunca havia tido contato com tratamento de dados, busquei materiais na web e contei com a ajuda da monitora Taise para me auxiliar nesse processo.
 
-Como nunca havia tido contato com tratamento de dados, necessitei buscar materiais na web que pudessem me auxiliar nesse processo. Além disso, a monitora Taise me ajudou bastante nesse processo.
-
-## Passo a passo
+## 🔍 Passo a passo
 ### 1. Leitura e Tratamento de Dados
-**LEITURA**
+**📝 LEITURA**
 
 Primeiramente fiz a leitura dos dados utilizando a biblioteca `pandas` e utilizando um *dataframe* conforme pode ser percebido em [Leitura csv](1_leitura.png).
 
-**TRATAMENTO**
+**🔧 TRATAMENTO**
 
-**1. Correção de tipos incorretos**
+**1.1 Correção de tipos incorretos**
 - ***Reviews*:** É do tipo *string*, mas deve ser um valor inteiro.
     - [Verificando Reviews](1_tratamento_reviews1.png)
     - [Erro na linha 10472](1_tratamento_reviews2.png)
@@ -28,17 +26,17 @@ Primeiramente fiz a leitura dos dados utilizando a biblioteca `pandas` e utiliza
 - ***Last Updated*:** É do tipo *string*, mas deveria ser do tipo *datetime*.
     - [Verificação e correção Last Updated](1_tratamento_lastupdated.png)
 
-**2. Correção de dados *missing***
+**1.2 Correção de dados *missing***
 - [Identificação](1_tratamento_missing1.png)
 - [Rating nulos](1_tratamento_missing_rating.png)
 - [Size e Type nulos](1_tratamento_missing_size_type.png)
 - [Current Ver & Android Ver](1_tratamento_missing_version.png)
 
-**3. Eliminação de duplicados**
+**1.3 Eliminação de duplicados**
 - [Remoção de duplicados](1_tratamento_nodups.png)
 
 ### 2. Gráfico de barras com os top 5 apps por número de instalação
-Primeiramente, ordenei o *dataframe* de forma decrescente de acordo com o número de instalações. Após isso, armazenei em nova variável os 5 primeiros registros utilizando o `.head(5)`.
+Primeiramente, ordenei o *dataframe* de forma decrescente de acordo com o número de instalações. Vale ressaltar que, realizando alguns testes, percebi a presença de diversos *apps* com a mesma quantidade de downloads dos top 5. Com isso, optei por realizar uma segunda ordenação, por ordem alfabética. Após isso, armazenei em nova variável os 5 primeiros registros utilizando o `.head(5)`.
 - [Código](ex2_codigo.png)
 - [Gráfico](ex2_grafico.png)
 
@@ -81,7 +79,9 @@ Esse gráfico faz uma comparação entre a avaliação (de 0 a 5) e o número de
 - [Código](ex8.2_codigo.png)
 - [Gráfico](ex8.2_grafico.png)
 
-### Links importantes utilizados
+### 🔗 Links importantes utilizados
 - [Biblioteca Pandas](https://www.w3schools.com/python/pandas/default.asp)
 - [Biblioteca Matplotlib](https://www.w3schools.com/python/matplotlib_pyplot.asp)
 - [Análise de Dados com Python](https://www.youtube.com/watch?v=gtjxAH8uaP0)
+
+### ↩️ [Retornar ao início](../../../README.md)

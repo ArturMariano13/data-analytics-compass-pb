@@ -1,4 +1,4 @@
-# Evidências dos Exercícios da Sprint 3
+# 📝 Evidências dos Exercícios da Sprint 3
 Este arquivo está dividido em duas partes, bem como os exercícios da sprint 3:
 1. Exercícios no ambiente da Udemy (práticos) - 25 exercícios
 2. Exercício proposto (ETL) - tratamento de arquivo *actors.csv*
@@ -172,3 +172,5 @@ Percebi uma inconsistência na linha 5 do arquivo csv, o que exigiu um tratament
 - [**Resultado etapas 1, 2 e 3**](etl_res1.png)
 - [**Resultado etapas 4 e 5**](etl_res2.png)
 - [**Código:**](../../exercicios/parte-2-etl/script.py)
+
+### ↩️ [Retornar ao início](../../../README.md)

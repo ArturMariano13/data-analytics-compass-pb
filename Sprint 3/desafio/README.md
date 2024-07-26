@@ -1,4 +1,4 @@
-# Desafio da Sprint 3
+# 🧩 Desafio da Sprint 3
 Este diretório contém os arquivos necessários para a realização do desafio desta Sprint.
 
 ## Enunciado
@@ -10,7 +10,7 @@ Devemos ler o arquivo de estatísticas da loja do Google [googleplaystore.csv](g
     - *matplotlib*
 - Utilizar *Jupyter Lab*
 
-### Tarefas
+### 📝 Tarefas
 1. Leitura e remoção de linhas duplicadas
 2. Gráfico de barras: top 5 *apps* por número de instalação
 3. Gráfico de pizza: categorias de *apps* existentes no dataset (frequência)
@@ -26,9 +26,13 @@ A explicação foi feita no próprio script do desafio, haja vista que o Jupyter
 
 Além disso, há uma explicação mais detalhada na seção de evidências: [Evidências Desafio](../evidencias/ev_desafio/README.md)
 
-### Código
+### 👨‍💻 Código
 - [Script](script.IPYNB)
 
-### Resultados
+### 📋 Resultados
 Podem ser observados no diretório de evidências, tanto os códigos quanto os gráficos gerados na execução do desafio.
 - [Evidências](../evidencias/ev_desafio/)
+
+___
+
+### ↩️ [Retornar ao início](../../README.md)
