@@ -19,6 +19,7 @@ ___
 - Python é uma linguagem **multi-paradigma**, não necessariamente funcional.
 - Paradigma funcional trabalha com dados imutáveis.
 - Deixar processamento para quando for realmente necessário (exemplo: *generator*, que gera elementos sob demanda).
+- Reduz linhas de código, possibilita reutilização de código.
 
 ### Capacidades implementadas
 - *First Class Functions*: consegue trabalhar funções como dados (uma variável pode armazenar uma função)
@@ -30,6 +31,90 @@ ___
 - *Lazy Evaluation*
 
 #### *First Class Functions*
+Capacidade de usar as funções como entidades de primeira classe, em variáveis por exemplo.
+```python
+#!/usr/bin/python3
+def dobro(x):
+    return x * 2
+def quadrado(x):
+    return x ** 2
+
+if __name__ == '__main__':
+    # Retornar alternadamente o dobro ou quadrado nos números de 1 a 10
+    funcs = [dobro, quadrado] * 5
+    for func, numero in zip(funcs, range(1, 11)):
+        print(f'O {func.__name__} de {numero} é {func(numero)}') 
+```
+
+#### *High Order Functions* 
+Capacidade de uma função de receber como parâmetro e/ou retornar outras funções.
+```python
+from first_class_functions import dobro, quadrado
+
+def process(titulo, lista, funcao):
+    print(f'Processando: {titulo}')
+    for i in lista:
+    print(i, '=>', funcao(i))
+
+if __name__ == '__main__':
+    process('Dobros de 1 a 10', range(1, 11), dobro)
+    process('Quadrados de 1 a 10', range(1, 11), quadrado) 
+```
+
+#### *Closure*
+Funções que podem ser aninhadas e ter acesso ao escopo da função na qual foi definida, inclusive impedindo o *Garbage Collector* de liberá-las.
+```python
+def multiplier(times):
+    def calc(x):
+        return x * times
+    return calc
+
+if __name__ == '__main__':
+    dobro = multiplier(2)
+    triplo = multiplier(3)
+    print(dobro, triplo)
+    print(f'O triplo de 3 é {triplo(3)}') # 9
+    print(f'O dobro de 7 é {dobro(7)}') # 14    
+    print(f'O dobro de 3 é {dobro(3)}') # 6
+```
+
+#### Funções anônimas *LAMBDA*
+São úteis quando precisamos de uma função simples, que será utilizada apenas uma vez e não precisa ser reutilizada em outro lugar do código.
+```python
+compras = (
+    {'quantidade': 2, 'preco': 10},
+    {'quantidade': 3, 'preco': 20},
+    {'quantidade': 5, 'preco': 14},
+)
+totais = tuple(
+    map(
+        lambda compra: compra['quantidade'] * compra['preco'],
+        compras
+    )
+)
+
+print('Preços totais:', list(totais))
+print('Total geral:', sum(totais))
+```
+
+#### Map
+- A função `map` aplica uma função a cada item de um iterável e retorna um iterador com os resultados transformados.
+- `map` retorna um iterador, então usamos `list()` para converter o resultado em uma lista.
+- `map` é útil para transformar dados de forma compacta e eficiente.
+
+#### Filter
+A função `filter` aplica uma função a cada item de um iterável e retorna um iterador que contém apenas os itens para os quais a função retorna *True*.
+
+#### Reduce
+- É usada para aplicar uma função específica, passada como argumento, a todos os elementos da lista mencionada na sequência fornecida.
+- A função pertence ao módulo *functools*.
+```python
+from functools import reduce
+```
+
+### Abordagem Imperativa
+- Manda como o computador deve ser feito.
+- Contrário à programação funcional.
 
 ## Docker para Desenvolvedores (Udemy) 🐳
 ### O que é? 🤔
