@@ -259,6 +259,15 @@ OBS.: especificar a porta e o nome no comando de execução
 **3º:** fazer um push novamente para o repositório.
 
 ### Volumes
+#### O que são?
+- Forma prática de persistir dados;
+- Todo dado criado por um container é salvo nele.
+- Precisaremos dos volumes para gerenciar os dados e também fazer **backups**.
 
+#### Tipos
+- **Anônimos**: diretórios criados pela flag `-v`, porém com nome aleatório.
+- **Nomeados**: volumes com nomes, podemos nos referir a eles facilmente.
+- **Bind mounts**: forma de salvar dados na nossa máquina, sem o gerenciamento do Docker, informando um diretório para este fim.
 
+**OBS.:** Volumes solucionam o problema da persistência: se criarmos um container com alguma imagem, todos os arquivos que geramos dentro dele serão do container. Quando ele for removido, perderemos esses arquivos. Para isso servem os **volumes**! 
 
