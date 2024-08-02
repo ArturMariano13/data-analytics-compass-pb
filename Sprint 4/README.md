@@ -268,6 +268,200 @@ OBS.: especificar a porta e o nome no comando de execução
 - **Anônimos**: diretórios criados pela flag `-v`, porém com nome aleatório.
 - **Nomeados**: volumes com nomes, podemos nos referir a eles facilmente.
 - **Bind mounts**: forma de salvar dados na nossa máquina, sem o gerenciamento do Docker, informando um diretório para este fim.
+    - Pode servir para atualizar os códigos em tempo real.
 
 **OBS.:** Volumes solucionam o problema da persistência: se criarmos um container com alguma imagem, todos os arquivos que geramos dentro dele serão do container. Quando ele for removido, perderemos esses arquivos. Para isso servem os **volumes**! 
+
+#### Criar um volume
+- `docker volume create <nome>`
+
+#### Listar volumes
+- `docker volume ls`
+- Tem-se acesso a todos os *named* e *anonymous* volumes.
+
+#### Checar um volume
+- `docker volume inspect <nome>`
+
+#### Remover um volume
+- `docker volume rm <nome>`
+- Remove também todos os dados.
+
+OBS.: remoção de volumes não utilizados: `docker volume prune`
+
+#### Volume apenas de leitura
+- Pouco utilizado, quando tiver bases de consulta.
+- `docker run -v volume:/data:ro`
+- `:ro` = *read only*.
+
+### Redes (*networks*)
+#### O que são?
+- Forma de **gerenciar a conexão do Docker** com outras plataformas ou até mesmo entre containers.
+- São criadas separadas dos containers.
+- Existem alguns **drivers de rede**.
+
+#### Tipos de conexão
+- **Externa:** conexão com uma API de um servidor remoto.
+- **Com o host:** comunicação com a máquina que está executando o Docker.
+- **Entre containers:** comunicação que utiliza o driver bridge e permite a comunicação entre containers.
+
+#### Tipos de rede
+- **Bridge:** *default* do Docker, utilizado quando containers precisam se conectar.
+- **host:** permite a conexão entre um container e a máquina que está hosteando o Docker.
+- **macvlan:** permite a conexão a um container por um MAC *address*.
+- **none:** remove todas as conexões de rede de um container.
+- **plugins:** permite extensões de terceiros para criar outras redes.
+
+#### Listando redes
+- `docker network ls`
+- Algumas redes já são criadas na configuração inicial do Docker.
+
+#### Criar rede
+- `docker network create <nome>`
+    - Essa rede será do tipo *bridge*, que é o **mais usado**.
+
+OBS.: Criar rede com driver diferente: `docker network create -d <nome-driver> <nome-rede>`
+
+#### Remover rede
+- `docker network rm <nome>`
+- Devemos tomar cuidados com containers já conectados.
+
+OBS.: remover redes **não utilizadas no momento**: `docker network prune`
+
+#### Conexão externa
+- Os containers podem se conectar livremente ao mundo externo.
+
+#### Conectar container a uma REDE
+- `docker network connect <rede> <container>`
+- DESCONECTAR: `docker network disconnect <rede> <container>`
+- INSPECIONAR: `docker network inspect <nome>`
+    - Informações como data de criação, driver, nome...
+
+### YAML
+- O Docker Compose utiliza o YAML para **configuração**.
+- ***YAML ain't Markup Language***
+- Usada geralmente para arquivos de configuração.
+- Possui **chaves** e **valores**.
+- **Não** necessita ponto e vírgula ';'.
+
+#### Comentários: **#**
+
+#### Tipos de dados
+- **Inteiros:** 12
+- **Floats:** 1.8
+
+#### Strings
+- Pode ser **com aspas** ou **sem aspas** => ambos textos válidos.
+
+#### Dados nulos
+- **~**
+- **null**
+- Ambos resultam em *None*
+
+#### Booleanos ✅❌
+- **True** e **On** = VERDADEIRO
+- **False** e **Off** = FALSO 
+
+#### *Arrays* (listas)
+- Em forma de lista: `[1, 2, 3, 4, 5]`
+- Em itens:
+    ```yaml
+    items:
+        - 1
+        - 2
+        - 3
+    ```
+
+#### Dicionários (objetos) 📚
+- Tipos de dados com chave: valor.
+- Como objeto: `obj: {a: 1, b: 2, c: 3}`
+- Ou:
+    ```yaml
+    objeto:
+        chave: 1
+        chave: 2 
+    ```
+
+### Docker Compose
+- Ferramenta para **rodar múltiplos containers**.
+- Possui UM arquivo de configuração, o qual orquestra tudo.
+- Forma de **rodar múltiplos *builds* e *runs* com um comando**.
+- Essencial em projetos maiores.
+
+#### Criar arquivo Compose
+- Criar um arquivo *docker-compose.yaml* na raiz do projeto.
+    - Arquivo que vai **coordenar os containers e imagens**.
+- *version*: versão do Compose
+- *services*: containers/serviços que vão rodar nessa aplicação.
+- *volumes*: possível adição de volumes.
+
+**EXEMPLO:**
+```yaml
+version: '3.3'
+
+services:
+    db:
+        image: mysql:5.7
+        volumes:
+            - db_data:/var/lib/mysql
+    restart: always
+    environment:
+        MYSQL_ROOT_PASSWORD: wordpress
+        MYSQL_DATABASE: wordpress
+        MYSQL_USER: fulano
+        MYSQL_PASSWORD: secret
+
+    wordpress:
+        depends_on:
+            - db
+        image: wordpress:latest
+        ports:
+            - "8000:80"
+        restart: always
+        environment: 
+            WORDPRESS_DB_HOST: db:3306
+            WORDPRESS_DB_USER: fulano
+            WORDPRESS_DB_PASSWORD: secret
+            WORDPRESS_DB_NAME: wordpress
+    volumes:
+        db_data: {}
+``` 
+
+#### Rodar o Compose
+- **Comando:** `docker-compose up`
+- Parar: "Ctrl + C"
+
+#### Rodar em background
+- Utiliza a flag `-d`.
+
+#### Parar um Compose
+- **Comando:** `docker-compose down`
+
+#### Variáveis de ambiente
+- Define-se um arquivo base **.env**.
+    - Define-se no .yaml a localização do **env_file**
+    ```yaml
+    env_file:
+        - ./config/arquivo.env
+    ```
+- Variáveis chamadas pela sintaxe: `${VARIAVEL}`
+- Útil **quando o dado a ser inserido é sensível/não pode ser compartilhado**.
+
+**EXEMPLO:** 
+```.env
+MYSQL_ROOT_PASSWORD=wordpress
+MYSQL_DATABASE=wordpress
+MYSQL_USER=fulano
+MYSQL_PASSWORD=secret
+```
+
+#### Redes no Compose
+- O Compose cria uma **rede básica** entre os containers da aplicação.
+- Podemos isolar as redes com a chave **network**.
+
+#### Verificação dos serviços do Compose
+- `docker-compose ps`
+- Recebemos um **resumo dos serviços que sobem** ao rodar o Compose.
+
+### Docker Swarm
+- Forma de **orquestrar containers**.
 
