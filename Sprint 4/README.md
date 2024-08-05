@@ -194,7 +194,7 @@ docker ps
 - **COPY:** quais arquivos precisam ser copiados
 
 #### Executando uma imagem
-- Para executar a imagem, primeiramenta vamos precisar fazer o *build*.
+- Para executar a imagem, primeiramente vamos precisar fazer o *build*.
 - **Comando *build*:** `docker build <diretório da imagem>`
 - **Comando EXECUÇÃO:** `docker run <imagem>`
 
@@ -463,5 +463,88 @@ MYSQL_PASSWORD=secret
 - Recebemos um **resumo dos serviços que sobem** ao rodar o Compose.
 
 ### Docker Swarm
-- Forma de **orquestrar containers**.
+- **Ferramenta** para **orquestrar containers**.
+- Podendo **escalar horizontalmente** os projetos.
+- **Cluster**.
+- Comandos semelhantes ao Docker.
+
+#### Orquestração de containers
+    - Ato de conseguir **gerenciar e escalar** os containers da aplicação.
+    - **Serviço que rege sobre outros serviços**.
+    - Exemplos de serviços: Swarm, Kubernetes e Apache Mesos.
+
+#### Conceitos fundamentais
+- **Nodes:** instâncias (máquinas) do Swarm.
+- **Manager Node:** node gerenciador.
+- **Worker Node:** nodes que trabalham em função do gerenciador.
+- **Service:** conjunto de tasks que o manager manda para os workers.
+- **Task:** comandos que são executados nos Nodes.
+
+#### Inicialização do Swarm
+- **Comando:** `docker swarm init`
+- Em alguns casos precisamos declarar o IP do servidor com a flag `--advertise-addr`
+- Faz com que a instância vire um *Node*.
+- Transforma o Node em um ***manager***.
+
+#### Listar Nodes ativos
+- **Comando:** `docker node ls`
+- Serviços serão exibidos no terminal.
+
+#### Adicionar máquinas
+- **Comando:** `docker swarm join --token <TOKEN> <IP>:<PORTA>`
+- Dessa forma, duas máquinas estarão conectadas.
+- A nova máquina entra como **worker**.
+
+
+
+___
+## AWS - Credenciamento Técnico
+### Modelos de implantação de computação em nuvem
+- Foco no que realmente importa.
+- Cada método de implantação provê diferentes níveis de **controle**, **flexibilidade** e **gerenciamento**.
+
+#### *On-premises*
+- Antes da nuvem, empresas mantinham equipamentos de computação em seus **próprios *data centers***.
+- Locação de **grandes departamentos de infraestrutura**.
+- Com o aumento do uso da **Internet**, a **demanda** por **recursos computacionais aumentou**. 
+- Surge assim a computação em nuvem.
+
+#### Nuvem
+- **Computação em Nuvem:** Entrega sob demanda de recursos de TI pela internet.
+- Principalmente baseado em **pagamento por uso**.
+- Empresas não precisam gerenciar e manter hardware e data centers próprios.
+- Empresas como Amazon Web Services (AWS) possuem e mantêm data centers.
+- Tecnologias e serviços de **data centers virtuais disponibilizados pela internet**.
+
+#### Híbrido
+- Conecta recursos e aplicações entre a nuvem e recursos existentes que não estão na nuvem.
+- Objetivo: Estender e expandir a infraestrutura de uma organização para a nuvem.
+
+### Vantagens da Computação em Nuvem
+- Pagamento conforme utilização de recursos.
+- Economia devido à grande escala de clientes.
+- Não necessita "adivinhar" os recursos necessários.
+- Aumento da agilidade.
+- Economia de custos.
+- Globalização.
+
+### Infraestrutura Global da AWS
+- *Data centers* interligados (*Availability Zones*).
+- Dividida em regiões (Oregon, São Paulo...).
+- Preço varia de região para região.
+- **Latência:** menor conforme mais perto da região acessada.
+- *Data centers* => *Availability Zones* => Regiões => Infraestrutura Global da AWS
+
+### Interação com a AWS
+**"Toda ação que se faz na AWS é uma chamada a uma API que é autenticada e autorizada."**
+
+#### Modos de interagir
+- *AWS Management Console*
+- *AWS Command Line Interface*
+- *AWS Software Development Kits*
+
+### 
+
+
+
 

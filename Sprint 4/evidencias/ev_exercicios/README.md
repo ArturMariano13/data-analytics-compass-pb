@@ -96,7 +96,7 @@ Sendo assim, necessitei readaptar meu arquivo desde a leitura até o print para 
 1- O arquivo CSV é aberto e lido. Cada linha é lida e separada em uma lista de strings, uma por linha.
 2- A função `processar_linha` divide a linha em colunas, extrai o nome e converte as notas para inteiros. Utiliza `calcular_media_maiores_notas` para encontrar as três maiores notas e a média. Retorna uma tupla com o nome, maiores notas e média.
 3- Usar `map` para aplicar `processar_linha` a cada linha do arquivo, resultando em uma lista de tuplas com os resultados. Em seguida, ordena a lista de tuplas por nome usando `sorted`.
-4- Usar `map` para aplicar uma função lambda que imprime o nome, as maiores notas e a média de cada estudante.
+4- Utilizar um laço *for* para percorrer e imprimir os estudantes, as notas e as médias.
 - [Código](../../exercicios/exer5.py)
 - [Evidência erro exer5](exer5_erro.png)
 - [Evidência exer5 correto](exer5.png)

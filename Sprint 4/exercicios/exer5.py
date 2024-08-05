@@ -1,23 +1,34 @@
-def calcular_media_maiores_notas(notas):
-    maiores_notas = sorted(notas, reverse=True)[:3]
-    media = round(sum(maiores_notas) / len(maiores_notas), 2)
-    return maiores_notas, media
-
-def processar_csv(arquivo_csv):
-    with open(arquivo_csv, mode='r') as file:
-        linhas = file.read().splitlines()
+# -*- coding: utf-8 -*-
+def processar_estudantes(arquivo_csv):
+    
+    def calcular_media_tres_maiores(notas):
+        maiores_notas = sorted(notas, reverse=True)[:3]
+        return round(sum(maiores_notas) / len(maiores_notas), 2)
         
     def processar_linha(linha):
-        colunas = linha.split(',')
-        nome = colunas[0]
-        notas = list(map(int, colunas[1:]))
-        maiores_notas, media = calcular_media_maiores_notas(notas)
-        return (nome, maiores_notas, media)
-    
-    estudantes = list(map(processar_linha, linhas))
-    
-    estudantes = sorted(estudantes, key=lambda x: x[0])
-    
-    _ = list(map(lambda estudante: print(f"Nome: {estudante[0]} Notas: {estudante[1]} Média: {estudante[2]}"), estudantes))
+        partes = linha.strip().split(',')
+        nome = partes[0]
+        notas = list(map(int, partes[1:]))
+        tres_maiores = sorted(notas, reverse=True)[:3]
+        media = calcular_media_tres_maiores(tres_maiores)
+        return {
+            'nome': nome,
+            'notas': tres_maiores,
+            'media': media
+        }
 
-processar_csv('estudantes.csv')
+    with open(arquivo_csv, 'r', encoding='utf-8') as file:
+        linhas = file.readlines()
+    
+    estudantes = map(processar_linha, linhas)
+    
+    resultados_ordenados = sorted(estudantes, key=lambda x: x['nome'])
+    
+    for estudante in resultados_ordenados:
+        nome = estudante['nome']
+        maiores_notas = estudante['notas']
+        media = estudante['media']
+        print(f"Nome: {nome} Notas: {maiores_notas} Média: {media}")
+
+filename = 'estudantes.csv'
+processar_estudantes(filename)
