@@ -1,2 +1,5 @@
 # Resposta da etapa II
 É possível reutilizar containers parados, o que pode ser útil para evitar a sobrecarga de criar e configurar novos containers sem necessidade. O comando necessário para realizar essa operação é `docker start <nome ou id do container>`.
+
+___
+### ↩️ [Retornar ao início](../../../README.md)

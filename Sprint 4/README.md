@@ -21,17 +21,9 @@ ___
 - Deixar processamento para quando for realmente necessário (exemplo: *generator*, que gera elementos sob demanda).
 - Reduz linhas de código, possibilita reutilização de código.
 
-### Capacidades implementadas
-- *First Class Functions*: consegue trabalhar funções como dados (uma variável pode armazenar uma função)
-- *High Order Functions*: funções podem receber outras como parâmetros, ou retornar uma outra função.
-- *Anonymous Functions*: sem nome => lambda
-- *Closure*
-- *Recursion*
-- *Immutability*: importante para uso de *threads*.
-- *Lazy Evaluation*
-
-#### *First Class Functions*
-Capacidade de usar as funções como entidades de primeira classe, em variáveis por exemplo.
+### *First Class Functions*
+- Consegue trabalhar **funções como dados** (uma **variável** pode armazenar uma função).
+- Capacidade de usar as funções como entidades de primeira classe, em variáveis por exemplo.
 ```python
 #!/usr/bin/python3
 def dobro(x):
@@ -46,8 +38,8 @@ if __name__ == '__main__':
         print(f'O {func.__name__} de {numero} é {func(numero)}') 
 ```
 
-#### *High Order Functions* 
-Capacidade de uma função de receber como parâmetro e/ou retornar outras funções.
+### *High Order Functions* 
+- Capacidade de uma função de **receber como parâmetro e/ou retornar outras funções**.
 ```python
 from first_class_functions import dobro, quadrado
 
@@ -61,7 +53,7 @@ if __name__ == '__main__':
     process('Quadrados de 1 a 10', range(1, 11), quadrado) 
 ```
 
-#### *Closure*
+### *Closure*
 Funções que podem ser aninhadas e ter acesso ao escopo da função na qual foi definida, inclusive impedindo o *Garbage Collector* de liberá-las.
 ```python
 def multiplier(times):
@@ -78,7 +70,7 @@ if __name__ == '__main__':
     print(f'O dobro de 3 é {dobro(3)}') # 6
 ```
 
-#### Funções anônimas *LAMBDA*
+### Funções anônimas *LAMBDA*
 São úteis quando precisamos de uma função simples, que será utilizada apenas uma vez e não precisa ser reutilizada em outro lugar do código.
 ```python
 compras = (
@@ -97,15 +89,15 @@ print('Preços totais:', list(totais))
 print('Total geral:', sum(totais))
 ```
 
-#### Map
+### Map
 - A função `map` aplica uma função a cada item de um iterável e retorna um iterador com os resultados transformados.
 - `map` retorna um iterador, então usamos `list()` para converter o resultado em uma lista.
 - `map` é útil para transformar dados de forma compacta e eficiente.
 
-#### Filter
+### Filter
 A função `filter` aplica uma função a cada item de um iterável e retorna um iterador que contém apenas os itens para os quais a função retorna *True*.
 
-#### Reduce
+### Reduce
 - É usada para aplicar uma função específica, passada como argumento, a todos os elementos da lista mencionada na sequência fornecida.
 - A função pertence ao módulo *functools*.
 ```python
@@ -116,8 +108,10 @@ from functools import reduce
 - Manda como o computador deve ser feito.
 - Contrário à programação funcional.
 
+___
+
 ## Docker para Desenvolvedores (Udemy) 🐳
-### O que é? 🤔
+### O QUE É? 🤔
 - Docker é uma plataforma que reduz a complexidade de configuração e setup de aplicações.
 - Utiliza **containers**, que são ambientes isolados para rodar aplicações.
 - Permite criar **ambientes independentes** que funcionam em diversos sistemas operacionais.
@@ -125,7 +119,7 @@ from functools import reduce
 - Reduz o tempo gasto em manutenção e resolução de problemas relacionados a dependências e configuração.
 - É **similar a uma máquina virtual (VM)**, mas é mais leve, pois não executa um sistema operacional completo, apenas o necessário para rodar a aplicação.
 
-### Containers 🧱
+### CONTAINERS 🧱
 - São **pacotes de código que podem executar uma ação**, por exemplo: rodar uma aplicação de Node.js, PHP, Python...
 - Utilizam imagens para poderem ser executados.
 - Múltiplos containers podem rodar juntos.
@@ -135,136 +129,138 @@ from functools import reduce
     - **Container:** é o Docker rodando alguma imagem (executando algum código).
     - O fluxo é: criar uma imagem e, em seguida, executar um container a partir dessa imagem.
 
-#### Executar uma imagem:
+### Executar uma imagem:
 ```shell
 docker run <imagem>
 ```
 
-#### Verificar containers executados
+### Verificar containers executados
 ```shell
 docker ps
 # mostra todos os containers rodando
 ```
 - `-a`: mostra todos os containers que já rodaram.
 
-#### Executar com interação
+### Executar com interação
 - Aloca o terminal para a execução daquele container.
 - **Comando:** `docker run -it <imagem>`
 
-#### Executar em *background*
+### Executar em *background*
 - Utilizar a flag `-d`.
 - **Comando:** `docker run -d <imagem>`
 
-#### Expor portas de container
+### Expor portas de container
 - Utilizar a flag `-p`.
 - **Exemplo:** `docker run -d -p 80:80 <imagem>` => nesse caso, o container rodará em background na porta 80.
 
-#### Parar containers
+### Parar containers
 - Libera recursos que estão sendo gastos pelo mesmo.
 - **Comando:** `docker stop <id ou nome>`
 
-#### Reiniciando containers
+### Reiniciando containers
 - Caso seja necessário aproveitar um antigo, optar pelo `start`.
 - **Comando:** `docker start <id>`
 - Pode-se utilizar a flag `-i` para reiniciar no modo interativo.
 
-#### Definindo nome do container
+### Definindo nome do container
 - Se não utilizar, o docker dá um nome aleatório.
 - **Comando:** `docker run --name <nome> <imagem>`
 
-#### Verificando logs
+### Verificando logs
 - Podemos **verificar o que aconteceu** em um container.
 - **Comando:** `docker logs <id>`
 
-#### Removendo containers
+### Removendo containers
 - O container removido não é mais listado em `docker ps -a`.
 - **Comando:** `docker rm <id>`
 - A flag -f pode forçar a remoção.
 
-### Imagem 🖼️
+
+
+### IMAGEM 🖼️
 - São **originadas de arquivos que programamos** para que o Docker crie uma estrutura que execute determinadas ações em containers.
 - Elas contêm informações como: imagens base, diretório base, comandos a serem executados, porta de aplicação, etc.
 - Ao executar um container baseado na imagem, as **instruções serão executadas em camadas**.
 
-#### Criando uma imagem
+### Criando uma imagem
 - Precisaremos de um arquivo **Dockerfile**.
 - **FROM:** imagem base
 - **WORKDIR:** diretório de aplicação
 - **EXPOSE:** porta da aplicação
 - **COPY:** quais arquivos precisam ser copiados
 
-#### Executando uma imagem
+### Executando uma imagem
 - Para executar a imagem, primeiramente vamos precisar fazer o *build*.
 - **Comando *build*:** `docker build <diretório da imagem>`
 - **Comando EXECUÇÃO:** `docker run <imagem>`
 
 OBS.: especificar a porta e o nome no comando de execução
 
-#### Alterando uma imagem
+### Alterando uma imagem
 - Sempre que alteramos o código de uma imagem, vamos precisar **fazer o *build* novamente**.
 - O docker interpreta como uma imagem nova => novo id.
 
-#### Camadas das imagens
+### Camadas das imagens
 - As imagens do Docker são divididas em **camadas**.
 - Cada instrução do Dockerfile representa uma camada.
 - Quando algo é atualizado, apenas as layers depois da linha atualizada são refeitas.
 
-#### Download de imagens
+### Download de imagens
 - Podemos fazer o download de alguma imagem do hub e deixá-la em nosso ambiente.
 - **Comando:** `docker pull <imagem>`
 
-#### Alterando o nome da imagem e tag
+### Alterando o nome da imagem e tag
 - Podemos nomear a imagem que criamos.
 - **Comando:** `docker tag <nome>`
 
-#### Removendo imagens
+### Removendo imagens
 - **Comando:** `docker rmi <id>`
 - Obs.: pode-se forçar a execução também: `-f`
 
-#### Removendo imagens e containers
+### Removendo imagens e containers
 - Podemos remover imagens, containers e networks não utilizados
 - `docker system prune`
 
-#### Remover após usar
+### Remover após usar
 - **Comando:** `docker run -rm <container>`
 
-#### Copiando arquivos entre containers
+### Copiando arquivos entre containers
 - Pode ser utilizado para copiar um arquivo de um diretório para um container;
 - Ou de um container para um diretório determinado.
 - **Comando:** `docker cp`
 
-#### Verificar informações de processamento
+### Verificar informações de processamento
 - Podemos ter acesso a quando ele foi iniciado, id do processo, descrição do comando CMD.
 - **Comando:** `docker top <container>`
 
-#### Inspecionando container
+### Inspecionando container
 - Conseguimos entender como o container está configurado.
 - **Comando:** `docker inspect <container>`
 
-#### Autenticação no Docker Hub
+### Autenticação no Docker Hub
 - Serve para poder enviar imagens para o Docker Hub.
 - `docker login` no terminal
 - **Logout:** `docker logout`
 
-#### Envio de imagens no Docker Hub
+### Envio de imagens no Docker Hub
 - Para enviar uma imagem nossa ao Docker Hub utilizamos o comando `docker push <imagem>`.
 - Antes é necessário **criar o repositório** para a mesma no site do Hub.
 - Necessário estar autenticado.
 
-#### Utilizando uma imagem nossa
+### Utilizando uma imagem nossa
 **1º:** fazer o build;
 
 **2º:** trocar a tag da imagem para a versão atualizada;
 
 **3º:** fazer um push novamente para o repositório.
 
-### Volumes
-#### O que são?
+### VOLUMES
+### O que são?
 - Forma prática de persistir dados;
 - Todo dado criado por um container é salvo nele.
 - Precisaremos dos volumes para gerenciar os dados e também fazer **backups**.
 
-#### Tipos
+### Tipos
 - **Anônimos**: diretórios criados pela flag `-v`, porém com nome aleatório.
 - **Nomeados**: volumes com nomes, podemos nos referir a eles facilmente.
 - **Bind mounts**: forma de salvar dados na nossa máquina, sem o gerenciamento do Docker, informando um diretório para este fim.
@@ -272,65 +268,65 @@ OBS.: especificar a porta e o nome no comando de execução
 
 **OBS.:** Volumes solucionam o problema da persistência: se criarmos um container com alguma imagem, todos os arquivos que geramos dentro dele serão do container. Quando ele for removido, perderemos esses arquivos. Para isso servem os **volumes**! 
 
-#### Criar um volume
+### Criar um volume
 - `docker volume create <nome>`
 
-#### Listar volumes
+### Listar volumes
 - `docker volume ls`
 - Tem-se acesso a todos os *named* e *anonymous* volumes.
 
-#### Checar um volume
+### Checar um volume
 - `docker volume inspect <nome>`
 
-#### Remover um volume
+### Remover um volume
 - `docker volume rm <nome>`
 - Remove também todos os dados.
 
 OBS.: remoção de volumes não utilizados: `docker volume prune`
 
-#### Volume apenas de leitura
+### Volume apenas de leitura
 - Pouco utilizado, quando tiver bases de consulta.
 - `docker run -v volume:/data:ro`
 - `:ro` = *read only*.
 
-### Redes (*networks*)
-#### O que são?
+### REDES (*networks*)
+### O que são?
 - Forma de **gerenciar a conexão do Docker** com outras plataformas ou até mesmo entre containers.
 - São criadas separadas dos containers.
 - Existem alguns **drivers de rede**.
 
-#### Tipos de conexão
+### Tipos de conexão
 - **Externa:** conexão com uma API de um servidor remoto.
 - **Com o host:** comunicação com a máquina que está executando o Docker.
 - **Entre containers:** comunicação que utiliza o driver bridge e permite a comunicação entre containers.
 
-#### Tipos de rede
+### Tipos de rede
 - **Bridge:** *default* do Docker, utilizado quando containers precisam se conectar.
 - **host:** permite a conexão entre um container e a máquina que está hosteando o Docker.
 - **macvlan:** permite a conexão a um container por um MAC *address*.
 - **none:** remove todas as conexões de rede de um container.
 - **plugins:** permite extensões de terceiros para criar outras redes.
 
-#### Listando redes
+### Listando redes
 - `docker network ls`
 - Algumas redes já são criadas na configuração inicial do Docker.
 
-#### Criar rede
+### Criar rede
 - `docker network create <nome>`
     - Essa rede será do tipo *bridge*, que é o **mais usado**.
 
 OBS.: Criar rede com driver diferente: `docker network create -d <nome-driver> <nome-rede>`
 
-#### Remover rede
+### Remover rede
 - `docker network rm <nome>`
 - Devemos tomar cuidados com containers já conectados.
 
 OBS.: remover redes **não utilizadas no momento**: `docker network prune`
 
-#### Conexão externa
+### Conexão externa
 - Os containers podem se conectar livremente ao mundo externo.
 
-#### Conectar container a uma REDE
+### Conectar container a uma REDE
 - `docker network connect <rede> <container>`
 - DESCONECTAR: `docker network disconnect <rede> <container>`
 - INSPECIONAR: `docker network inspect <nome>`
@@ -343,25 +339,25 @@ OBS.: remover redes **não utilizadas no momento**: `docker network prune`
 - Possui **chaves** e **valores**.
 - **Não** necessita ponto e vírgula ';'.
 
-#### Comentários: **#**
+### Comentários: **#**
 
-#### Tipos de dados
+### Tipos de dados
 - **Inteiros:** 12
 - **Floats:** 1.8
 
-#### Strings
+### Strings
 - Pode ser **com aspas** ou **sem aspas** => ambos textos válidos.
 
-#### Dados nulos
+### Dados nulos
 - **~**
 - **null**
 - Ambos resultam em *None*
 
-#### Booleanos ✅❌
+### Booleanos ✅❌
 - **True** e **On** = VERDADEIRO
 - **False** e **Off** = FALSO 
 
-#### *Arrays* (listas)
+### *Arrays* (listas)
 - Em forma de lista: `[1, 2, 3, 4, 5]`
 - Em itens:
     ```yaml
@@ -371,7 +367,7 @@ OBS.: remover redes **não utilizadas no momento**: `docker network prune`
         - 3
     ```
 
-#### Dicionários (objetos) 📚
+### Dicionários (objetos) 📚
 - Tipos de dados com chave: valor.
 - Como objeto: `obj: {a: 1, b: 2, c: 3}`
 - Ou:
@@ -381,13 +377,13 @@ OBS.: remover redes **não utilizadas no momento**: `docker network prune`
         chave: 2 
     ```
 
-### Docker Compose
+### *DOCKER COMPOSE*
 - Ferramenta para **rodar múltiplos containers**.
 - Possui UM arquivo de configuração, o qual orquestra tudo.
 - Forma de **rodar múltiplos *builds* e *runs* com um comando**.
 - Essencial em projetos maiores.
 
-#### Criar arquivo Compose
+### Criar arquivo Compose
 - Criar um arquivo *docker-compose.yaml* na raiz do projeto.
     - Arquivo que vai **coordenar os containers e imagens**.
 - *version*: versão do Compose
@@ -426,17 +422,17 @@ services:
         db_data: {}
 ``` 
 
-#### Rodar o Compose
+### Rodar o Compose
 - **Comando:** `docker-compose up`
 - Parar: "Ctrl + C"
 
-#### Rodar em background
+### Rodar em background
 - Utiliza a flag `-d`.
 
-#### Parar um Compose
+### Parar um Compose
 - **Comando:** `docker-compose down`
 
-#### Variáveis de ambiente
+### Variáveis de ambiente
 - Define-se um arquivo base **.env**.
     - Define-se no .yaml a localização do **env_file**
     ```yaml
@@ -454,43 +450,43 @@ MYSQL_USER=fulano
 MYSQL_PASSWORD=secret
 ```
 
-#### Redes no Compose
+### Redes no Compose
 - O Compose cria uma **rede básica** entre os containers da aplicação.
 - Podemos isolar as redes com a chave **network**.
 
-#### Verificação dos serviços do Compose
+### Verificação dos serviços do Compose
 - `docker-compose ps`
 - Recebemos um **resumo dos serviços que sobem** ao rodar o Compose.
 
-### Docker Swarm
+### *DOCKER SWARM*
 - **Ferramenta** para **orquestrar containers**.
 - Podendo **escalar horizontalmente** os projetos.
 - **Cluster**.
 - Comandos semelhantes ao Docker.
 
-#### Orquestração de containers
+### Orquestração de containers
     - Ato de conseguir **gerenciar e escalar** os containers da aplicação.
     - **Serviço que rege sobre outros serviços**.
     - Exemplos de serviços: Swarm, Kubernetes e Apache Mesos.
 
-#### Conceitos fundamentais
+### Conceitos fundamentais
 - **Nodes:** instâncias (máquinas) do Swarm.
 - **Manager Node:** node gerenciador.
 - **Worker Node:** nodes que trabalham em função do gerenciador.
 - **Service:** conjunto de tasks que o manager manda para os workers.
 - **Task:** comandos que são executados nos Nodes.
 
-#### Inicialização do Swarm
+### Inicialização do Swarm
 - **Comando:** `docker swarm init`
 - Em alguns casos precisamos declarar o IP do servidor com a flag `--advertise-addr`
 - Faz com que a instância vire um *Node*.
 - Transforma o Node em um ***manager***.
 
-#### Listar Nodes ativos
+### Listar Nodes ativos
 - **Comando:** `docker node ls`
 - Serviços serão exibidos no terminal.
 
-#### Adicionar máquinas
+### Adicionar máquinas
 - **Comando:** `docker swarm join --token <TOKEN> <IP>:<PORTA>`
 - Dessa forma, duas máquinas estarão conectadas.
 - A nova máquina entra como **worker**.
@@ -499,28 +495,28 @@ MYSQL_PASSWORD=secret
 
 ___
 ## AWS - Credenciamento Técnico
-### Modelos de implantação de computação em nuvem
+### MODELOS DE IMPLEMENTAÇÃO DA COMPUTAÇÃO EM NUVEM
 - Foco no que realmente importa.
 - Cada método de implantação provê diferentes níveis de **controle**, **flexibilidade** e **gerenciamento**.
 
-#### *On-premises*
+### *On-premises* 🏢
 - Antes da nuvem, empresas mantinham equipamentos de computação em seus **próprios *data centers***.
 - Locação de **grandes departamentos de infraestrutura**.
 - Com o aumento do uso da **Internet**, a **demanda** por **recursos computacionais aumentou**. 
 - Surge assim a computação em nuvem.
 
-#### Nuvem
+### Nuvem ☁️
 - **Computação em Nuvem:** Entrega sob demanda de recursos de TI pela internet.
 - Principalmente baseado em **pagamento por uso**.
 - Empresas não precisam gerenciar e manter hardware e data centers próprios.
 - Empresas como Amazon Web Services (AWS) possuem e mantêm data centers.
 - Tecnologias e serviços de **data centers virtuais disponibilizados pela internet**.
 
-#### Híbrido
+### Híbrido 🏢☁️
 - Conecta recursos e aplicações entre a nuvem e recursos existentes que não estão na nuvem.
 - Objetivo: Estender e expandir a infraestrutura de uma organização para a nuvem.
 
-### Vantagens da Computação em Nuvem
+### Vantagens
 - Pagamento conforme utilização de recursos.
 - Economia devido à grande escala de clientes.
 - Não necessita "adivinhar" os recursos necessários.
@@ -535,16 +531,124 @@ ___
 - **Latência:** menor conforme mais perto da região acessada.
 - *Data centers* => *Availability Zones* => Regiões => Infraestrutura Global da AWS
 
-### Interação com a AWS
-**"Toda ação que se faz na AWS é uma chamada a uma API que é autenticada e autorizada."**
+### Interação com a AWS: **"Toda ação que se faz na AWS é uma chamada a uma API que é autenticada e autorizada."**
 
-#### Modos de interagir
+### Modos de interagir
 - *AWS Management Console*
 - *AWS Command Line Interface*
 - *AWS Software Development Kits*
 
-### 
 
 
+___
+## Estatística Descritiva Com Python
+### Bibliotecas utilizadas para Estatística
+- [Numpy](https://www.numpy.org/): análise numérica, álgebra linear...
+- [RPy](http://rpy.sourceforge.net): linkar linguagem R com Python.
+- [Scipy](http://www.scipy.org/)
+- [PyChem](http://pychem.sourceforge.net/)
+- [Pandas](https://pandas.pydata.org/): Excel para o Python
+- [Matplotlib](https://matplotlib.org/): geração de gráficos
+- [Seaborn](https://seaborn.pydata.org/): gráficos
+
+### Estatística
+- Ciência utilizada para medir.
+
+### Fundamentos
+
+- **Aleatoriedade**
+- **População:** Todos os elementos ou indivíduos cujas características estão sendo estudadas.
+- **Censo:** Conjunto de características obtidas de todos os membros da população.
+- **Amostra:** Parte coletada a partir da população.
+
+### Gráficos
+
+Os gráficos são ferramentas essenciais para a visualização de dados. Eles:
+
+- Representam fenômenos de forma visual.
+- Refletem padrões gerais dos dados.
+- Facilitam a interpretação dos dados.
+- Resumem informações complexas.
+- Evidenciam tendências, valores mínimos e máximos, ordens de grandeza, entre outros aspectos.
+
+**Todo gráfico deve seguir os princípios de:**
+
+- **Simplicidade:** Deve ser fácil de entender.
+- **Clareza:** Deve transmitir a informação de forma clara e objetiva.
+- **Veracidade:** Deve representar os dados de forma precisa e honesta.
+
+**Perguntas importantes ao criar um gráfico:**
+
+- Qual é o público-alvo?
+- Qual é o objetivo do gráfico?
+- Que tipo de gráfico é mais apropriado?
+- Como o gráfico deve ser apresentado?
+- Quais são as dimensões ideais para o gráfico?
+
+### Gráficos de Barras
+
+Os gráficos de barras são usados para:
+
+- Representar variáveis **qualitativas**.
+- Utilizar retângulos horizontais ou verticais de larguras iguais para cada categoria.
+
+**Objetivos dos gráficos de barras:**
+
+- Comparar **grandezas** entre **categorias**.
+- Representar categorias com designações extensas.
+
+**Exemplo de gráfico de barras:**
+
+```html
+<div>
+  <h3>Gráfico de Barras</h3>
+  <p>Este gráfico representa comparações entre diferentes países no consumo de café.</p>
+  <img src="https://lh6.googleusercontent.com/UCBf_VFVBLaFip879NWf2OM_TcajKG9JQE5azVoAzfolB0DGgqm4YiThR97R87z9_QGeQ9Ziobe2BmP1xEd6B7UtaZLuoAUkwqxFZaDyVOD9jgUncp_Dy4vZqjfmH6vxJ93uRTAa" alt="Gráfico de Barras">
+</div>
+```
+
+### Gráficos de Setores (Pizza)
+- Comparar valor da categoria específica com o total.
+- Número de categorias pequeno.
+
+**Exemplo de gráfico de setores:**
+
+```html
+<div>
+  <h3>Gráfico de Setores</h3>
+  <img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/conteudo/Untitled-6(14).jpg" alt="Gráfico de Setores">
+</div>
+```
+
+### Gráficos de Linhas
+- Gráficos de séries cronológicas.
+- Indicados para representar séries temporais.
+
+**Exemplo de gráfico de linhas:**
+
+```html
+<div>
+  <h3>Gráfico de Linhas</h3>
+  <img src="https://i.pinimg.com/736x/2e/10/cd/2e10cdca310e5ff1c413da07dee0000e.jpg" alt="Gráfico de Linhas">
+</div>
+```
+
+### Histogramas
+- Colunas justapostas para representar distribuição de frequência em dados.
+- Eixo horizontal possui os limites das classes de agrupamento.
+
+**Exemplo de histograma:**
+
+```html
+<div>
+  <h3>Histograma</h3>
+  <img src="https://leansixsigmabrasil.com.br/site/wp-content/uploads/2020/01/Exemplo-de-histograma-de-temperatura.jpg" alt="Histograma">
+</div>
+```
+
+### Medidas de Tendência Central (MTC)
+- Indicam um ponto em torno do qual se concentram os dados.
 
 
+___
+### ↩️ [Retornar ao início](../README.md)

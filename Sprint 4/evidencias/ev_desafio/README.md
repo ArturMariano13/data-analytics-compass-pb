@@ -27,3 +27,29 @@
 - [Resposta](../../desafio/etapa-2/README.md)
 
 ### 3. Etapa 3
+**0. Preparação**
+- Verificação se o Docker está em execução no seu sistema `docker info`.
+
+**1. Script Python**
+- Um script Python que recebe uma string, gera o hash SHA-1 da string e imprime o resultado.
+- Biblioteca *hashlib*, a qual oferece uma interface simples e direta para a criação de hashes usando vários algoritmos de hash, incluindo SHA-1. 
+
+**2. Criação do Dockerfile**
+- `FROM`: Utiliza a imagem base python:3.10-slim, que é uma versão leve do Python 3.10.
+- `WORKDIR`: Define o diretório de trabalho dentro do container como /app.
+- `COPY`: Copia o arquivo mascarar_dados.py do diretório onde o Dockerfile está localizado para o diretório /app no container.
+- `CMD`: Define o comando a ser executado quando o container iniciar, que é python mascarar_dados.py.
+
+**3. Build da imagem**
+- Comando: `docker build -t mascarar-dados .`
+    - `-t mascarar-dados`: Adiciona a tag mascarar-dados à imagem.
+    - `.`: O ponto indica o diretório atual como o contexto de build.
+
+**4. Execução container**
+- Comando: `docker run --name mascarar-dados-container -it mascarar-dados`
+    - `--name mascarar-dados-container`: Define o nome do container.
+    - `-it`: Permite **interação** com o terminal (modo interativo), essencial para enviar strings ao script.
+    - *mascarar-dados*: Nome da imagem a ser usada para criar e executar o container.
+
+___
+### ↩️ [Retornar ao início](../../../README.md)
