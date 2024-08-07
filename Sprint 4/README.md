@@ -483,14 +483,167 @@ MYSQL_PASSWORD=secret
 - Transforma o Node em um ***manager***.
 
 ### Listar Nodes ativos
-- **Comando:** `docker node ls`
+`docker node ls`
 - Serviços serão exibidos no terminal.
 
 ### Adicionar máquinas
-- **Comando:** `docker swarm join --token <TOKEN> <IP>:<PORTA>`
+`docker swarm join --token <TOKEN> <IP>:<PORTA>`
 - Dessa forma, duas máquinas estarão conectadas.
 - A nova máquina entra como **worker**.
 
+### Subir serviço
+`docker service create --name <nome> <imagem>`
+
+### Verificar serviços rodando no Swarm
+`docker service ls`
+
+### Replicando serviços
+`docker service create --name <nome> --replicas <numero> <imagem>`
+- Inicia-se, de fato, a **orquestração**.
+
+### Checar token do Swarm
+`docker swarm join-token manager`
+- Recebemos o token pelo terminal.
+
+### Checar Swarm
+`docker info`
+- ID node, número nodes, managers...
+
+### Remover instância do Swarm
+`docker swarm leave`
+- A inastância não é mais um entendido como Node para o Swarm.
+
+### Remover Node do Swarm
+`docker node rm <ID>`
+- A instância não será mais um Node, saindo do Swarm
+- Utilizar `-f`
+
+### Inspecionar serviços
+`docker service inspect <ID>`
+
+### Verificar containers rodando
+`docker service ps <ID>`
+- Semelhante ao *docker ps -a*
+
+### Compose com Swarm
+`docker stack deploy -c <ARQUIVO.YAML> <NOME>`
+
+### Atualizar Imagem
+`docker service update --image <IMAGEM> <SERVICO>`
+- Apenas os nodes com status *active* receberão atualizações.
+
+### KUBERNETES
+- Ferramenta de orquestração de containers.
+- Escala projetos, formando um **cluster**.
+- Criada pelo Google.
+
+### Conceitos Fundamentais
+- ***Control Plane:*** onde é gerenciado o controle dos processos dos Nodes.
+- ***Nodes*:** máquinas gerenciadas pelo *Control Plane*.
+- ***Deployment*:** execução de uma imagem/projeto em um Pod.
+- ***Pod*:** um ou mais containers que estão em um *Node*.
+- ***Services*:** serviços que expõem os Pods ao mundo externo.
+- ***kubectl*:** cliente de linha de comando para o Kubernetes.
+
+### Dependências necessárias
+- Cliente: *kubectl* = maneira de executar o Kubernetes
+- ***Minikube*:** espécie de simulador de Kubernetes para não precisarmos de vários servidores.
+- **No Windows:** 
+    - Instalar gerenciador de pacotes **Chocolatey**
+    - Seguir a documentação de instalação de *client* do Kubernetes.
+    - Instalar o VirtualBox.
+    - Instalar *Minikube*.
+
+
+### Minikube
+**Inicializar**: `minikube start --driver=<DRIVER>`
+
+**Parar:** `minikube stop`
+
+**Verificar:** `minikube start`
+
+**Acessar a dashboard:** `minikube dashboard`
+
+### Deployment
+- Parte fundamental do Kubernetes.
+- Com ele criamos nosso serviço que vai rodar nos **Pods**.
+- Definimos uma imagem e um nome.
+
+- **Criar Deployment:** `kubectl create deployment <NOME> --image=<IMAGEM>`
+- **Verificar Deployments:** `kubectl get deployments` | `kubectl describe deployments`
+- **Deletar Deployments:** `kubectl delete deployment <NOME>`
+
+- **Checar Pods:** `kubectl get pods` | `kubectl describe pods`
+
+- **Desfazer alteração de projeto:** `kubectl rollout undo deployment/<NOME>`
+
+### Services
+- Aplicações do Kubernetes não têm conexão com o mundo externo.
+- *Service* servem para isso.
+- Service é uma entidade separada dos Pods, que **expõe eles a uma rede**.
+
+- **Criar Service:** `kubectl expose deployment <NOME> --type=<TIPO> --port=<PORT>`
+    - Nome do deployment já criado
+- **Gerar IP:** `minikube service <NOME>` - o IP aparece no terminal.
+- **Deletar Services:** `kubectl delete service <NOME>`
+
+- **Detalhes:**
+    - Obter detalhes: `kubectl get services`
+    - Descrever um serviço específico: `kubectl describe services/<NOME>`
+
+### Modo Declarativo
+- Guiado por um **arquivo**
+- Centraliza tudo em **um comando.**
+- Escrevemos em YAML o arquivo Kubernetes.
+- **Chaves mais utilizadas:**
+    - ***apiVersion***: versão utilizada da ferramenta.
+    - ***kind***: tipo do arquivo (Deployment, Service).
+    - ***metadata***: descrever algum objeto, inserindo chaves como *name*.
+    - ***replicas***: número de réplicas de Nodes/Pods.
+    - ***containers***: definir as especificações de containers como: nome e imagem.
+
+- **Criando arquivo p/ Deployment:**
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+    name: <nome-do-deployment>
+spec:
+    replicas: 4
+    selector:
+        matchLabels:
+            app: flask-app
+    template:
+        metadata:
+            labels:
+                app: flask-app
+        spec:
+            containers:
+                - name: flask
+                  image: <nome-da-imagem> 
+```
+
+- **Executar arquivo:** `kubectl apply -f <arquivo>`
+- **Parar deployment:** `kubectl delete -f <arquivo>`
+
+- **Criando arquivo p/ Service:**
+```yaml
+apiVersion: v1
+kind: Service
+metadata: 
+    name: <nome-do-service>
+spec:
+    selector:
+        app: flask-app
+    ports:
+        - protocol: 'TCP'
+          port: 5000
+          targetPort: 5000
+    type: LoadBalancer
+```
+
+- **Executar arquivo:** `kubectl apply -f <arquivo>`
+- **Parar serviço (perde acesso):** `kubectl delete -f <arquivo>`
 
 
 ___

@@ -3,7 +3,7 @@
     - [Script](mascarar-dados.py)
     - [Dockerfile](Dockerfile)
 
-- Comandos:
+- Comandos para executar:
     - ***Build* imagem:** `docker build -t mascarar-dados .`
     - **Execução container:** `docker run --name mascarar-dados-container -it mascarar-dados`   
 
