@@ -691,7 +691,98 @@ ___
 - *AWS Command Line Interface*
 - *AWS Software Development Kits*
 
+### Cloud Adoption Framework (AWS CAF)
+- O **AWS Cloud Adoption Framework (AWS CAF)** é uma estrutura criada pela AWS para auxiliar organizações na migração para a nuvem.
+- O objetivo é ajudar os clientes a formular uma estratégia completa para a nuvem e a realizar a transição de forma eficiente.
 
+### Importância da Nuvem
+
+- Um estudo da McKinsey projeta que a nuvem gerará mais de **US$ 1 trilhão** para empresas da Fortune 500 até 2030.
+
+### Fases do AWS CAF
+
+**1. Concepção**
+
+- **Objetivo:** Criar uma base sólida para a estratégia de nuvem, conectando metas de negócios às tecnologias e priorizando iniciativas.
+- **Resultado:** Desenvolvimento de uma visão de prontidão para a nuvem.
+
+**2. Alinhamento**
+
+- **Objetivo:** Elaborar um plano de ação claro, identificando benefícios, desafios e uma abordagem para gerenciar mudanças.
+- **Resultado:** Um plano prático e um entendimento das ações necessárias para alcançar a prontidão para a nuvem.
+
+**3. Lançamento**
+
+- **Objetivo:** Implementar o plano de ação, gerenciar preocupações e iniciar o uso da nuvem para obter valor comercial.
+- **Resultado:** Fluxos de trabalho para a implantação e conclusão de projetos na nuvem.
+
+**4. Medição e Escalonamento**
+
+- **Objetivo:** Medir o sucesso, garantir que os benefícios comerciais sejam realizados e sustentados, e escalar operações.
+- **Resultado:** Expansão de pilotos e ajuste contínuo dos planos de negócios.
+
+### Estratégias de Migração
+
+A AWS oferece sete estratégias comuns de migração, cada uma adequada a diferentes necessidades e contextos:
+
+1. **Refatorar:**
+   - **Objetivo:** Adicionar recursos, desempenho ou escala quando o design atual da aplicação não é suficiente.
+
+2. **Redefinir a Plataforma:**
+   - **Objetivo:** Migrar e dimensionar rapidamente para atender a novas necessidades de negócios.
+
+3. **Recomprar:**
+   - **Objetivo:** Substituir a aplicação atual por uma solução SaaS ou outra solução que atenda melhor às necessidades.
+
+4. **Redefinir Hospedagem:**
+   - **Objetivo:** Migrar a aplicação para a nuvem com mudanças mínimas na arquitetura.
+
+5. **Realocar:**
+   - **Objetivo:** Mover aplicações ou cargas de trabalho para a nuvem com tempo de inatividade mínimo e sem alterações nas operações ou pilha técnica.
+
+6. **Reter:**
+   - **Objetivo:** Manter a aplicação no ambiente atual, se for mais vantajoso ou necessário.
+
+7. **Retirar:**
+   - **Objetivo:** Descontinuar a aplicação que não é mais necessáv
+
+## AWS Well-Architected Framework
+
+- Ajuda a garantir que as cargas de trabalho na nuvem sigam as melhores práticas de arquitetura da AWS. 
+- Framework orienta a criação e operação de sistemas confiáveis, seguros, de alto desempenho e econômicos na nuvem.
+
+### Objetivos do Framework
+
+- **Reduzir gastos com infraestrutura**
+- **Guiar funcionários para um trabalho mais estratégico**
+- **Diminuir o tempo de inatividade não planejado das aplicações**
+- **Diminuir o tempo de lançamento de novos produtos no mercado**
+
+### Pilares do Well-Architected Framework
+
+1. **Excelência Operacional**
+   - Foca na melhoria da eficiência das pessoas e dos processos.
+   - Exemplos: gerenciamento e automação de alterações, resposta a eventos, definição de padrões para operações diárias.
+
+2. **Segurança**
+   - Foca em proteger dados, informações e sistemas.
+   - Exemplos: acesso com privilégios mínimos, gerenciamento de credenciais, proteção de sistemas, controle de eventos de segurança.
+
+3. **Confiabilidade**
+   - Foca em projetar sistemas altamente disponíveis e resilientes.
+   - Exemplos: configuração, planejamento de recuperação, gestão de mudanças.
+
+4. **Eficiência de Desempenho**
+   - Foca no uso eficiente dos recursos da AWS.
+   - Exemplos: seleção de tipos e tamanhos de recursos, monitoramento de desempenho, elasticidade.
+
+5. **Otimização de Custos**
+   - Foca em maximizar o valor dos gastos.
+   - Exemplos: monitoramento de gastos, seleção de recursos apropriados, análise de gastos ao longo do tempo.
+
+6. **Sustentabilidade**
+   - Foca em minimizar os impactos ambientais.
+   - Exemplos: maximização da utilização de recursos, redução de impactos ambientais.
 
 ___
 ## Estatística Descritiva Com Python
@@ -752,13 +843,12 @@ Os gráficos de barras são usados para:
 
 **Exemplo de gráfico de barras:**
 
-```html
 <div>
   <h3>Gráfico de Barras</h3>
   <p>Este gráfico representa comparações entre diferentes países no consumo de café.</p>
   <img src="https://lh6.googleusercontent.com/UCBf_VFVBLaFip879NWf2OM_TcajKG9JQE5azVoAzfolB0DGgqm4YiThR97R87z9_QGeQ9Ziobe2BmP1xEd6B7UtaZLuoAUkwqxFZaDyVOD9jgUncp_Dy4vZqjfmH6vxJ93uRTAa" alt="Gráfico de Barras">
 </div>
-```
+
 
 ### Gráficos de Setores (Pizza)
 - Comparar valor da categoria específica com o total.
@@ -766,12 +856,11 @@ Os gráficos de barras são usados para:
 
 **Exemplo de gráfico de setores:**
 
-```html
 <div>
   <h3>Gráfico de Setores</h3>
   <img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/conteudo/Untitled-6(14).jpg" alt="Gráfico de Setores">
 </div>
-```
+
 
 ### Gráficos de Linhas
 - Gráficos de séries cronológicas.
@@ -779,12 +868,10 @@ Os gráficos de barras são usados para:
 
 **Exemplo de gráfico de linhas:**
 
-```html
 <div>
   <h3>Gráfico de Linhas</h3>
   <img src="https://i.pinimg.com/736x/2e/10/cd/2e10cdca310e5ff1c413da07dee0000e.jpg" alt="Gráfico de Linhas">
 </div>
-```
 
 ### Histogramas
 - Colunas justapostas para representar distribuição de frequência em dados.
@@ -792,12 +879,10 @@ Os gráficos de barras são usados para:
 
 **Exemplo de histograma:**
 
-```html
 <div>
   <h3>Histograma</h3>
   <img src="https://leansixsigmabrasil.com.br/site/wp-content/uploads/2020/01/Exemplo-de-histograma-de-temperatura.jpg" alt="Histograma">
 </div>
-```
 
 ### Medidas de Tendência Central (MTC)
 - Indicam um ponto em torno do qual se concentram os dados.
