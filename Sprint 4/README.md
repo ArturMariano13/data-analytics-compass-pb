@@ -931,8 +931,7 @@ Os gráficos de barras são usados para:
 - **Desvio Padrão:** é calculado a partir da variância, ao ser a raiz quadrada desse parâmetro.
 <div>
   <h3>Fórmula Variância</h3>
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGftYwN9M0YzUNjxT6dPTQ0Z-OVfh3Ejnv9g&s
-  " alt="Variância">
+  <img src="https://lh4.googleusercontent.com/qtOTHv1MxOCsiJ68uXXeEcOqOf84qhlBGxv93CU4NIaHWnGkLuw2in0fjr8cRMKL36LtE_kOBXiZIQpUnJrkwm43OC_HErKL9yCXAeqX59bp0tfeLZxa1SU6YSJAww" alt="Variância">
   <h3>Fórmula Desvio Padrão</h3>
   <img src="https://images.educamaisbrasil.com.br/content/banco_de_imagens/guia-de-estudo/D/desvio-padrao-matematica.jpg" alt="Desvio Padrão">
 </div>
@@ -941,8 +940,7 @@ Os gráficos de barras são usados para:
 - Indica a variabilidade da medida em relação à média.
 <div>
   <h3>Fórmula Coeficiente de Variação</h3>
-  <img src="https://pt-static.z-dn.net/files/da8/c9fa1b423b0d680b0ef3308a49546de6.jpg
-  " alt="Coeficiente de Variação">
+  <img src="https://slideplayer.com.br/11453035/41/images/slide_1.jpg" alt="Coeficiente de Variação">
 </div>
 
 ### Medidas de Assimetria
