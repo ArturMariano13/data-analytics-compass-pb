@@ -20,7 +20,7 @@ Este diretório contém os arquivos necessários para a realização do desafio 
     4. Registrar o conteúdo do script Python, arquivo Dockerfile e comando de inicialização neste espaço.
 
 ## Resposta(s)
-1. [Etapa 1](etapa-1/Dockerfile)
+1. [Etapa 1](etapa-1/README.md)
 2. [Etapa 2](etapa-2/README.md)
 3. [Etapa 3](etapa-3/README.md) 
 

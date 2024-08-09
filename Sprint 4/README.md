@@ -1,4 +1,9 @@
 # SPRINT 4 - Paradigma Funcional (Python), Containers e Introdução AWS
+Nessa sprint, realizei muitos cursos e aprendi diversas coisas: Python: Programação Funcional, Docker para Desenvolvedores, AWS Credenciamento Técnico, Estatística Descritiva com Python e finalizei o curso de Métodos Ágeis.
+
+Para ver e conseguir absorver os conceitos do curso de Métodos Ágeis, dividi em partes em cada *Sprint*, finalizando agora na sprint 4, conforme havia sido recomendado.
+
+A Sprint foi desafiadora, com diversos conceitos novos para mim, exigindo muito estudo e capacidade de absorver conceitos.
 
 ## Certificados
 Para maiores informações sobre os certificados, siga o link: [certificados](certificados)
@@ -887,6 +892,565 @@ Os gráficos de barras são usados para:
 ### Medidas de Tendência Central (MTC)
 - Indicam um ponto em torno do qual se concentram os dados.
 
+**MÉDIA ARITMÉTICA**
+- Soma de todos os valores pela quantidade deles.
+- "Centro de gravidade" do conjunto de dados.
+- **Desvantagem:** afetada por *outliers*.
+
+**MODA**
+- Maior frequência entre os valores.
+
+**MEDIANA**
+- Valor que ocupa a posição central dos dados ordenados.
+- Quando for par, soma os dois centrais e divide por dois (média).
+
+**Medidas Separatrizes**
+- Quartil: divide o conjunto em **4 partes iguais**
+- Decil: divide o conjunto em **10 partes iguais**
+- Percentil: divide o conjunto em **100 partes iguais**
+
+### Medidas de Dispersão
+- Auxiliam as medidas de tendência central (MTC) a descrever os dados.
+- Indicam o quanto os dados estão próximos uns aos outros.
+
+**AMPLITUDE TOTAL**
+- Diferença entre o maior e o menor valor.
+- Não leva em consideração valores intermediários.
+
+**AMPLITUDE INTERQUARTÍLICA**
+- Diferença entre o primeiro e o terceiro quartil.
+- Mais estável que amplitude total.
+- Útil para detectar valores discrepantes.
+
+**DESVIO MÉDIO**
+- Diferença entre cada valor e a média.
+
+**VARIÂNCIA e DESVIO PADRÃO**
+- Servem para solucionar alguns problemas do desvio médio.
+- **Variância:** permite determinar o afastamento da média que os dados de um conjunto analisado apresentam.
+- **Desvio Padrão:** é calculado a partir da variância, ao ser a raiz quadrada desse parâmetro.
+<div>
+  <h3>Fórmula Variância</h3>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGftYwN9M0YzUNjxT6dPTQ0Z-OVfh3Ejnv9g&s
+  " alt="Variância">
+  <h3>Fórmula Desvio Padrão</h3>
+  <img src="https://images.educamaisbrasil.com.br/content/banco_de_imagens/guia-de-estudo/D/desvio-padrao-matematica.jpg" alt="Desvio Padrão">
+</div>
+
+**COEFICIENTE DE VARIAÇÃO**
+- Indica a variabilidade da medida em relação à média.
+<div>
+  <h3>Fórmula Coeficiente de Variação</h3>
+  <img src="https://pt-static.z-dn.net/files/da8/c9fa1b423b0d680b0ef3308a49546de6.jpg
+  " alt="Coeficiente de Variação">
+</div>
+
+### Medidas de Assimetria
+**MEDIDAS DE CURTOSE**
+- Medida que quantifica a **concentração** ou **dispersão** dos valores de um conjunto de dados em relação às medidas de **tendência central**.
+- Mede o grau de **achatamento** de uma distribuição.
+
+### Aplicações em *Data Science*
+**MÉTODO DE MONTE CARLO (MMC)**
+
+É uma técnica de simulação que utiliza amostras aleatórias para estimar resultados e resolver problemas complexos. 
+- Consiste em gerar múltiplas simulações para entender a variabilidade e a incerteza do sistema. 
+- É amplamente usado em finanças, engenharia e ciências para avaliação de riscos e otimização. 
+- A precisão depende do número de simulações realizadas e pode exigir alto custo computacional.
+
+___
+
+## Métodos Ágeis de A a Z: o curso completo
+
+### Manifesto Ágil
+- Criado em 2001 por um grupo de 17 desenvolvedores de software que buscavam uma abordagem mais eficiente e flexível para o desenvolvimento de software. 
+- Conjunto de princípios que visa promover práticas de desenvolvimento ágil, permitindo a adaptação rápida às mudanças e a entrega contínua de valor.
+
+### Valores do Manifesto Ágil
+1. **Indivíduos e interações mais que processos e ferramentas**
+2. **Software funcionando mais que documentação abrangente**
+3. **Colaboração com o cliente mais que negociação de contratos**
+4. **Responder a mudanças mais que seguir um plano**
+
+### Princípios do Manifesto Ágil
+1. **Satisfação do cliente** através da entrega contínua e antecipada de software de valor.
+2. **Mudanças nos requisitos** são bem-vindas, mesmo em estágios tardios do desenvolvimento.
+3. **Entrega frequente de software** funcionando, com um intervalo de semanas a meses, preferencialmente com menor duração.
+4. **Colaboração diária** entre desenvolvedores e representantes de negócios durante o projeto.
+5. **Construa projetos ao redor de indivíduos motivados**. Dê a eles o ambiente e o suporte necessários e confie neles para entregar resultados.
+6. **Métodos ágeis** promovem desenvolvimento sustentável. Os patrocinadores, desenvolvedores e usuários devem ser capazes de manter um ritmo constante indefinidamente.
+7. **Atenção contínua à excelência técnica** e bom design aumenta a agilidade.
+8. **Simplicidade** – a arte de maximizar a quantidade de trabalho não feito – é essencial.
+9. **As melhores arquiteturas, requisitos e designs** emergem de equipes auto-organizáveis.
+10. **A equipe reflete regularmente** sobre como se tornar mais eficaz e ajusta seu comportamento em conformidade.
+11. **Entrega de software funcional** como principal medida de progresso.
+12. **Comunicação face a face** é a forma mais eficiente e eficaz de transmitir informações.
+
+### Scrum
+- É um *framework* ágil para gerenciar e completar projetos complexos. É amplamente utilizado no desenvolvimento de software, mas pode ser aplicado a qualquer área onde haja necessidade de entregar produtos de forma iterativa e incremental.
+
+**ESTRUTURA DO SCRUM**
+
+O Scrum é baseado em três pilares: **transparência**, **inspeção** e **adaptação**. Ele se organiza em torno de papéis, eventos e artefatos principais.
+
+**PAPÉIS**
+
+1. **Product Owner (PO)**
+   - Responsável por maximizar o valor do produto e do trabalho da equipe de desenvolvimento.
+   - Define e prioriza o Product Backlog (lista de requisitos e funcionalidades do produto).
+2. **Scrum Master**
+   - Facilita o processo Scrum e ajuda a equipe a seguir os princípios e práticas do Scrum.
+   - Remove impedimentos que possam atrapalhar o progresso da equipe.
+3. **Equipe de Desenvolvimento**
+   - Conjunto de profissionais que trabalham na entrega do produto.
+   - Organiza seu trabalho e entrega incrementos do produto ao final de cada Sprint.
+
+**EVENTOS**
+
+1. **Sprint**
+   - Período fixo de tempo (geralmente de 1 a 4 semanas) em que um incremento do produto é desenvolvido.
+   - Cada Sprint resulta em um incremento de produto potencialmente utilizável.
+
+2. **Planejamento do Sprint (Sprint Planning)**
+   - Reunião no início de cada Sprint para definir o que será feito e como será feito durante o Sprint.
+   - O Product Owner apresenta o Product Backlog e a equipe define o Sprint Backlog (itens a serem trabalhados no Sprint).
+
+3. **Reunião Diária (Daily Scrum)**
+   - Reunião rápida (geralmente 15 minutos) realizada todos os dias durante o Sprint para sincronização e planejamento do trabalho do dia.
+
+4. **Revisão do Sprint (Sprint Review)**
+   - Reunião no final de cada Sprint para revisar o trabalho realizado e adaptar o Product Backlog conforme necessário.
+   - A equipe apresenta o incremento do produto e recebe feedback dos stakeholders.
+
+5. **Retrospectiva do Sprint (Sprint Retrospective)**
+   - Reunião após a Revisão do Sprint para refletir sobre o Sprint e identificar oportunidades de melhoria no processo.
+
+**Artefatos**
+
+1. **Product Backlog**
+   - Lista ordenada de tudo o que é necessário para o produto.
+   - Mantido e priorizado pelo Product Owner.
+
+2. **Sprint Backlog**
+   - Lista de itens do Product Backlog selecionados para o Sprint, juntamente com um plano para entregar o incremento e alcançar o objetivo do Sprint.
+   - Criado pela equipe durante o Planejamento do Sprint.
+
+3. **Incremento**
+   - Soma de todos os itens do Product Backlog concluídos durante o Sprint e todas as Sprints anteriores.
+   - Deve estar em um estado utilizável e atender à definição de "Pronto" da equipe.
+
+### Método Kanban
+- É um método ágil de gerenciamento de projetos que visa melhorar a eficiência e a transparência do fluxo de trabalho. 
+- Originado no Japão, o método Kanban é amplamente utilizado para otimizar processos e gerenciar fluxos de trabalho em diversas áreas, especialmente no desenvolvimento de software e na manufatura.
+
+**PRINCÍPIOS**
+
+O método Kanban é baseado em três princípios fundamentais:
+
+1. **Visualização do Trabalho**
+   - **Kanban Board (Quadro Kanban)**: Um quadro visual que mostra todas as tarefas em diferentes estágios do processo. Normalmente, o quadro é dividido em colunas que representam etapas do fluxo de trabalho, como "A Fazer", "Em Progresso" e "Concluído".
+   - **Cartões Kanban**: Cada tarefa ou item de trabalho é representado por um cartão no quadro. Os cartões contêm informações sobre a tarefa e seu progresso.
+
+2. **Limitação do Trabalho em Progresso (WIP)**
+   - **Limites de WIP**: Restringem o número de tarefas que podem estar em cada coluna (ou fase do processo) ao mesmo tempo. Isso ajuda a evitar sobrecarga e a melhorar o fluxo contínuo, reduzindo o tempo de espera e a multitarefa.
+
+3. **Gerenciamento do Fluxo**
+   - **Otimização do Fluxo**: O foco é melhorar o fluxo de trabalho, identificando e removendo gargalos e impedimentos. O objetivo é garantir que as tarefas fluam suavemente através das etapas do processo, minimizando o tempo necessário para concluir cada tarefa.
+
+**COMPONENTES**
+
+1. **Quadro Kanban**
+   - Um quadro visual dividido em colunas que representam diferentes estágios do fluxo de trabalho. Pode ser físico (como um quadro branco) ou digital (usando ferramentas de software).
+
+2. **Cartões Kanban**
+   - Representam tarefas ou itens de trabalho. Cada cartão mostra detalhes como descrição da tarefa, responsável, prazo e status atual.
+
+3. **Colunas**
+   - Dividem o quadro Kanban em diferentes etapas do fluxo de trabalho. As colunas comuns incluem "A Fazer", "Em Progresso", "Concluído", mas podem ser personalizadas conforme necessário.
+
+4. **Limites de WIP**
+   - Definem o número máximo de tarefas permitidas em cada coluna. A limitação ajuda a focar na conclusão das tarefas antes de iniciar novas.
+
+**BENEFÍCIOS**
+- **Transparência**: Proporciona uma visão clara do estado atual do trabalho e do fluxo de tarefas.
+- **Flexibilidade**: Permite ajustes e mudanças contínuas no fluxo de trabalho sem necessidade de replanejamento extensivo.
+- **Redução de Tempo de Ciclo**: Melhora o tempo necessário para concluir tarefas, promovendo um fluxo contínuo e eficiente.
+- **Identificação de Gargalos**: Facilita a identificação e resolução de problemas que afetam o fluxo de trabalho.
+
+
+### Método Lean
+
+É uma abordagem de gerenciamento que visa maximizar o valor para o cliente e minimizar o desperdício. Originado na indústria automotiva japonesa, especialmente na **Toyota**, o Lean tem como objetivo melhorar continuamente processos e aumentar a eficiência organizacional.
+
+**PRINCÍPIOS**
+
+1. **Valor**
+   - **Definição de Valor**: Valor é aquilo que o cliente está disposto a pagar. É essencial identificar o que realmente agrega valor para o cliente e focar na entrega desses elementos.
+
+2. **Fluxo de Valor**
+   - **Mapeamento do Fluxo de Valor**: Identificar e mapear todas as etapas envolvidas na criação de um produto ou serviço, desde a matéria-prima até a entrega final ao cliente. O objetivo é eliminar etapas que não agregam valor.
+
+3. **Fluxo Contínuo**
+   - **Melhoria do Fluxo**: Garantir que o trabalho flua sem interrupções e sem tempo ocioso. O objetivo é minimizar o tempo de ciclo e acelerar a entrega de valor ao cliente.
+
+4. **Produção Puxada**
+   - **Sistema Pull**: Produzir itens apenas quando há demanda real do cliente, em vez de produzir com base em previsões. Isso ajuda a reduzir o excesso de estoque e a sobrecarga de trabalho.
+
+5. **Perfeição**
+   - **Melhoria Contínua**: Buscar a perfeição através de melhorias contínuas e sistemáticas. Envolver todos os membros da equipe na identificação e eliminação de desperdícios e na melhoria dos processos.
+
+**CONCEITOS CHAVE**
+
+1. **Desperdício (Muda)**
+   - **Identificação de Desperdícios**: Tudo o que não agrega valor ao cliente é considerado desperdício. Exemplos incluem tempo de espera, excesso de produção, transporte desnecessário e defeitos.
+
+2. **Kaizen**
+   - **Melhoria Contínua**: Filosofia que promove pequenas melhorias incrementais no processo, envolvendo todos os membros da equipe.
+
+3. **Just-in-Time (JIT)**
+   - **Produção Sob Demanda**: Produzir e entregar apenas o que é necessário, quando é necessário, para reduzir estoques e melhorar a eficiência.
+
+4. **Jidoka**
+   - **Autonomação**: Equipamentos e processos que têm a capacidade de identificar problemas e parar automaticamente para evitar a produção de defeitos.
+
+5. **5S**
+   - **Organização e Padronização**: Método para organizar o ambiente de trabalho para melhorar a eficiência e a segurança. Os 5S são: Seiri (Classificar), Seiton (Organizar), Seiso (Limpar), Seiketsu (Padronizar), e Shitsuke (Manter).
+
+**BENEFÍCIOS**
+- **Redução de Desperdícios**: Elimina atividades e processos que não agregam valor.
+- **Aumento da Eficiência**: Melhora a produtividade e reduz o tempo de ciclo.
+- **Melhoria da Qualidade**: Envolve todos os colaboradores na busca por processos melhores e produtos de maior qualidade.
+- **Maior Satisfação do Cliente**: Foca na entrega de valor real para o cliente, melhorando a satisfação e fidelização.
+
+### Extreme Programming (XP)
+
+É uma metodologia ágil de desenvolvimento de software que se concentra na melhoria contínua e na capacidade de adaptação às mudanças. 
+
+**PRINCÍPIOS** 
+
+1. **Comunicação**
+   - **Colaboração Frequente**: Promover uma comunicação aberta e contínua entre todos os membros da equipe e os stakeholders. Reuniões diárias e interações constantes são encorajadas.
+
+2. **Simplicidade**
+   - **Simples é Melhor**: Desenvolver soluções simples e eficazes que atendam às necessidades atuais. Evitar complexidade desnecessária e construir apenas o que é necessário no momento.
+
+3. **Feedback**
+   - **Iterações Curtas e Feedback Contínuo**: Obter feedback regular dos stakeholders e ajustar o desenvolvimento com base nesse feedback. Isso permite que o produto se alinhe com as expectativas e necessidades reais.
+
+4. **Coragem**
+   - **Tomar Decisões Difíceis**: Encorajar a equipe a tomar decisões difíceis e a realizar mudanças necessárias, mesmo que isso implique em refatorar ou reescrever partes do código.
+
+5. **Respeito**
+   - **Respeito pela Equipe e pelo Cliente**: Valorizar e respeitar todos os membros da equipe e os clientes, garantindo um ambiente de trabalho colaborativo e produtivo.
+
+**PRÁTICAS**
+
+1. **Programação em Pares (Pair Programming)**
+   - Dois desenvolvedores trabalham juntos em um único computador, onde um escreve o código enquanto o outro revisa e oferece sugestões.
+
+2. **Desenvolvimento Orientado a Testes (Test-Driven Development - TDD)**
+   - Escrever testes automatizados antes de escrever o código. O código é desenvolvido para passar nos testes, e os testes ajudam a garantir a qualidade e a funcionalidade do código.
+
+3. **Refatoração**
+   - Melhorar e limpar o código continuamente sem alterar seu comportamento externo. Refatoração é usada para manter o código simples e limpo.
+
+4. **Integração Contínua**
+   - Integrar o código frequentemente (idealmente várias vezes ao dia) para detectar e resolver problemas de integração rapidamente.
+
+5. **Entrega Contínua**
+   - Entregar pequenas e frequentes atualizações do software para que o cliente possa ver o progresso e fornecer feedback mais rapidamente.
+
+6. **Design Simples**
+   - Construir o design do sistema de forma que seja o mais simples possível para atender às necessidades atuais, evitando antecipar futuras necessidades.
+
+7. **Cliente no Local**
+   - Ter um representante do cliente disponível na equipe para fornecer feedback contínuo e tomar decisões rápidas.
+
+8. **Metas Claras**
+   - Definir e seguir metas claras para cada iteração e para o projeto como um todo.
+
+**BENEFÍCIOS**
+
+- **Alta Qualidade de Software**: Através de práticas como TDD e refatoração, XP promove a criação de código mais limpo e confiável.
+- **Flexibilidade e Adaptabilidade**: Permite responder rapidamente a mudanças nos requisitos e no ambiente do projeto.
+- **Satisfação do Cliente**: Entrega contínua de valor e envolvimento constante do cliente garantem que o produto final esteja alinhado com suas expectativas.
+- **Trabalho em Equipe Eficiente**: A comunicação constante e a programação em pares promovem uma equipe colaborativa e coesa.
+
+### Design Sprint
+
+O **Design Sprint** é uma metodologia criada pelo Google Ventures (GV) que visa acelerar o processo de desenvolvimento e validação de ideias de produtos. É uma abordagem estruturada para resolver problemas e testar ideias em um curto período de tempo, geralmente cinco dias.
+
+**OBJETIVO**
+
+O principal objetivo do Design Sprint é **resolver problemas críticos e validar ideias rapidamente**. Ele ajuda equipes a tomar decisões informadas e a reduzir o risco de falhas ao lançar novos produtos ou funcionalidades.
+
+**ESTRUTURA**
+
+O Design Sprint é dividido em cinco fases, uma para cada dia da semana, com cada fase tendo um objetivo específico:
+
+**DIA 1: ENTENDER**
+
+- **Objetivo**: Compreender o problema, o contexto e os objetivos do projeto.
+- **Atividades**:
+  - Reuniões com stakeholders para definir o desafio e os objetivos.
+  - Mapeamento do problema e identificação das partes interessadas.
+  - Coleta de informações e definição do escopo do sprint.
+
+**DIA 2: ESBOÇAR**
+
+- **Objetivo**: Gerar uma variedade de soluções e ideias para o problema identificado.
+- **Atividades**:
+  - Brainstorming de ideias e esboço de possíveis soluções.
+  - Desenvolvimento de esboços e protótipos iniciais.
+  - Exploração de diferentes abordagens e soluções criativas.
+
+**DIA 3: DECIDIR**
+
+- **Objetivo**: Escolher a melhor solução e preparar um protótipo para teste.
+- **Atividades**:
+  - Revisão das ideias e esboços desenvolvidos no Dia 2.
+  - Votação para selecionar as melhores soluções.
+  - Criação de um storyboard detalhado para o protótipo.
+  - Planejamento do protótipo e divisão das tarefas.
+
+**DIA 4: PROTOTIPAR**
+
+- **Objetivo**: Construir um protótipo realista da solução escolhida.
+- **Atividades**:
+  - Desenvolvimento do protótipo com base no storyboard.
+  - Construção de um protótipo de alta fidelidade, que pode ser um mockup ou um modelo interativo.
+  - Preparação para testes com usuários reais.
+
+**DIA 5: TESTAR**
+
+- **Objetivo**: Testar o protótipo com usuários reais e coletar feedback.
+- **Atividades**:
+  - Condução de sessões de teste com usuários-alvo.
+  - Coleta de feedback sobre o protótipo e as soluções propostas.
+  - Análise dos resultados e identificação de melhorias necessárias.
+
+**BENEFÍCIOS**
+
+- **Velocidade**: Permite validar ideias e tomar decisões em apenas cinco dias, economizando tempo e recursos.
+- **Foco**: Concentra a equipe em um único problema ou desafio por vez.
+- **Feedback Rápido**: Obtém feedback valioso de usuários reais antes de investir no desenvolvimento completo.
+- **Colaboração**: Promove a colaboração entre diferentes membros da equipe e stakeholders.
+
+### Modelo Spotify Squads
+
+É uma abordagem de organização e gerenciamento de equipes desenvolvida pela Spotify para promover agilidade e inovação. O modelo é conhecido por sua abordagem **flexível** e **adaptável** para o desenvolvimento de software e produtos.
+
+**ESTRUTURA**
+
+**1. Squads**
+
+- **Definição**: Squads são equipes autônomas e multidisciplinares responsáveis por um aspecto específico do produto ou serviço.
+- **Características**:
+  - **Autonomia**: Cada squad tem a liberdade de decidir como trabalhar, escolher suas ferramentas e definir suas próprias práticas.
+  - **Objetivos**: Focado em entregar valor para o cliente e atingir metas específicas relacionadas ao seu domínio.
+  - **Composição**: Normalmente composta por membros com diferentes habilidades, como desenvolvedores, designers e analistas.
+
+**2. Tribes**
+
+- **Definição**: Tribes são grupos de squads que trabalham em áreas relacionadas ou produtos semelhantes.
+- **Características**:
+  - **Coordenação**: Facilita a comunicação e a colaboração entre squads que têm interdependências ou trabalham em áreas similares.
+  - **Liderança**: Cada tribe possui um Tribe Lead, que ajuda a coordenar e a resolver conflitos entre squads.
+
+**3. Chapters**
+
+- **Definição**: Chapters são grupos de pessoas com funções semelhantes, como desenvolvedores ou designers, que se reúnem para compartilhar conhecimentos e melhores práticas.
+- **Características**:
+  - **Desenvolvimento Profissional**: Focado no desenvolvimento de habilidades e na melhoria contínua dos membros do chapter.
+  - **Mentoria**: Oferece suporte e orientação para o crescimento profissional e técnico dos membros.
+
+**4. Guilds**
+
+- **Definição**: Guilds são comunidades informais que reúnem pessoas com interesses comuns em diferentes áreas, como tecnologias específicas ou práticas de desenvolvimento.
+- **Características**:
+  - **Compartilhamento de Conhecimento**: Promove a troca de informações e experiências entre diferentes equipes e áreas.
+  - **Networking**: Facilita a colaboração e o aprendizado entre membros de diferentes squads e tribes.
+
+**BENEFÍCIOS**
+
+- **Autonomia e Empoderamento**: Squads têm a liberdade de tomar decisões, o que aumenta a inovação e a agilidade.
+- **Coordenação Eficiente**: Tribes e chapters ajudam a manter a colaboração e a coerência em grandes organizações.
+- **Desenvolvimento Contínuo**: Chapters e guilds promovem o crescimento e a especialização contínuos.
+- **Flexibilidade**: O modelo é adaptável e pode ser ajustado para atender às necessidades específicas da organização.
+
+**DESAFIOS**
+
+- **Manutenção da Coerência**: Garantir que todos os squads estejam alinhados com os objetivos gerais da empresa pode ser desafiador.
+- **Comunicação e Colaboração**: Manter uma boa comunicação entre squads, tribes e guilds exige esforço e ferramentas eficazes.
+
+### Método SMART
+
+É uma abordagem para definição de metas, garantindo que sejam claras e realizáveis. SMART é um acrônimo para:
+
+**1. Específico (Specific)**
+
+- **Definição**: A meta deve ser clara e detalhada.
+- **Perguntas**: O que? Por quê? Quem? Onde? Quando?
+
+**2. Mensurável (Measurable)**
+
+- **Definição**: A meta deve ter critérios para medir o progresso.
+- **Perguntas**: Quanto? Como saberemos quando está concluída?
+
+**3. Atingível (Achievable)**
+
+- **Definição**: A meta deve ser realista e possível de alcançar.
+- **Perguntas**: É viável com os recursos disponíveis?
+
+**4. Relevante (Relevant)**
+
+- **Definição**: A meta deve ser significativa e alinhada com objetivos maiores.
+- **Perguntas**: É importante? Contribui para o objetivo geral?
+
+**5. Temporal (Time-bound)**
+
+- **Definição**: A meta deve ter um prazo definido.
+- **Perguntas**: Quando deve ser concluída?
+
+**BENEFÍCIOS**
+
+- **Clareza e Foco**: Metas bem definidas ajudam no foco e na clareza.
+- **Motivação**: Metas realistas e relevantes aumentam a motivação.
+- **Avaliação**: Permite o monitoramento e avaliação eficaz.
+
+**DESAFIOS**
+
+- **Metas Irrealistas**: Podem causar frustração.
+- **Falta de Clareza**: Pode levar a confusão.
+
+O método SMART ajuda a criar metas claras e eficazes, facilitando o planejamento e a execução.
+
+### Trello
+
+É uma **ferramenta de gerenciamento** de projetos e tarefas baseada em uma interface visual de quadros, listas e cartões. Utiliza o **método Kanban** para ajudar equipes e indivíduos a organizar e acompanhar o progresso de projetos de forma colaborativa e intuitiva.
+
+**CARACTERÍSTICAS**
+
+**1. Quadros**
+
+- **Definição**: Contêiner principal para projetos e tarefas.
+- **Funcionalidade**: Cada quadro representa um projeto ou uma área de trabalho.
+
+**2. Listas**
+
+- **Definição**: Divisões dentro de um quadro que organizam tarefas em diferentes fases.
+- **Funcionalidade**: Normalmente usadas para representar estágios do fluxo de trabalho, como "A Fazer", "Em Progresso" e "Concluído".
+
+**3. Cartões**
+
+- **Definição**: Itens individuais de tarefas ou atividades.
+- **Funcionalidade**: Cartões podem ser movidos entre listas, e podem conter detalhes como descrições, checklists, datas de vencimento, etiquetas, e anexos.
+
+**4. Etiquetas e Filtros**
+
+- **Definição**: Ferramentas para categorizar e organizar cartões.
+- **Funcionalidade**: Etiquetas coloridas e filtros ajudam a identificar e priorizar tarefas.
+
+**5. Colaboração**
+
+- **Definição**: Recursos para trabalhar em equipe.
+- **Funcionalidade**: Permite adicionar membros, comentar em cartões, e atribuir tarefas.
+
+**6. Automação**
+
+- **Definição**: Recursos para automatizar tarefas repetitivas.
+- **Funcionalidade**: Utiliza o "Butler" para criar regras e comandos automáticos que simplificam processos.
+
+**BENEFÍCIOS**
+
+- **Visualização Clara**: Interface visual facilita o acompanhamento do progresso.
+- **Flexibilidade**: Adaptável a diferentes tipos de projetos e fluxos de trabalho.
+- **Colaboração**: Facilita o trabalho em equipe com recursos de comunicação e compartilhamento.
+
+**DESAFIOS**
+
+- **Complexidade em Projetos Grandes**: Pode se tornar difícil de gerenciar em projetos muito complexos.
+- **Dependência de Internet**: Requer acesso à internet para uso completo das funcionalidades.
+
+O Trello é uma ferramenta versátil e fácil de usar, ideal para organizar projetos e tarefas de maneira colaborativa e eficiente.
+
+### Asana
+
+É uma ferramenta de gerenciamento de projetos e tarefas projetada para ajudar equipes a coordenar e acompanhar o trabalho. Oferece uma variedade de funcionalidades para organização, colaboração e visualização do progresso dos projetos.
+
+**CARACTERÍSTICAS**
+
+**1. Projetos**
+
+- **Definição**: Contêineres para agrupar tarefas relacionadas.
+- **Funcionalidade**: Cada projeto pode ser visualizado de diferentes formas, como listas, quadros Kanban ou cronogramas.
+
+**2. Tarefas**
+
+- **Definição**: Itens individuais de trabalho dentro de um projeto.
+- **Funcionalidade**: Tarefas podem incluir subtarefas, datas de vencimento, prioridades, responsáveis, descrições e anexos.
+
+**3. Seções e Marcos**
+
+- **Definição**: Elementos para organizar e acompanhar o progresso dentro de projetos.
+- **Funcionalidade**: Seções dividem tarefas em grupos, enquanto marcos ajudam a identificar etapas importantes no projeto.
+
+**4. Calendário e Cronograma**
+
+- **Definição**: Ferramentas para visualização de tarefas e cronogramas.
+- **Funcionalidade**: O calendário exibe prazos e eventos importantes, enquanto o cronograma (ou timeline) mostra o progresso das tarefas ao longo do tempo.
+
+**5. Colaboração**
+
+- **Definição**: Recursos para facilitar a comunicação e o trabalho em equipe.
+- **Funcionalidade**: Permite comentários em tarefas, a atribuição de responsáveis e a adição de seguidores para notificações.
+
+**6. Relatórios e Painéis**
+
+- **Definição**: Ferramentas para acompanhar e analisar o progresso.
+- **Funcionalidade**: Relatórios fornecem insights sobre o andamento dos projetos, enquanto os painéis oferecem uma visão geral das métricas e status.
+
+**BENEFÍCIOS**
+
+- **Organização Eficiente**: Ajuda a estruturar e organizar projetos complexos com várias tarefas e responsáveis.
+- **Colaboração Facilitada**: Recursos de comunicação e compartilhamento melhoram a coordenação entre equipes.
+- **Visibilidade e Monitoramento**: Ferramentas de visualização e relatórios oferecem uma visão clara do progresso e dos prazos.
+
+**DESAFIOS**
+
+- **Curva de Aprendizado**: Pode levar algum tempo para se familiarizar com todas as funcionalidades.
+- **Complexidade em Projetos Muito Grandes**: Projetos muito complexos podem exigir uma configuração cuidadosa para manter a organização e a clareza.
+
+
+### Ferramentas de Projetos
+
+**1. *BRAINSTORMING***
+
+- Técnica para gerar uma ampla gama de ideias criativas e inovadoras em equipe.
+
+**2. MAPAS MENTAIS**
+
+- Mapas mentais ajudam a visualizar e organizar informações ao redor de um tema central, facilitando o pensamento criativo.
+
+**3. *MOODBOARD***
+
+- *Moodboards* reúnem imagens e elementos visuais para definir e comunicar a estética e o tom de um projeto.
+
+**4. PERSONAS E MAPA DE EMPATIA**
+
+- Personas e mapas de empatia ajudam a entender melhor os usuários, suas necessidades e como se sentem em relação ao produto.
+
+**5. GRUPOS DE USUÁRIOS**
+
+- Grupos de usuários segmentam a base de clientes em categorias com características semelhantes para criar soluções mais personalizadas.
+
+**6. JORNADA DO USUÁRIO**
+
+- A jornada do usuário mapeia a experiência completa do cliente com um produto, identificando pontos críticos e oportunidades de melhoria.
+
+**7. *STORYBOARD***
+
+- *Storyboards* visualizam a sequência de eventos e a narrativa de um projeto, facilitando o planejamento e a comunicação da história.
 
 ___
 ### ↩️ [Retornar ao início](../README.md)

@@ -67,8 +67,5 @@ Os conceitos necessários para responder a questão da etapa 2 são fornecidos p
     - `-it`: Permite **interação** com o terminal (modo interativo), essencial para enviar strings ao script.
     - *mascarar-dados*: Nome da imagem a ser usada para criar e executar o container.
 - [Ver evidência da execução](./3.2_execucao_container.png)
-
-
-
 ___
 ### ↩️ [Retornar ao início](../../../README.md)
