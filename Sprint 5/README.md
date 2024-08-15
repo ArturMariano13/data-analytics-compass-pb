@@ -61,7 +61,10 @@ ___
 É a disponibilidade sob demanda de recursos computacionais (como armazenamento e infraestrutura), como serviços pela Internet.
 - *pay as you go*
 
-### Amazon EC2
+### Auto Scaling group
+- Pode-se delimitar o número de instâncias a serem criadas para determinada demanda.
+- Pode-se **agendar** essas execuções e encerramentos de instâncias.
+
 
 
 
