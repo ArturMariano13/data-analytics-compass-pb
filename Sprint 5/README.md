@@ -1,4 +1,4 @@
-# SPRINT 5 - 
+# SPRINT 5 - Fundamentos de Computação em Nuvem (AWS)
 
 
 ## Certificados
@@ -30,6 +30,69 @@ ___
 - **Domínio 2** - Segurança e conformidade: 30% 
 - **Domínio 3** - Tecnologia e serviços da nuvem: 34%
 - **Domínio 4** - Cobrança, preços e suporte: 12%
+
+### Domínio 1: Conceitos de Nuvem
+- **O que é computação em nuvem?**
+1. Autoatendimento sob demanda
+2. Acesso à rede
+3. Agrupamento de recursos
+4. Elasticidade
+5. Uso de recursos monitorado e cobrado
+
+- **Vantagens**
+    - **Alta disponiblidade:** tempo mínimo de inatividade.
+    - **Tolerância a falhas:** projetar para tempo de inatividade zero.
+    - **Recuperação de desastres:** projetar sistemas para operar durante um desastre.
+
+- **Princípios de criação**
+    - Parar de tentar adivinhar a capacidade
+    - Testar sistemas em escala de produção
+    - Automatizar a arquitetura
+    - Permitir alterações evolucionárias
+
+**PILARES DO WELL ARCHITECTED FRAMEWORK**
+1. EXCELÊNCIA OPERACIONAL
+    - Executar operações como código
+    - Fazer alterações frequentes
+    - Prever falhas
+    - Aprender com todas as falhas operacionais
+
+2. SEGURANÇA
+    - Implementar uma base de identidade sólida
+    - Manter a rastreabilidade
+    - Aplicar segurança em todas as camadas
+    - Proteger dados em trânsito e ociosos
+
+3. CONFIABILIDADE
+    - Recuperar-se automaticamente de falhas
+    - Testar os procedimentos de recupração
+    - Dimensionar horizontalmente para aumentar a disponibilidade agregada da carga de trabalho
+    - Parar de tentar adivinhar a capacidade
+    - Gerenciar alterações na automação
+
+4. EFICIÊNCIA DE DESEMPENHO
+    - Democratizar tecnologias avançadas
+    - Ter alcance global em minutos
+    - Usar arquiteturas sem servidor (*serverless*)
+    - Experimentar com mais frequência
+    - Considerar a afinidade mecânica
+
+5. OTIMIZAÇÃO DE CUSTOS
+    - Capacidade de executar sistemas para entregar valor comercial pelo menor valor possível.
+
+6. SUSTENTABILIDADE
+    - Compreensão do seu impacto
+    - Estabelecer metas de sustentabilidade
+    - Usar serviços gerenciados
+    
+
+### DICAS para a PROVA
+- ***Scaling vertical*** => tamanho maior
+- ***Scaling horizontal*** => adicionar instâncias
+- **Elasticidade** => usar automação com scaling horizontal.
+
+
+
 
 ### Amazon RDS
 - Serviço de Banco de Dados **relacional**.
