@@ -40,6 +40,11 @@ Selecionei a base de dados da polícia federal com diversas operações realizad
 Explicar processo de criação do bucket, carregamento...
 
 ### 4, 5. Criação do script Python com as consultas
+**1º passo:** instalar biblioteca Boto3: `pip install boto3`
+
+**2º passo:** configurar AWS.
+
+
 
 - Código: [Arquivo](caminho)
 
