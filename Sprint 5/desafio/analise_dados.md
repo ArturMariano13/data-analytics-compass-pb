@@ -33,6 +33,11 @@ Cada linha do conjunto de dados representa uma **operação policial** com as se
 - ***Susp Ex Func Pub A E***: Suspensão de exercício de função pública.
 - ***Monit Eletronica***: Uso de monitoramento eletrônico.
 
+## Tratamentos necessários
+1. Há alguns valores com vírgulas, o que não é reconhecido pela codificação UTF-8. Para isso, necessita uma alteração da ',' por '.'. Além disso, valores em milhares possuíam pontos, o que deveria ser removido.
+2. Além disso, o campo *Qtd Prejuizos Causados a Uniao* tem "R$", o que prejudicará uma análise que necessite realizar operações numéricas, sendo necessário remover isso.
+3. Havia muitos espaços entre as colunas, o que facilita uma análise visual dos dados, porém pode causar problemas às consultas.
+
 ## Conclusão
 
 Os dados fornecem uma visão detalhada das operações policiais, mas para uma análise mais profunda, seria útil agregar os dados por **tipo de operação**, **área**, e **unidade federativa**, além de detalhar a relação entre as datas de início e deflagração para avaliar a eficácia das operações. Se precisar de mais análises ou visualizações específicas, como gráficos ou tabelas de resumo, posso ajudar com isso também.

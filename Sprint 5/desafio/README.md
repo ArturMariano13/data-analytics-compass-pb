@@ -43,8 +43,18 @@ Explicar processo de criação do bucket, carregamento...
 **1º passo:** instalar biblioteca Boto3: `pip install boto3`
 
 **2º passo:** configurar AWS.
+- Instalar AWS CLI.
+- Comando: `aws configure`
+    - Inserir credenciais para comunicar com a conta da AWS - [evidência](../evidencias/2_config_aws.png)
+    - Isso não funcionou de primeira, por isso necessitei alterar o arquivo credentials dentro do diretório .aws.
+    - Conforme na seguinte evidência: [configuração](../evidencias/config_credentials.png), editei o arquivo credentials, necessitando adicionar a linha com o token da sessão.
 
+**3º passo:** criar *bucket* e fazer upload do arquivo.
+    - **Criação:** desenvolvi um script ([veja aqui](criar_bucket.py)) que realiza essa tarefa.
+    - **Upload:** desenvolvi também um script ([veja aqui](upload_csv.py)) que realiza essa tarefa. 
 
+**4º passo:** desenvolver script para a realização de consultas.
+    - 
 
 - Código: [Arquivo](caminho)
 

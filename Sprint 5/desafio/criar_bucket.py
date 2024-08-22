@@ -18,3 +18,6 @@ def create_bucket(bucket_name, region=None):
         return False
     
     return True
+
+if (create_bucket('bucket-operacoes-policiais')):
+    print(f'Bucket criado com sucesso')
