@@ -24,6 +24,21 @@ def limpar_espacos(valor):
     valor = re.sub(r'\s+', ' ', valor)
     return valor
 
+def formatar_data(data):
+    """Formata a data de dd/mm/aaaa para aaaa-mm-dd."""
+    if pd.isna(data):
+        return data
+    try:
+        # Primeiro, tenta converter a data para datetime usando o formato esperado
+        data_formatada = pd.to_datetime(data, format='%d/%m/%Y', errors='coerce')
+        # Verifica se a conversão foi bem-sucedida
+        if pd.notna(data_formatada):
+            return data_formatada.strftime('%Y-%m-%d')
+        else:
+            return data  # Retorna o valor original se a conversão falhar
+    except ValueError:
+        return data  # Retorna o valor original se a conversão falhar
+
 def corrigir_valores(valor):
     """Corrige valores numéricos específicos removendo 'R$', substituindo ',' por '.' e convertendo para float."""
     if pd.isna(valor):
@@ -60,10 +75,13 @@ def processar_arquivo(arquivo_original, arquivo_corrigido, bucket_name):
     for coluna in df.columns:
         df[coluna] = df[coluna].apply(limpar_espacos)
 
+    # Formatar colunas de data
+    colunas_de_data = ['Data do Inicio', 'Data da Deflagracao']
+    for coluna in colunas_de_data:
+        if coluna in df.columns:
+            df[coluna] = df[coluna].apply(formatar_data)
+
     colunas_para_corrigir = [
-        "Qtd Valores Apreendidos", 
-        "Qtd Valores Apreendidos i11",
-        "Qtd Valores Descapitalizados", 
         "Qtd Prejuizos Causados a Uniao"
     ]
     for coluna in colunas_para_corrigir:
@@ -75,10 +93,10 @@ def processar_arquivo(arquivo_original, arquivo_corrigido, bucket_name):
     print(f'Arquivo corrigido com sucesso como {arquivo_corrigido}!')
 
     # Fazer o upload do arquivo corrigido para o S3
-    #if upload_arquivo(arquivo_corrigido, bucket_name):
-    #    print(f'Upload do arquivo {arquivo_corrigido} realizado com sucesso!')
-    #else:
-    #    print(f'Erro ao realizar o upload do arquivo!')
+    if upload_arquivo(arquivo_corrigido, bucket_name):
+        print(f'Upload do arquivo {arquivo_corrigido} realizado com sucesso!')
+    else:
+        print(f'Erro ao realizar o upload do arquivo!')
 
 # Configurações
 arquivo_original = 'PALAS_OPERACOES_2024_01.csv'

@@ -2,22 +2,13 @@ import boto3
 
 s3_client = boto3.client('s3')
 
-def query_s3_select(bucket_name, key):
+def query_s3_select(bucket_name, key, query):
     try:
         response = s3_client.select_object_content(
             Bucket=bucket_name,
             Key=key,
             ExpressionType='SQL',
-            Expression="""
-                SELECT
-                    CASE 
-                    CAST("Qtd Mandado de Busca e Apreesao" AS INTEGER) AS "mandado_busca_apreesao",
-                    UPPER("Area") "area_maiuscula"
-                FROM 
-                    S3Object
-                WHERE 
-                    CAST("Qtd Prisao em Flagrante" AS INTEGER) > 0
-            """,
+            Expression=query,
             InputSerialization={
                 'CSV': {
                     "FileHeaderInfo": "USE",
@@ -43,4 +34,9 @@ def query_s3_select(bucket_name, key):
 if __name__ == '__main__':
     bucket_name = 'bucket-operacoes-policiais'
     object_name = 'PALAS_OPERACOES_2024_01_corrigido.csv'
-    query_s3_select(bucket_name, object_name)
+    query_file = 'query.sql'
+
+    with open(query_file, 'r', encoding='utf-8') as file:
+        query = file.read()
+        
+    query_s3_select(bucket_name, object_name, query)
