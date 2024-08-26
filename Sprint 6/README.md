@@ -117,9 +117,7 @@ Significa a quantidade de diferentes fontes e os tipos de fontes que a solução
         - PDFs
         - Fotos
         - Vídeos
-            
-            ![image.png](imgs/image.png)
-            
+                        
 - MÉTODOS DE ARMAZENAMENTO DE DADOS
     - **Armazenamento de dados estruturados**
         - Bancos de Dados relacionais.
@@ -129,9 +127,6 @@ Significa a quantidade de diferentes fontes e os tipos de fontes que a solução
         - OLTP: Processamento de Transação online (Bancos de Dados transacionais - consultas de pesquisa)
         - OLAP: Processamento Analítico online (consultas agregadas)
 
-OBS.: Como saber qual o melhor tipo de Banco de Dados para tal aplicação?
-
-![image.png](imgs/image%201.png)
 
 - Armazenamento de Dados com propósito específico
 
