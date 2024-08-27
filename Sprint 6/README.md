@@ -299,8 +299,176 @@ OBS.: RESUMO:
     - Integra-se de imediato com o AWS Glue.
     - Controla o acesso aos dados usando políticas do IAM.
 
-## 2. Serverless Analytics
+## Data Lake
 
+- É um repositório centralizado que uma organização pode usar para armazenar dados em escala, estruturados e não estruturados, em seu formato original (brutos).
+- Armazenamento altamente escalável e seguro.
+- Na AWS, um *data lake* pode ser composto por **vários serviços integrados:**
+    - S3 é o principal
+    - AWS Database Migration Service, Amazon Kinesis Data Streams, Amazon Kinesis Data Firehouse e Amazon EMR ajudam na ingestão dos dados.
+    - AWS Glue e Amazon EMR podem analisar dados brutos para detectar padrões. Podem, em seguida, automatizar o processo de ETL.
+    - AWS Lake Formation simplifica a instalação e a configuração - reduz os tempos típicos de implantação de semanas para dias
+
+### Benefícios dos *data lakes*
+
+- **Escalabilidade**: armazenar grandes quantidades e vários tipos de dados, possibilidade de aumentar ou reduzir a escala conforme necessário.
+- **Eficiência de custos:** reduzir os custos com armazenamento de baixo custo (S3 ou EMR).
+- **Flexibilidade:** armazenar dados estruturados, não estruturados e semiestruturados, carregamento fácil de novas fontes e tipos de dados.
+- **Análise mais rápida:** evita os processos de ETL e ELT, processamento em tempo real e em lote.
+- **Visualização centralizada:** visualize o repositório em uma única exibição, consulta de uma única fonte confiável e aplicação de políticas comuns de governança e segurança.
+
+### Funções de um *data lake*
+
+- Ingestão e armazenamento
+- Catalogação e pesquisa
+- Proteção e segurança
+- Analytics e informações
+
+### Arquitetura de *data lake* (AWS)
+
+- Geralmente consiste no Amazon **S3** como **armazenamento principal** (dados coletados e armazenados no formato original).
+- AWS Glue utilizado para fazer *crawling*, catalogar e extrair esquemas dos diversos dados.
+- Serviços adicionais, como AWS Lambda, Amazon Kinesis e Amazon EMR para processar, transformar e analisar dados no *data lake*.
+
+### Lake Formation
+
+- É um serviço gerenciado que simplifica a criação, proteção e o gerenciamento de *data lakes.*
+- Automatiza a ingestão, catalogação, limpeza e transformação de dados de diversas fontes em um *data lake* no Amazon S3.
+- Usa *machine learning* e políticas para proteger, organizar e catalogar dados automaticamente.
+- **Benefícios:**
+    - Serviços com tecnologia sem servidor totalmente gerenciados
+    - Data lake desenvolvido em dias
+    - Baixo custo
+    - Gerenciamento simplificado de permissões
+    - Acesso monitorado e auditado para verificar a conformidade
+    - Compartilhamento de dados
+    - Integração com muitas ferramentas de analytics e machine learning
+
+## *Data warehousing*
+
+- Repositório central de informações especialmente projetado para **analytics**.
+- Os dados fluem para um data warehouse a partir de aplicações de negócios, bancos de dados e outras fontes.
+- Usuários acessam os dados por meio de ferramentas de *business inteligence* (BI), clientes SQL e outras aplicações de analytics.
+- Um data warehouse **alimenta relatórios, painéis e ferramentas de analytics,** armazenando dados de forma eficiente.
+
+> Um data warehouse on-premise apresenta muitos desafios, sendo pouco viável atualmente.
+> 
+
+### Modernização de *data warehouses* usando o Amazon Redshift
+
+- O Amazon Redshift ajuda as organizações a configurar e implantar um novo *data warehouse* em minutos.
+- Foi criado para armazenar e consultar conjuntos de dados com tamanhos que variam de gigabytes a petabytes.
+
+![https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1724785200/87YD4BCFDlJTNDhAhS5cig/tincan/938093_1713742352_o_1hs1fij3h1c3iv8ek58148032db_zip/assets/redshiftArchitecture_pt-BR.svg](https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1724785200/87YD4BCFDlJTNDhAhS5cig/tincan/938093_1713742352_o_1hs1fij3h1c3iv8ek58148032db_zip/assets/redshiftArchitecture_pt-BR.svg)
+
+- Além disso, o Amazon Redshift tem suporte integrado para **ETL zero**.
+
+## Arquitetura de dados moderna
+
+- Uma arquitetura de dados moderna remove os limites entre sistemas diferentes e integra perfeitamente o data lake, o data warehouse e os armazenamentos de banco de dados com propósito específico.
+- **O principal recurso de uma arquitetura de dados moderna é a governança unificada. Ela garante a conformidade de forma unificada para proteger, monitorar e gerenciar o acesso aos dados simplificando a aquisição, o processamento e a transmissão de dados.**
+
+### Padrões de movimentação de dados na arquitetura de dados moderna
+
+- **Movimentação de dados de dentro para fora:** dados são armazenados em um data lake e, em seguida, partes dos dados são movidas para um armazenamentos de dados com propósito específico para fazer Machine Learning adicional ou analytics.
+- **Movimentação de dados de fora para dentro:** dados em armazenamento de dados com propósito específico como data warehouse ou banco de dados. Para executar analytics adicional, uma parte desses dados é movida do armazenamento de dados para um data lake.
+- **Movimentação de dados no perímetro:** mostra uma forte integração do seu data lake, data warehouse e armazenamentos de dados com propósito específico para mover dados de um armazenamento para outro ao redor do perímetro. Um armazenamento de dados com propósito específico foi projetado para executar funções específicas de forma rápida e eficiente. A ferramenta certa para o trabalho certo.
+- **Compartilhamento em toda a movimentação de dados:** Os clientes usam arquitetura de dados moderna para governança direta e compartilhamento de dados entre limites lógicos e físicos para criar domínios de dados alinhados às linhas de negócios. Uma arquitetura de dados moderna faz uso do padrão de malha de dados para compartilhamento de dados sem esforço. Uma malha de dados é uma arquitetura distribuída, orientada por domínio e centrada no conceito de dados como um produto.
+
+### Pilares
+
+1. Data lakes escaláveis
+2. Serviços de analytics com propósito específico
+3. Acesso unificado a dados
+4. Governança unificada
+5. Desempenho e relação custo-benefício
+
+### Movimentação de dados (conceitos)
+
+- Minimização do trânsito
+- Uso da gravidade dos dados
+- Uso de fluxos de trabalho mínimo de extração-carregamento-transformação (ELT) ou ETL zero
+- Orquestração de pipelines
+- Streaming para processamento contínuo de dados
+
+![https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1724785200/87YD4BCFDlJTNDhAhS5cig/tincan/938093_1713742352_o_1hs1fij3h1c3iv8ek58148032db_zip/assets/mdaDataMovement_pt-BR.png](https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1724785200/87YD4BCFDlJTNDhAhS5cig/tincan/938093_1713742352_o_1hs1fij3h1c3iv8ek58148032db_zip/assets/mdaDataMovement_pt-BR.png)
+
+### Arquitetura de malha de dados para compartilhamento de dados
+
+- A malha de dados adota um modelo descentralizado, onde os **dados são tratados como produtos** gerenciados por equipes de domínio, aumentando a eficiência no compartilhamento de dados.
+- Equipes de domínio ou unidades de negócios gerenciam plataformas de dados autônomas que suportam análises específicas, aplicações e machine learning.
+- Embora descentralizada, a malha de dados mantém governança e consistência através de uma infraestrutura central que gerencia serviços compartilhados como catálogos de dados e observabilidade.
+- Os consumidores de dados, produtores de dados, e a governança central são separados para facilitar a organização e o acesso seguro aos dados.
+- Os produtos de dados são armazenados em data lakes específicos que são catalogados e esquematizados, permitindo acesso direto por meio de serviços de nuvem.
+- A malha de dados interconecta data lakes e domínios de aplicação, promovendo a colaboração e a agilidade na análise de dados.
+
+### Amazon DataZone
+
+- A AWS implementa o padrão de malha de dados por meio do Amazon DataZone.
+- Serviço ajuda as organizações a gerenciar, governar e compartilhar ativos de dados na AWS, em fontes on-premises e em fontes de terceiros.
+- O Amazon DataZone se integra a vários serviços da AWS. Ele pode publicar ativos de dados de fontes como AWS Glue Data Catalog, Amazon Redshift e Amazon S3 no catálogo do Amazon DataZone.
+
+### Serviços da AWS para arquitetura de dados moderna (pilares)
+
+1. **Serviços da AWS para data lakes escaláveis**
+- Amazon S3
+- AWS Glue Data Catalog
+- AWS Lake Formation
+
+1. **Serviços da AWS para analytics com propósito específico**
+- Amazon Managed Service for Apache Flink
+- Amazon QuickSight
+- Amazon OpenSearch Service
+- Amazon Redshift
+- Amazon EMR
+- Amazon SageMaker
+- Serviços da AWS para IA
+- Serviços da AWS para IA generativa
+- Amazon Athena
+- Amazon RDS
+- Amazon Aurora
+- Amazon DynamoDB
+
+1. **Serviços da AWS para acesso unificado a dados**
+- AWS Glue
+- Amazon Kinesis Data Firehouse
+
+1. **Serviços da AWS para governança unificada**
+- Amazon DataZone
+- AWS Lake Formation
+
+1. **Serviços da AWS para desempenho e economia**
+- Serviços como Amazon S3, Amazon Redshift, Amazon EMR e AWS Glue oferecem a melhor relação entre preço e desempenho em suas categorias.
+
+## Casos de uso comuns
+
+- **Saúde**: colete, armazene e analise grandes volumes de dados médicos.
+- **Setor automotivo**: tornando os resultados de análises mais significativos e acessíveis.
+- **Setor de energia:** usando data lakes e analytics para ativos de energia renovável.
+
+## Arquitetura de referência
+
+- **Fontes de dados**: os dados são coletados de várias fontes da organização.
+- **Ingestão de dados:** dependendo do tipo da fonte de dados, os dados são ingeridos em lote ou streaming.
+- **Data lake escalável**:  depois de ingerir os dados, eles precisam ser armazenados e gerenciados. Serviços diferentes são usados para armazenar e gerenciar dados e criar os data lakes.
+- **Movimentação contínua de dados:** durante a movimentação de dados, os dados são transformados e catalogados nos armazenamentos. O AWS Glue e o AWS Glue DataBrew são usados para uma movimentação contínua de dados entre os armazenamentos e as ferramentas de analytics.
+- **Analytics com propósito específico e informações:** os usuários podem executar consultas analíticas sofisticadas diretamente em seus armazenamentos de dados sem precisar copiar e carregar dados em plataformas de analytics ou data warehouses separados.
+
+---
+
+## 2. Serverless Analytics
+- Vídeo que mostra uma forma de sintetizar diferentes dados usando ferramentas da AWS como:
+    - AWS IoT Analytics
+    - Amazon Cognito
+    - AWS Lambda
+    - Amazon SageMaker
+
+- Conclusões: 
+    - IoT não é apenas sobre dispositivos de borda, devemos pensar em uma comunicação de mão dupla.
+    - IoT Analytics é uma maneira flexível de processar e armazenar dados de séries temporais.
+    - Data lakes são uma maneira de baixo custo, com baixo esforço e flexíveis para se iniciar.
+
+---
 
 ## 3. Introdução ao Amazon Athena
 
@@ -319,6 +487,9 @@ OBS.: RESUMO:
 - Criar  um esquema
 - Execute uma query
 
+---
+
+## 4. AWS Glue Getting Started
 
 ___
 
