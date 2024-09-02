@@ -1,7 +1,9 @@
-FROM amazonlinux:2.0.20200602.0
+FROM amazonlinux:2023
 RUN yum update -y
 RUN yum install -y \
-python3-pip \
-zip \
+    python3.11 \
+    python3.11-pip \
+    zip
 RUN yum -y clean all
-RUN python3.8 -m pip install --upgrade pip
+RUN python3.11 -m pip install --upgrade pip
+
