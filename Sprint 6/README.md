@@ -489,7 +489,7 @@ OBS.: RESUMO:
 
 ---
 
-## 4. AWS Glue Getting Started
+## 4. AWS Glue - Getting Started
 ## O que o AWS Glue faz?
 
 - É um serviço de integração de dados *serverless* (paga apenas o que utiliza).
@@ -546,6 +546,164 @@ OBS.: RESUMO:
 3. **Qualidade e Preparação de Dados**: Crie e aplique regras de qualidade de dados; use DataBrew para estatísticas e limpeza sem codificação.
 4. **Orquestração Visual**: Crie e execute jobs ETL com um editor visual no AWS Glue Studio, incluindo monitoramento e dashboards.
 5. **Processamento em Tempo Real**: Use AWS Glue Streaming ETL para processar e carregar dados em tempo real de fontes de streaming.
+
+---
+
+## 5. Amazon EMR - Getting Started
+### O que ele faz?
+
+- O Amazon EMR processa grandes volumes de dados de forma eficiente usando Apache Hadoop e serviços da AWS.
+- Ele permite executar tarefas de processamento distribuído, consultas interativas e aplicações de aprendizado de máquina (ML) com frameworks de análise open-source como Apache Spark, Apache Hive e Presto.
+- Automatiza tarefas como configuração, ajuste, monitoramento e planejamento de capacidade.
+
+### Como o EMR funciona?
+
+O Amazon EMR é uma solução de big data na nuvem para processamento de dados em petabytes, análises interativas e ML usando frameworks open-source.
+
+### **Diferenças nas opções de implantação do Amazon EMR**
+
+O Amazon EMR oferece quatro maneiras diferentes de implantar aplicações:
+
+1. **Amazon EMR Serverless**
+    
+    Permite rodar frameworks de big data *open-source* sem configurar ou gerenciar clusters. Ideal para quem deseja evitar a gestão de clusters e usar frameworks *open-source* sem precisar de especialistas.
+    
+2. **Amazon EMR on Amazon EC2**
+    
+    Fornece controle máximo e flexibilidade sobre aplicações, permitindo escolha do tipo de instância EC2, personalização do AMI Linux e configuração de instâncias. Ideal para quem precisa de alta personalização e controle sobre o ambiente.
+    
+3. **Amazon EMR on EKS**
+    
+    Executa aplicações em clusters Amazon EKS, combinando benefícios do Amazon EMR e Kubernetes. Ideal para quem deseja gerenciar clusters com EKS ou usar versões diferentes de frameworks open-source no mesmo cluster.
+    
+4. **Amazon EMR on AWS Outposts**
+    
+    Oferece a mesma infraestrutura e serviços AWS em data centers locais ou instalações on-premises. Ideal para quem precisa executar Amazon EMR próximo ao seu data center dentro de um Outpost.
+    
+
+### **Problemas que o Amazon EMR resolve:**
+
+- **Diversidade e Volume de Dados**: Lida com dados de várias fontes, formatos e frequências (estruturados, semi-estruturados ou não estruturados) para extrair mais valor.
+- **Armazenamento e Análise**: Armazena dados em data lakes no Amazon S3 e permite análises avançadas, processamento de big data, e machine learning.
+- **Desafios de Infraestrutura**: Elimina a necessidade de configurar e operar clusters on-premises, que é caro, demorado e sujeito a problemas como subutilização e não cumprimento de SLAs durante picos de demanda.
+- **Frameworks Open-source**: Facilita o uso de frameworks como Apache Hadoop, Apache Spark, Apache Hive e Presto sem os desafios de manutenção de hardware e atualizações constantes.
+
+### Benefícios
+
+1. **Amazon EMR Serverless**
+    - Facilidade de uso
+    - Flexibilidade de custos
+    - Escalabilidade
+    - Segurança
+    - Monitoramento
+    - Integração
+2. **Amazon EMR Clusters**
+    - Flexibilidade de custos
+    - Escalabilidade
+    - Confiabilidade
+    - Segurança
+    - Monitoramento
+    - Integração
+
+### Amazon EMR Serverless Architecture
+
+- **Amazon EMR Serverless** é uma solução que automatiza a provisão, configuração e escalonamento de recursos de computação e memória para processar dados na nuvem. Ele permite executar trabalhos de Apache Spark e outras tecnologias de forma rápida e eficiente, sem a necessidade de gerenciar infraestrutura. O EMR Serverless também se integra com o EMR Studio para oferecer um ambiente de desenvolvimento interativo.
+- **Principais conceitos do EMR Serverless**
+    - **Aplicação**: pode-se criar uma ou mais aplicações que utilizam frameworks de analytics open-source. Basta selecionar o desejado (Apache Spark, Apache Hive), escolher a versão do Amazon EMR e o nome da aplicação.
+    - **Trabalho:** é uma requisição enviada a uma aplicação Amazon EMR sem servidor que roda assincronamente e é rastreada até a conclusão. Múltiplos trabalhos podem rodar concorrentemente em uma aplicação. Eles rodam em uma única Zona de Disponibilidade.
+    - **Trabalhadores:** aplicações Amazon EMR Serverless utilizam trabalhadores internamente para executar trabalhos.
+    - **Trabalhadores pré-inicializados:** trabalhadores podem ser pré-inicializados quando as aplicações iniciam.
+
+- **Casos de Uso:**
+    - Serviços ETL com Apache Spark
+    - Queries SQL em grande escala usando Hive
+    - Análises interativas utilizando Jupyter notebooks com EMR Studio
+    - Análise ad-hoc usando Presto
+    - Construção de pipelines de dados de streaming em tempo real
+    - Rodando cargas de trabalho AI/ML no Amazon EMR
+
+ 
+
+### **Amazon EMR Cluster Architecture**
+
+- **Cluster:** coleção de instâncias de Amazon EC2.
+- Cada instância no cluster é chamada de **nó** e cada nó tem um um papel dentro do cluster.
+- Amazon EMR instala diferentes componentes de software em cada tipo de nó, dando a cada um deles uma função dentro de uma aplicação distribuída, tal qual o Apache Spark.
+- **Tipos de nós**
+    1. **Primário**: gerencia o cluster rodando software para coordenar a distribuição de dados e tarefas. Monitora também o status das tarefas e a saúde do cluster.
+    2. **Principal:** executa tarefas e armazena dados no HDFS do seu cluster. Clusters com múltiplos nós possuem pelo menos um nó principal.
+    3. **De tarefa:** possui componentes de software que executam apenas tarefas. Ele não armazena dados no HDFS. Os nós de tarefa são opcionais.
+- Os clusters Amazon EMR suportam as seguintes **fontes de dados:**
+    - **Amazon S3**: Oferece capacidade de armazenamento praticamente ilimitada através do EMRFS, que pode ser compartilhado entre vários clusters EMR ou Amazon EMR Serverless. O EMRFS permite armazenar dados persistentes no Amazon S3 para uso com Hadoop e oferece recursos como criptografia do lado do servidor, consistência de leitura após escrita e consistência de listagem.
+    - **HDFS (Hadoop Distributed File System)**: Armazena dados com três cópias por padrão, distribuídas pelos discos locais do cluster. HDFS pode ser usado junto com o Amazon S3 para melhorar a durabilidade, segurança e desempenho de entrada/saída dos dados.
+    - **Armazenamento local e Amazon EBS**: Utilizados para dados HDFS, buffers, caches, dados temporários e outros conteúdos temporários que algumas aplicações podem "despejar" no sistema de arquivos local. Os volumes EBS conectados aos clusters EMR são efêmeros e funcionam de maneira diferente em comparação com as instâncias regulares do Amazon EC2.
+- **Casos de Uso:**
+    - Realizar Análises de Big Data
+    - Construir Pipelines de Dados Escaláveis
+    - Processar Fluxos de Dados em Tempo Real
+    - Analisar Dados e Adoção de Machine Learning
+
+OBS.: **Você pode usar o Amazon EMR para executar cargas de trabalho do Apache Spark e criar clusters gerenciados do Apache Spark no AWS Management Console, na AWS CLI ou com a API do Amazon EMR.**
+
+---
+
+## 6. Amazon Redshift - Getting Started
+**Amazon Redshift** é um **data warehouse** na nuvem que permite **executar consultas analíticas complexas em grandes volumes de dados**. 
+
+Ele usa **processamento paralelo** para otimizar consultas e **suporta muitos usuários simultâneos**. O serviço é oferecido como uma solução gerenciada e como uma opção ***serverless***.
+
+Melhora a eficiência de custos em escala, com otimização para melhorar a velocidade das consultas. 
+
+### Benefícios
+
+- **Análise Rápida para Todos**: Concentre-se em obter insights e alcançar resultados de negócios sem se preocupar com o gerenciamento do data warehouse.
+- **Análise de Todos os Dados**: Execute análises em dados complexos e escalados de bancos de dados operacionais, fontes de streaming, lagos de dados e milhares de conjuntos de dados de terceiros.
+    - **Ingestão de Streaming**: Consome dados diretamente de Amazon Kinesis Data Streams ou Amazon MSK para análises quase em tempo real.
+    - **Integração Zero-ETL com Amazon Aurora**: Permite análises em dados transacionais do Aurora sem construir ETL complexo.
+    - **Consulta Federada**: Consulte dados ao vivo em bancos de dados relacionais como Amazon RDS e Amazon Aurora sem mover dados.
+    - **Consultas Diretas no S3**: Consulte dados estruturados e semi-estruturados em arquivos no Amazon S3 sem carregá-los em tabelas do Redshift.
+    - **Amazon Redshift ML**: Crie, treine e aplique modelos de machine learning usando SQL padrão.
+- **Conectividade**: Execute consultas diretamente do console usando o Query Editor v2. Conecte-se a ferramentas de BI, ETL e ciência de dados via JDBC/ODBC, e use a API de Dados do Amazon Redshift para acessar dados com aplicações baseadas em web.
+- **Suporte a Formatos Abertos**: Consulte formatos de arquivos como Parquet, ORC, JSON, Avro e CSV diretamente em S3 usando SQL ANSI. Exporte dados para o data lake usando o comando UNLOAD.
+- **Desempenho em Qualquer Escala**: Desempenho rápido em conjuntos de dados de gigabytes a petabytes. Armazenamento em colunas, compressão de dados e mapeamento de zonas reduzem o I/O necessário. O Redshift oferece codificação de compressão específica, como AZ64, para melhorar o desempenho.
+- **Seguro e Conformidade**: Segurança abrangente com criptografia SSL e AES-256. Configurações de firewall e integração com AWS CloudTrail para auditoria e monitoramento detalhado de operações e acessos.
+
+### Arquitetura
+
+O **Amazon Redshift** desempenha um papel crucial em arquiteturas de dados modernas, utilizando SQL para analisar dados estruturados e semi-estruturados em *data warehouses*, bancos de dados operacionais e *data lakes*. Ele combina hardware projetado pela AWS e aprendizado de máquina para oferecer um excelente desempenho a qualquer escala.
+
+- **Ingestão de Dados**
+    - Você pode usar o comando **COPY** para carregar grandes volumes de dados no Amazon Redshift.
+    - O comando COPY carrega dados em uma tabela do banco de dados Redshift a partir de arquivos de dados ou de uma tabela do Amazon DynamoDB. Os arquivos podem estar localizados em um bucket do Amazon S3, em um cluster do Amazon EMR ou em um host remoto acessado via conexão Secure Shell (SSH).
+    - Dependendo do seu caso de uso, você também pode utilizar serviços e recursos da AWS para realizar o carregamento de dados.
+- **Conceitos técnicos básicos**
+    - **Processamento Paralelo Massivo (MPP)**
+        - **Distribuição de Dados:** O Amazon Redshift distribui dados entre os nós de computação para processar consultas em paralelo, acelerando a análise de grandes volumes de dados.
+        - **Otimização Automática (ATO):** Ajusta automaticamente o design das tabelas para melhorar o desempenho sem intervenção manual.
+    - **Armazenamento em Colunas**
+        - **Eficiência:** Armazena dados por coluna, reduzindo I/O em disco e melhorando a compressão e desempenho das consultas.
+    - **Ingestão de Dados**
+        - **COPY Command:** Carrega dados de Amazon S3, Amazon EMR, DynamoDB, ou hosts remotos via SSH, suportando vários formatos de arquivo.
+        - **Integração com AWS:** Inclui replicação direta do Aurora para Redshift e ingestão de dados de stream com baixa latência.
+        - **Ferramentas ETL de Terceiros:** Integração com ferramentas parceiras para facilitar o carregamento de dados.
+    - **Acesso aos Dados**
+        - **Query Editor v2:** Interface web para criar e executar consultas e visualizar resultados.
+        - **Conexões JDBC/ODBC/Python:** Para ferramentas de SQL e BI como Tableau.
+        - **QuickSight:** Serviço de BI para visualizações e insights.
+        - **Data API:** Acesso via API para aplicações web e serviços como Lambda.
+        - **RSQL:** Cliente de linha de comando para interagir com o Redshift.
+
+### Casos de uso
+
+- ***Business Inteligence* (BI)**
+- ***Insights* operacionais em tempo real**
+- **Dados como serviço**
+- ***Machine learning***
+
+---
+
+## 7. Best Practices for Data Warehousing with Amazon Redshift 
+
 
 
 

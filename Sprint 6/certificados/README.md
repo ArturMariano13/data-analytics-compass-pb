@@ -14,6 +14,15 @@ Este diretório contém os certificados adquiridos no decorrer da Sprint.
 ## 5. AWS Glue - Getting Started
 ### [Veja aqui](5_AWS_Glue_Getting_Started.pdf)
 
+## 6. Amazon EMR - Getting Started
+### [Veja aqui](6_Amazon_EMR_Getting_Started.pdf)
+
+## 7. Amazon Redshift - Getting Started
+### [Veja aqui](7_Amazon_Redshift_Getting_Started.pdf)
+
+
+
+
 ___
 
 ### ↩️ [Retornar ao início](../../README.md)
