@@ -703,8 +703,101 @@ O **Amazon Redshift** desempenha um papel crucial em arquiteturas de dados moder
 ---
 
 ## 7. Best Practices for Data Warehousing with Amazon Redshift 
+- OLTP System Online Transaction Processing (Operational System) - caracterizado por um grande número de pequenas transações (INSERT, DELETE, UPDATE) que servem como camada de persistência para aplicações.
+- OLAP (Online Analytical Processing) - caracterizado por um número relativamente baixo de transações. As consultas são geralmente complexas.
+    - Redshift é OLAP.
 
+- O **Amazon Redshift** é um **data warehouse** totalmente gerenciado - massivamente paralelo.
+    - Sempre possui um nó líder e nó(s) de computação subjacentes a ele.
+    - **Nós de computação =** unidade de escala
+        - Principais fontes que armazenam os dados reais necessários para o data warehouse.
 
+### Terminologias e Conceitos
+
+- **Colunar**
+    - Amazon Redshift utiliza uma arquitetura colunar para guardar dados no disco.
+        - Objetivo: reduzir entrada/saída para queries de analytics.
+        - Fisicamente guarda dados em disco por coluna ao invés de linha.
+        - Apenas a leitura dos dados da coluna é necessária.
+- **Compressão**
+    - Objetivos:
+        - Aumentar o armazenamento disponível com um cluster Amazon Redshift
+        - Melhorar a performance de queries diminuindo entrada/saída
+    - Impacto:
+        - Permite de duas a quatro vezes mais dados a serem armazenados com o cluster.
+    - Por padrão, COPY (comando SQL para mover dados do S3 para o Redshift) automaticamente analisa e comprime dados no primeiro carregamento em uma tabela vazia.
+- **Classificação dos dados**
+    - Objetivos:
+        - Fisicamente ordenar linhas de uma tabela baseado em certa(s) coluna(s) para reduzir entrada/saída.
+        - Permitir operações MERGE JOIN.
+    - Propriedade SORTKEY
+
+### Melhores práticas
+
+- **Sort keys**
+    - Insira nas colunas que são frequentemente filtradas inserindo nas de menor cardinalidade primeiro.
+- **Distribuição de dados**
+    - Para processamento paralelo
+    - Para minimizar movimentos de dados durante o processamento de consultas.
+- **Resumo do design de tabelas**
+    - Manter tipos de dados quão grande for necessários, mas não maiores do que realmente deveria.
+- **Tamanho de Clusters**
+    - Manter ao menos 20% de espaço livre ou três vezes o tamanho da maior tabela existente.
+
+### Resumo
+
+- Redshift é um data warehouse gerenciado para cargas de trabalho analíticas (OLAP).
+- Redshift suporta dados estruturados e dados semiestruturados como JSON, Parquet, Avro, Orc.
+- Utiliza uma arquitetura massivamente paralela e distribuída que “escala” horizontalmente.
+- Redshift usa uma arquitetura colunar de armazenamento e suporta ANSI SQL.
+- Data warehouses relacionais suportam qualquer tipo de modelo de dados.
+- Redshift tem uma ótima eficiência de custos.
+
+---
+
+## 8. Amazon QuickSight - Getting Started
+**Amazon QuickSight** é um serviço de Business Intelligence (BI) na nuvem que permite criar e publicar dashboards interativos e relatórios altamente formatados. Com o QuickSight, você pode:
+
+1. **Criação de Dashboards e Relatórios:** Produzir dashboards interativos e relatórios paginados que podem ser acessados por navegadores ou dispositivos móveis.
+2. **Visualização e Compartilhamento de Dados:** Analisar e explorar dados, e compartilhar visualizações com usuários finais em um formato de fácil compreensão.
+3. **Embutir Dashboards:** Integrar dashboards em suas aplicações, proporcionando aos clientes análises self-service poderosas.
+4. **Conexão com Múltiplas Fontes de Dados:** Conectar-se a dados na nuvem e combinar informações de várias fontes diferentes.
+5. **Recursos de Machine Learning:** Aproveitar inovações da Amazon em aprendizado de máquina, como detecção de anomalias, previsão e autonarrativas.
+6. **Amazon QuickSight Q:** Oferece aos usuários a opção de realizar consultas em linguagem natural, facilitando a interação com os dados.
+7. **Serviço Gerenciado:** Fornece segurança de nível empresarial, disponibilidade global, e redundância embutida sem a necessidade de gerenciar infraestrutura.
+8. **Escalabilidade de Usuários:** Oferece ferramentas de gerenciamento de usuários que permitem escalar facilmente de alguns para milhões de usuários.
+
+- O QuickSight permite acessar tanto data lakes e data warehouses on-premises.
+
+### Conceitos técnicos do QuickSight
+
+- Fontes de dados
+    - S3
+    - Excel
+    - Athena
+    - Salesforce
+    - Redshift, RDS, EC2…
+- Datasets
+    - Modelo enriquecido para visualização.
+- Análise
+    - Aspecto de edição do aplicativo, geralmente usado por uma persona de autor para construir suas visualizações. Uma análise no QuickSight é composta por componentes na tela, ou widgets, que contêm visualizações de dados.
+    - **Visuais** são representações gráficas de um conjunto de dados. Eles geralmente incluem tipos de gráficos e plotagens.
+- Temas
+    - Coleção de configurações que podem ser aplicadas para múltiplas análises e dashboards.
+    - Temas podem ser compartilhados e editados por qualquer um que tenha acesso.
+- Dashboards
+    - É uma versão da análise somente para leitura.
+    - Após uma análise ser desenvolvida e estar pronta para publicação, um autor pode exportá-la para um dashboard.
+- Tópicos Q do QuickSight
+    - Um tópico Q é uma coleção de um ou mais datasets que usuários finais podem usar para fazer questões em linguagem natural.
+
+### Casos de Uso
+
+- Dashboards interativos
+- BI sem servidor
+- Insights de Analytics
+- Análise visual incorporada
+- Relatórios operacionais
 
 
 ___

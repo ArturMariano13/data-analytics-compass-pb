@@ -157,5 +157,13 @@ Este diretório contém as evidências da sprint 6. Aqui você encontrará print
 
 ![Imagem exclusão arquivos S3](ev_exercicios/ex4_limpeza/4_exclusao_arquivos_S3.png)
 
+- Também excluí a minha função Lambda, restando apenas a função StackSet-account-password-policy--LambdaFunctionV2-kf47tePm9H0R que já estava criada.
+
+![Imagem exclusão Lambda](ev_exercicios/ex4_limpeza/5_exclusao_lambda.png)
+
+- Por fim, excluí o *bucket* criado para a realização dos exercícios, limpando todos os recursos utilizados para esses exercícios supracitados.
+
+![Imagem exclusão Bucket S3](ev_exercicios/ex4_limpeza/6_exclusao_bucket.png)
+
 ___
 ### ↩️ [Retornar ao início](../../README.md)

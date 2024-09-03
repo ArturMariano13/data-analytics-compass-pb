@@ -20,8 +20,11 @@ Este diretório contém os certificados adquiridos no decorrer da Sprint.
 ## 7. Amazon Redshift - Getting Started
 ### [Veja aqui](7_Amazon_Redshift_Getting_Started.pdf)
 
+## 8. Best Practices for Data Warehousing with Amazon Redshift 
+### [Veja aqui](8_Best_Practices_Data_Warehousing_Amazon_Redshift.pdf)
 
-
+## 9. Amazon QuickSight - Getting Started
+### [Veja aqui](9_Amazon_QuickSight_Getting_Started.pdf)
 
 ___
 
