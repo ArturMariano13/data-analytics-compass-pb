@@ -2,28 +2,12 @@
 Este diretório contém os arquivos necessários para a realização do desafio desta Sprint.
 
 ## Questões para Análise 
-
-## 📝 Enunciado(s)
-O desafio da Sprint 6 consiste na primeira entrega do desafio final, o qual terá cinco (5) sprints de duração (da 6ª até a 10ª).
-
-Nesta sprint, devemos realizar a ingestão *batch* (em lote) dos arquivos CSV em um Bucket Amazon S3 RAW Zone.
-
-Devemos desenvolver um código Python que será executado dentro de um container Docker para carregar os dados locais para a nuvem. Será amplamente utilizada a biblioteca `boto3` para a realização dessa etapa do desafio.
-
-A imagem abaixo ilustra o que será realizado nessa primeira etapa do desafio.
-
-
-![Imagem desafio](../evidencias/ev_desafio/0_imagem_desafio.png)
-
-1. O código Python deve:
-- **Ler** os dois (filmes e séries) no formato CSV **sem filtrar os dados**.
-- Utilizar a lib **`boto3`** para **carregar os dados para a AWS**.
-- Acessar a AWS e **gravar no S3**, no **bucket definido com RAW Zone**.
-    - Na gravação dos dados, deve-se considerar o padrão: `<nome-do-bucket>\<camada-de-armazenamento>\<origem-dado>\<formato-do-dado>\<especificação-do-dado>\<data-do-processamento ano\mes\dia>\<arquivo>`.
-        - Exemplo: `S3:\\data-lake\Raw\Local\CSV\Movies\2024\09\03\movies.csv` & `S3:\\data-lake\Raw\Local\CSV\Series\2024\09\03\series.csv`
-
-2. Criar container Docker com um volume para armazenar os arquivos CSV e executar processo Python implementado.
-3. Executar localmente o container Docker para realizar a carga dos dados ao S3.
+1. Como foram os primeiros filmes de Christopher Nolan em comparação aos filmes da época do mesmo gênero (receita, bilheteria, avaliações)?	
+	- A exemplo de Memento (2000), filme do gênero crime.
+2. Qual foi o impacto da trilogia Batman em elevar o padrão de adaptações de quadrinhos, especialmente no uso de temas complexos como crime organizado?
+3. Como a abordagem de Christopher Nolan na apresentação de temas científicos e o uso extensivo de efeitos visuais em Interstellar (2014) e Inception (2010) impactaram a popularidade e a recepção crítica desses filmes
+4. Como o desempenho de Dunkirk (2017) em termos de avaliações críticas e do público se compara com outros filmes de guerra e com os outros trabalhos de Christopher Nolan, considerando a mudança de gênero para um filme de guerra?
+5. Quais foram os principais marcos que consolidaram Christopher Nolan como um dos diretores mais influentes do cinema mundial?
 
 
 ___

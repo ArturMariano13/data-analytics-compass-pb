@@ -62,6 +62,7 @@ Essa seção possui os links para o arquivo README.md de cada Sprint, em que se 
 3. [Sprint 3](Sprint%203/README.md): Python e Introdução AWS
 4. [Sprint 4](Sprint%204/README.md): Paradigma Funcional (Python), Containers e Introdução AWS
 5. [Sprint 5](Sprint%205/README.md): Fundamentos de Computação em Nuvem (AWS)
+6. [Sprint 6](Sprint%206/README.md): Serviços Analíticos (AWS)
 
 No decorrer do programa, serão inseridas as outras Sprints no repositório, além de seus respectivos arquivos.
 ___
