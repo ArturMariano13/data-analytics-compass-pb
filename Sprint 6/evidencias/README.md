@@ -176,19 +176,19 @@ Este diretório contém as evidências da sprint 6. Aqui você encontrará print
 
 ![Imagem arquivos](ev_desafio/1_download_e_descompactacao.png)
 
-- Vale ressaltar que criei um diretório dentro de "desafio" chamado [data](../desafio/data/), o qual possui os arquivos de filmes e séries.
+- Vale ressaltar que criei um diretório dentro de "desafio" chamado data, o qual possui os arquivos de filmes e séries.
 - Após, desenvolvi o [script](../desafio/script.py) conforme explicitado no [README](../desafio/README.md) do diretório de desafio.
 
 ### 2. execução local do container Docker
 - **Build da imagem: `docker build -t <nome-imagem> .`**
 
-![Imagem build imagem](ev_desafio/build_docker.png)
+![Imagem build imagem](ev_desafio/2_build_docker.png)
 
 - **Executar o container**
     - Para a execução do container, eu estava tendo alguns problemas para copiar os arquivos para o volume Docker. Para isso, fiz um teste executanto o container de forma interativa, abrindo o terminal do mesmo para ver os diretórios.
         - `docker run -it -v <caminho-maquina-local>:<caminho-container> <nome-imagem> bash`
 
-    ![Imagem teste terminal](ev_desafio/teste_terminal_container.png)
+    ![Imagem teste terminal](ev_desafio/3_teste_terminal_container.png)
 
     - Os problemas que eu estava tendo consiste na estrutura de diretórios até os arquivos movies.csv e series.csv, pois o Docker tem dificuldade de entender letras maiúsculas, espaços em branco e caracteres especiais. 
     - Para resolver isso, tive de alterar a escrita do caminho inserindo **'\'** antes dos espaços para ele entender (a imagem acima comprova isso).
@@ -198,17 +198,14 @@ Este diretório contém as evidências da sprint 6. Aqui você encontrará print
     - Com isso feito, bastou executar o docker com o seguinte comando: 
     `docker run --name <nome-container> -v <caminho-maquina-local>:<caminho-container> <nome-imagem>`
 
-    ![Imagem evidência execução terminal](ev_desafio/execucao_container.png)
+    ![Imagem evidência execução terminal](ev_desafio/4_execucao_container.png)
 
     Para verificar se ocorreu tudo certo, verifiquei na AWS:
 
-    ![Imagem evidência AWS 1](ev_desafio/bucket_diretorios_aws.png)
-    Essa imagem possui todos os diretórios criados, pois tirei prints e fui colando um abaixo do outro, montando a imagem acima.
-
-    ![Imagem evidência AWS 2](ev_desafio/bucket_filmes_aws.png)
+    ![Imagem evidência AWS 2](ev_desafio/5_bucket_filmes_aws.png)
     A imagem acima possui o arquivo de filmes com o caminho completo podendo ser visto no superior dela.
 
-    ![Imagem evidência AWS 3](ev_desafio/bucket_series_aws.png)
+    ![Imagem evidência AWS 3](ev_desafio/6_bucket_series_aws.png)
     A imagem acima possui o arquivo de séries com o caminho completo podendo ser visto no superior dela.
 
 > Marquei os horários na tentativa de adicionar veracidade às operações realizadas. Isso também será evidenciado no vídeo, mas considerei uma boa estratégia para deixar claro o sucesso da execução.

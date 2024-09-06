@@ -1,6 +1,8 @@
 # 🧩 Desafio da Sprint 6
 Este diretório contém os arquivos necessários para a realização do desafio desta Sprint.
 
+---
+
 ## Questões para Análise 
 1. Como foram os primeiros filmes de Christopher Nolan em comparação aos filmes da época do mesmo gênero (receita, bilheteria, avaliações)?	
 	- A exemplo de Memento (2000), filme do gênero crime.
@@ -9,7 +11,9 @@ Este diretório contém os arquivos necessários para a realização do desafio 
 4. Como o desempenho de Dunkirk (2017) em termos de avaliações críticas e do público se compara com outros filmes de guerra e com os outros trabalhos de Christopher Nolan, considerando a mudança de gênero para um filme de guerra?
 5. Quais foram os principais marcos que consolidaram Christopher Nolan como um dos diretores mais influentes do cinema mundial?
 
-## 📝 Enunciado(s)
+---
+
+## 📝 Enunciado
 O desafio da Sprint 6 consiste na primeira entrega do desafio final, o qual terá cinco (5) sprints de duração (da 6ª até a 10ª).
 
 Nesta sprint, devemos realizar a ingestão *batch* (em lote) dos arquivos CSV em um Bucket Amazon S3 RAW Zone.
@@ -37,7 +41,7 @@ A imagem abaixo ilustra o que será realizado nessa primeira etapa do desafio.
 ### Etapa 0 - *download* dos recursos
 Fiz o *download* do arquivo compactado **"Filmes e Series.zip"** e descompactei os arquivos. Dentro do diretório havia dois arquivos CSV, um relacionado a filmes e outro a séries. 
 
-Além disso, criei um diretório dentro de desafio ([data](data/)) contendo os dois arquivos CSV.
+Além disso, criei um diretório dentro de desafio (data) contendo os dois arquivos CSV.
 
 ### Etapa 1 - código Python
 - Para desenvolver o código Python com boto3, aproveitei o script da Sprint anterior (5) como base, ajustando para a aplicação necessária para a atual sprint.
@@ -157,8 +161,44 @@ Além disso, criei um diretório dentro de desafio ([data](data/)) contendo os d
     - `<nome-imagem>`: Esse é o nome da imagem Docker que você deseja usar para criar o container. O Docker vai iniciar um container a partir dessa imagem.
 
 ### Etapa 4 - execução e provas
-- O diretório de evidências possui as provas da execução do script e do container.
-- [Veja evidências](../evidencias/README.md)
+### 1. *Download* dos recursos
+- Nessa etapa, fiz o download dos recursos da Udemy e descompactei os arquivos.
+
+![Imagem arquivos](../evidencias/ev_desafio/1_download_e_descompactacao.png)
+
+- Vale ressaltar que criei um diretório dentro de "desafio" chamado data, o qual possui os arquivos de filmes e séries.
+- Após, desenvolvi o [script](script.py) conforme explicitado acima.
+
+### 2. execução local do container Docker
+- **Build da imagem: `docker build -t <nome-imagem> .`**
+
+![Imagem build imagem](ev_desafio/2_build_docker.png)
+
+- **Executar o container**
+    - Para a execução do container, eu estava tendo alguns problemas para copiar os arquivos para o volume Docker. Para isso, fiz um teste executanto o container de forma interativa, abrindo o terminal do mesmo para ver os diretórios.
+        - `docker run -it -v <caminho-maquina-local>:<caminho-container> <nome-imagem> bash`
+
+    ![Imagem teste terminal](../evidencias/ev_desafio/3_teste_terminal_container.png)
+
+    - Os problemas que eu estava tendo consiste na estrutura de diretórios até os arquivos movies.csv e series.csv, pois o Docker tem dificuldade de entender letras maiúsculas, espaços em branco e caracteres especiais. 
+    - Para resolver isso, tive de alterar a escrita do caminho inserindo **'\'** antes dos espaços para ele entender (a imagem acima comprova isso).
+
+    - Após assegurar-me de que os arquivos estavam dentro do volume Docker, poderia dar prosseguimento ao desafio.
+
+    - Com isso feito, bastou executar o docker com o seguinte comando: 
+    `docker run --name <nome-container> -v <caminho-maquina-local>:<caminho-container> <nome-imagem>`
+
+    ![Imagem evidência execução terminal](../evidencias/ev_desafio/4_execucao_container.png)
+
+    Para verificar se ocorreu tudo certo, verifiquei na AWS:
+
+    ![Imagem evidência AWS 2](../evidencias/ev_desafio/5_bucket_filmes_aws.png)
+    A imagem acima possui o arquivo de filmes com o caminho completo podendo ser visto no superior dela.
+
+    ![Imagem evidência AWS 3](../evidencias/ev_desafio/6_bucket_series_aws.png)
+    A imagem acima possui o arquivo de séries com o caminho completo podendo ser visto no superior dela.
+
+> Marquei os horários na tentativa de adicionar veracidade às operações realizadas. Isso também será evidenciado no vídeo, mas considerei uma boa estratégia para deixar claro o sucesso da execução.
 
 ___
 
