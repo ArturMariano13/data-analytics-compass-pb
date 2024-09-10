@@ -87,6 +87,132 @@ ___
 > IDEAL: fazer um **benchmark**
 
 
+--- 
+## Leitura Obrigatória: Apache Hadoop e Apache Spark
+### Apache Hadoop
+É um **framework** Open Source, assim como o Spark, que **permite gerenciar e processar big data com eficiência em um ambiente de computação distribuído**.
+
+Consiste em **quatro** módulos principais:
+
+1. **Hadoop Distributed File System (HDFS):** É um sistema de armazenamento que usa tecnologia de armazenamento de objetos armazenando os dados como objetos de tamanho variável.
+    - Características do *object storage*: durabilidade, alta disponibilidade, replicação e elasticidade.
+    - Cada item é um objeto com um identificador único.
+    - Seguindo essa tendência, os principais provedores de nuvem têm suas implementações de *object storage*, como o AWS S3, o Oracle Object Storage, o Azure Blob Storage e o Google Cloud Storage.
+
+2. **Yet Another Resource Navigator (YARN):** facilita tarefas agendadas, gerenciamento completo e monitoramento de nós de cluster entre outros recursos.
+
+3. **MapReduce:** o módulo Hadoop MapReduce ajuda os programas a realizar computação paralela de dados. 
+    - Map: converte os dados em pares chave-valor. 
+    - Reduce: consome a entrada, agrega-a e produz o resultado. 
+
+4. **Hadoop Common:** usa bibliotecas Java que são padrões em todos os outros módulos.
+
+**CAMADAS**
+- **Armazenamento de dados:** há o sistema de arquivos distribuído HDFS.
+- **Processamento de dados:** MapReduce.
+- **Acesso aos dados:** Pig, Hive, Avro, Mahout, etc.
+
+> Todo um ecossistema em volta do Hadoop é criado com ferramentas que suprem necessidades específicas.
+
+### Arquitetura dos componentes básicos do Hadoop
+- Para que o Hadoop funciona, são necessários cinco processos: 
+    - NameNode
+    - DataNode
+    - SecondaryNameNode
+    - JobTracker
+    - TaskTracker
+
+- **HDFS**
+    - Sistema de arquivos distribuído
+    - Responsável pela organização, armazenamento, localização, compartilhamento e proteção de arquivos.
+    - Escalabilidade e disponibilidade => replicação de dados e tolerância a falhas.
+    - Arquitetura do HDFS é estruturada em mestre-escravo, com dois processos principais:
+        - **Namenode**: responsável por gerenciar os dados armazenados no HDFS, registrando as informações sobre quais datanodes são responsáveis por quais blocos de dados de cada arquivo, organizando isso em uma tabela de metadados. Fica localizado no nó mestre da aplicação, juntamente com o JobTracker.
+        - **Datanode**: responsável pelo armazenamento do conteúdo dos arquivos nos computadores escravos. Um Datanode poderá armazenar múltiplos blocos, inclusive de diferentes arquivos, entretanto, eles precisam se reportar constantemente ao NameNode, informando-o sobre as operações que estão sendo realizadas.
+
+- **MapReduce**
+    - Modelo computacional para processamento paralelo das aplicações.
+    - Abstrai as dificuldades do trabalho com dados distribuídos, eliminando quaisquer problemas que o compartilhamento de informações pode trazer em um sistema dessa natureza.
+    - Possui três fases:
+        - **Map:** recebe os dados de entrada, estruturados em uma coleção de pares chave/valor. Função deve ser codificada pelo desenvolvedor.
+        - **Shuffle:** organizar o retorno da função Map, atribuindo para a entrada de cada Reduce todos os valores associados a uma mesma chave.
+        - **Reduce:** ao receber os dados de entrada, a função Reduce retorna uma lista de chave/valor contendo zero ou mais registros, semelhante ao Map, que também deve ser codificada pelo desenvolvedor.
+    - Arquitetura também segue o princípio master-slave, necessitando de três processos:
+        - **JobTracker:** recebe a aplicação MapReduce e programa as tarefas map e reduce para execução, coordenando as atividades nos TaskTrackers. Designa diferentes nós para processar as tarefas de uma aplicação e monitorá-las enquanto estiverem em execução.
+        - **TaskTracker:** processo responsável por executar as tarefas de map e reduce e informar o progresso das atividades. Uma aplicação Hadoop possui diversas instâncias de TaskTrackers, uma em cada um nó escravo.
+        - **SecondaryNameNode:** utilizado para auxiliar o NameNode a manter seu serviço, e ser uma alternativa de recuperação no caso de uma falha do NameNode. Única função é realizar pontos de checagem do NameNode em intervalos pré-definidos.
+
+- **Algoritmo de MapReduce**
+    - O principal pilar de um sistema de MapReduce é um sistema de arquivos distribuído cuja funcionalidade básica é explicada facilmente: arquivos grandes são divididos em blocos de tamanho igual, que são distribuídos pelo cluster para armazenamento.
+
+    - **Fase Map:** aplica a mapfunction para toda a entrada do algoritmo. Os mappers são executados em todos os nós computacionais do cluster, cuja tarefa é processar os blocos no arquivo de entrada que estão armazenados no HDFS.
+    - **Shuffle:** ordena os pares resultantes da fase do map localmente por suas chaves, depois disso, o MapReduce os atribui a um reducer de acordo com suas chaves. O framework garante que todos os pares com a mesma chave sejam atribuídos ao mesmo reducer.
+    - **Reduce:** finalmente a fase de reduce coloca todos os pares com a mesma chave e cria uma lista classificada dos valores. A chave e a lista ordenada de valores fornecem a entrada para a função Reduce. A função Reduce normalmente compacta a lista de valores para criar uma lista mais curta - por exemplo, agregando os valores.
+
+### Apache Spark
+É um framework de código aberto para Big Data que tem o **objetivo de processar grandes conjuntos de dados de forma paralela e distribuída.**
+
+O Spark estende o modelo de programação MapReduce popularizado pelo Apache Hadoop, facilitando bastante o desenvolvimento de aplicações de processamento de grandes volumes de dados.
+
+Permite a programação nas linguagens: R, Java, Scala, SQL e Python.
+
+A biblioteca Pandas é amplamente utilizada para processamento de conjuntos de dados pequenos localmente e introduzir o conceito de DataFrames. No entanto, possui certas limitações quando se trata de Big Data por não conseguir fazer o processamento de forma paralela e distribuída.
+
+- A leitura sugere um exercício prático, o qual está no diretório de evidências: [veja aqui](evidencias/HelloWorld.ipynb).
+    - Escrever código utilizando as APIs da classe DataFrame torna mais fácil debugar o código em caso de erro e dividir o código em funções menores.
+```python
+from pyspark.sql.functions import when
+
+df_full_name4 = df_filtered.withColumn(
+    "fullname",
+    when(
+        col("middlename") == "",
+        concat(
+            col("firstname"),
+            lit(" "),
+            col("lastname")
+        )
+    ).otherwise(
+        concat(
+        col("firstname"),
+        lit(" "),
+        col("middlename"),
+        lit(" "),
+        col("lastname")
+    )
+    )
+)
+```
+
+- No Spark, temos os conceitos de **TRANSFORMAÇÕES** e **AÇÕES**.
+    - **Transformações**
+        - Operações sobre um DataFrame que resultam num novo DataFrame com forma ou dados alterados. Somente ocorrem quando uma action é invocada.
+        - A função `show()` é um exemplo de AÇÃO.
+            - Sendo assim, o Python apenas executa as transformações no momento em que precisa realizar uma ação, como `show()` = ***lazy evaluation***
+
+    - **Dados e schema**
+        - StructType é uma estrutura que comporta um conjunto de colunas - e por isso ela é o primeiro nível do schema do nosso DataFrame - recebe como argumento uma lista de StructFields.
+            - Cada StructField recebe como argumento do seu construtor 3 informações: nome da coluna, seu tipo e um booleano que indica se essa coluna pode conter valores nulos.
+        - DataFrames são objetos imutáveis, ou seja, toda vez que precisamos fazer alguma alteração, na realidade, cria-se um novo objeto a partir do antigo.
+
+- **Componentes**
+    - **SparkSQL + Dataframes:** módulo utilizado para trabalhar com dados estruturados. Possibilita realizar consultas em dados estruturados dentro dos programas Spark, utilizando SQL ou a API do Spark para DataFrame.
+    - **Spark Streaming:** módulo que permite criar aplicações de streaming escaláveis e tolerante a falhas. Permite reutilizar o mesmo código para processamento em lote, unir os fluxos em relação aos dados históricos ou executar consultas iterativas ou em lote (batch).
+    - **GraphX:** API para grafos e computação paralela de grafos. Compete com o desempenho dos sistemas existentes de grafo. Mantendo a flexibilidade do Spark, com tolerância a falhas e simples de usar.
+    - **MLlib:** biblioteca de aprendizado de máquina escalável. Contém uma extensa lista de algoritmos de aprendizado de máquina como: classificação, regressão, árvores de decisão, sistema de recomendação, clusterização, entre outros.
+    - **Spark-Core:** é o mecanismo principal do Spark. Fornece serviços como gerenciamento de memória, agendamento de tarefas no cluster, recuperação de falhas, além de fornecer suporte para diversos sistemas de armazenamentos como HDFS, S3, etc.
+
+- **Arquitetura**
+    - Aplicações Spark são executadas como conjuntos independentes de processos em um cluster, coordenados pelo objeto SparkContext em seu programa principal (**driver program**).
+    - **Cluster Manager:** componente opcional que só é necessário se o Spark for executado de forma distribuída. Responsável por administrar as máquinas que serão utilizadas como workers.
+        - Tipos de Cluster Manager
+            - **Standalone:** gerenciador de cluster simples incluído no Spark que facilita a configuração de um cluster. Normalmente utilizado em execuções locais.
+            - **Apache Mesos:** gerenciador geral de cluster que também pode executar Hadoop MapReduce.
+            - **Hadoop YARN:** gerenciador de recursos no Hadoop 2.
+            - **Kubernetes:** sistema de código aberto para automatizar a implantação, escalonamento e gerenciamento de aplicativos em contêineres.
+    - **Workers:** máquinas que realmente executarão as tarefas que são enviadas pelo Driver Program.
+        - No Spark local, a máquina será Driver Program e Worker ao mesmo tempo.
+
 
 
 ___
