@@ -210,10 +210,67 @@ df_full_name4 = df_filtered.withColumn(
             - **Apache Mesos:** gerenciador geral de cluster que também pode executar Hadoop MapReduce.
             - **Hadoop YARN:** gerenciador de recursos no Hadoop 2.
             - **Kubernetes:** sistema de código aberto para automatizar a implantação, escalonamento e gerenciamento de aplicativos em contêineres.
+        - Aplicações podem ser submetidas a um cluster Spark através do script spark-submit.
+        - Cada Driver Program possui uma interface web, normalmente disponível na porta 4040.
+
+        - **Glossário de termos do Apache Spark**
+        | Termo           | Definição                                                                                                                                                                                                                                                                               |
+        |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+        | Aplicação       | Programa do usuário desenvolvido em Spark. Consiste em um Driver Program e executores no cluster.                                                                                                                                                                                       |
+        | Application jar | Um jar contendo uma aplicação Spark do usuário. Em alguns casos, os usuários desejarão criar um '.jar' contendo sua aplicação junto com suas dependências. O jar do usuário nunca deve incluir as bibliotecas Hadoop ou Spark; elas serão adicionadas no tempo de execução.           |
+        | Driver Program  | O processo que executa a função principal da aplicação e cria o SparkContext. Funciona como o `main()` do programa.                                                                                                                                                                      |
+        | Cluster Manager | Um serviço externo para adquirir recursos no cluster (por exemplo, standalone, YARN).                                                                                                                                                                                                   |
+        | Deploy mode     | Distingue onde o processo do driver é executado. No modo 'cluster', o framework inicia o driver dentro do cluster. No modo 'cliente', o solicitante inicia o driver fora do cluster.                                                                                                    |
+        | Worker node     | Qualquer nó que pode executar o código da aplicação no cluster.                                                                                                                                                                                                                         |
+        | Executor        | Um processo iniciado para uma aplicação Spark em um nó de trabalho, que executa tarefas e mantém os dados na memória ou armazenamento em disco. Cada aplicação possui seus próprios executores.                                                                                        |
+        | Task            | Uma tarefa ou unidade de trabalho que será enviada a um executor.                                                                                                                                                                                                                       |
+        | Job             | Uma computação paralela que consiste em várias tarefas que são geradas em resposta a uma ação do Spark.                                                                                                                                                                                 |
+        | Stage           | Cada Job é dividido em conjuntos menores de tarefas chamados de estágios, que dependem uns dos outros (semelhante aos estágios map e reduce no MapReduce).                                                                                                                             |
+            
     - **Workers:** máquinas que realmente executarão as tarefas que são enviadas pelo Driver Program.
         - No Spark local, a máquina será Driver Program e Worker ao mesmo tempo.
 
+- **Directed Acyclic Graph (DAG)**
+    - Sempre que uma ação é executada em um DataFrame, um DAG é criado.
+        - DAG = grafo direcionado e sem ciclos.
+    - Nas DAGs do Spark, cada vértice é uma função Spark, as tranasformações a serem realizadas e a ação que as invoca.
+    - A DAG permite que o Spark otimize seu plano de execução e minimize o *shuffling*.
 
+- **Código Spark**
+    - Primeira parte: definida pela `SparkSession` ou `SparkContext`. 
+        - `SparkContext`: é um ponto de entrada para Spark e é definido no pacote org.apache.spark desde a versão 1.x. É usado para criar programas Spark com RDD, acumuladores e variáveis de transmissão no cluster.
+        - `SparkSession`: desde o Spark 2.x, a maioria das funcionalidades do Context está disponível no SparkSession. É uma classe combinada para todos os contextos diferentes como SQLContext, StreamingContext, etc.
+        - Por isso, a primeira parte de um código Spark é a **criação de uma `SparkSession`** = maneira de acessar todas as funcionalidades do framework.
+
+
+### Apache Hadoop VS Apache Spark
+| Hadoop                                                                                                                                          | vs                                            | Spark                                                                                                                                                                            |
+|-------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Desempenho mais lento, usa discos para armazenamento e depende da velocidade de leitura e gravação do disco.                                    | **Performance**                               | Desempenho rápido na memória com operações reduzidas de leitura e gravação em disco.                                                                                             |
+| Uma plataforma Open-Source menos dispendiosa para operar. Usa hardware de consumo acessível.                                                    | **Custo**                                     | Uma plataforma Open-Source, mas depende da memória para computação, o que aumenta consideravelmente os custos de produção.                                                      |
+| Melhor para processamento em batch. Usa MapReduce para dividir um grande conjunto de dados em um cluster para análise paralela.                 | **Processamento de Dados**                    | Adequado para análise de dados iterativa e análise em near real-time. Funciona com RDDs e DAGs para executar operações.                                                          |
+| Um sistema altamente tolerante a falhas. Replica os dados entre os nós e os usa em caso de problema.                                            | **Tolerância a Falhas**                       | Rastreia o processo de criação do bloco RDD e pode reconstruir um conjunto de dados quando uma partição falha. O Spark pode também usar um DAG para reconstruir dados entre nós. |
+| Facilmente escalável, adicionando nós ao cluster e discos para armazenamento. Suporta dezenas de milhares de nós sem um limite conhecido.       | **Escalabilidade**                            | Um pouco mais desafiador de escalar porque depende da RAM para computação. Suporta milhares de nós em um cluster.                                                                |
+| Extremamente seguro. Suporta LDAP, ACLs, Kerberos, SLAs, etc.                                                                                   | **Segurança**                                 | Não é seguro por padrão. A segurança está desligada por padrão e depende da integração com o Hadoop para atingir o nível de segurança necessário.                               |
+| Mais difícil de usar com menos linguagens suportadas. Usa Java ou Python para aplicações MapReduce.                                             | **Facilidade de Uso e Linguagens Suportadas** | Mais amigável. Permite o modo shell interativo. As APIs podem ser escritas em Java, Scala, R, Python, Spark SQL.                                                                 |
+| Mais lento que o Spark. Os fragmentos de dados podem ser muito grandes e criar gargalos. Mahout é a biblioteca principal.                       | **Machine Learning**                          | Muito mais rápido com processamento na memória. Usa a biblioteca MLlib.                                                                                                          |
+| Usa soluções externas. YARN é a opção mais comum para gerenciamento de recursos. O Oozie está disponível para agendamento de fluxo de trabalho. | **Gerenciamento de Recursos e Agendamento**   | Possui ferramentas integradas para alocação, programação e monitoramento de recursos.                                                                                            |
+                                                                                         |
+
+
+**PRINCIPAL DIFERENÇA**
+- Está na abordagem do processamento: o Spark pode fazer isso na memória, enquanto o Hadoop precisa ler e gravar em disco, enquanto o Hadoop MapReduce precisa ler e gravar em um disco. Como resultado, a velocidade do processamento difere significativamente. O Spark pode ser até 100 vezes mais rápido. No entanto, o volume de dados processados também difere: o Hadoop MapReduce é capaz de trabalhar com conjuntos de dados muito maiores que o Spark.
+
+**HADOOP MAPREDUCE É BOM PARA:**
+1. Processamento linear de grandes conjuntos de dados. Caso o conjunto de dados seja maior que a RAM disponível, o Hadoop MapReduce pode superar o Spark.
+2. Solução econômica se não houver resultados imediatos. Se a velocidade de processamento não for crítica, é uma boa opção.
+
+**SPARK É BOM PARA:**
+1. Processamento rápido de dados.
+2. Processamento iterativo.
+3. Processamento quase em tempo real. 
+4. Aprendizado de máquina. Biblioteca MLlib.
+5. Juntar conjuntos de dados.
 
 ___
 
