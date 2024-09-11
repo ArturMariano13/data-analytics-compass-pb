@@ -213,22 +213,24 @@ df_full_name4 = df_filtered.withColumn(
         - Aplicações podem ser submetidas a um cluster Spark através do script spark-submit.
         - Cada Driver Program possui uma interface web, normalmente disponível na porta 4040.
 
-        - **Glossário de termos do Apache Spark**
-        | Termo           | Definição                                                                                                                                                                                                                                                                               |
-        |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-        | Aplicação       | Programa do usuário desenvolvido em Spark. Consiste em um Driver Program e executores no cluster.                                                                                                                                                                                       |
-        | Application jar | Um jar contendo uma aplicação Spark do usuário. Em alguns casos, os usuários desejarão criar um '.jar' contendo sua aplicação junto com suas dependências. O jar do usuário nunca deve incluir as bibliotecas Hadoop ou Spark; elas serão adicionadas no tempo de execução.           |
-        | Driver Program  | O processo que executa a função principal da aplicação e cria o SparkContext. Funciona como o `main()` do programa.                                                                                                                                                                      |
-        | Cluster Manager | Um serviço externo para adquirir recursos no cluster (por exemplo, standalone, YARN).                                                                                                                                                                                                   |
-        | Deploy mode     | Distingue onde o processo do driver é executado. No modo 'cluster', o framework inicia o driver dentro do cluster. No modo 'cliente', o solicitante inicia o driver fora do cluster.                                                                                                    |
-        | Worker node     | Qualquer nó que pode executar o código da aplicação no cluster.                                                                                                                                                                                                                         |
-        | Executor        | Um processo iniciado para uma aplicação Spark em um nó de trabalho, que executa tarefas e mantém os dados na memória ou armazenamento em disco. Cada aplicação possui seus próprios executores.                                                                                        |
-        | Task            | Uma tarefa ou unidade de trabalho que será enviada a um executor.                                                                                                                                                                                                                       |
-        | Job             | Uma computação paralela que consiste em várias tarefas que são geradas em resposta a uma ação do Spark.                                                                                                                                                                                 |
-        | Stage           | Cada Job é dividido em conjuntos menores de tarefas chamados de estágios, que dependem uns dos outros (semelhante aos estágios map e reduce no MapReduce).                                                                                                                             |
-            
-    - **Workers:** máquinas que realmente executarão as tarefas que são enviadas pelo Driver Program.
-        - No Spark local, a máquina será Driver Program e Worker ao mesmo tempo.
+       ### Glossário de Termos do Apache Spark
+
+| Termo           | Definição                                                                                                                                                                                                                                                                               |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Aplicação       | Programa do usuário desenvolvido em Spark. Consiste em um Driver Program e executores no cluster.                                                                                                                                                                                       |
+| Application jar | Um jar contendo uma aplicação Spark do usuário. Em alguns casos, os usuários desejarão criar um '.jar' contendo sua aplicação junto com suas dependências. O jar do usuário nunca deve incluir as bibliotecas Hadoop ou Spark; elas serão adicionadas no tempo de execução.           |
+| Driver Program  | O processo que executa a função principal da aplicação e cria o SparkContext. Funciona como o `main()` do programa.                                                                                                                                                                      |
+| Cluster Manager | Um serviço externo para adquirir recursos no cluster (por exemplo, standalone, YARN).                                                                                                                                                                                                   |
+| Deploy mode     | Distingue onde o processo do driver é executado. No modo 'cluster', o framework inicia o driver dentro do cluster. No modo 'cliente', o solicitante inicia o driver fora do cluster.                                                                                                    |
+| Worker node     | Qualquer nó que pode executar o código da aplicação no cluster.                                                                                                                                                                                                                         |
+| Executor        | Um processo iniciado para uma aplicação Spark em um nó de trabalho, que executa tarefas e mantém os dados na memória ou armazenamento em disco. Cada aplicação possui seus próprios executores.                                                                                        |
+| Task            | Uma tarefa ou unidade de trabalho que será enviada a um executor.                                                                                                                                                                                                                       |
+| Job             | Uma computação paralela que consiste em várias tarefas que são geradas em resposta a uma ação do Spark.                                                                                                                                                                                 |
+| Stage           | Cada Job é dividido em conjuntos menores de tarefas chamados de estágios, que dependem uns dos outros (semelhante aos estágios map e reduce no MapReduce).                                                                                                                             |
+
+- **Workers:** Máquinas que realmente executarão as tarefas que são enviadas pelo Driver Program.
+  - No Spark local, a máquina será Driver Program e Worker ao mesmo tempo.
+
 
 - **Directed Acyclic Graph (DAG)**
     - Sempre que uma ação é executada em um DataFrame, um DAG é criado.
@@ -255,7 +257,6 @@ df_full_name4 = df_filtered.withColumn(
 | Mais difícil de usar com menos linguagens suportadas. Usa Java ou Python para aplicações MapReduce.                                             | **Facilidade de Uso e Linguagens Suportadas** | Mais amigável. Permite o modo shell interativo. As APIs podem ser escritas em Java, Scala, R, Python, Spark SQL.                                                                 |
 | Mais lento que o Spark. Os fragmentos de dados podem ser muito grandes e criar gargalos. Mahout é a biblioteca principal.                       | **Machine Learning**                          | Muito mais rápido com processamento na memória. Usa a biblioteca MLlib.                                                                                                          |
 | Usa soluções externas. YARN é a opção mais comum para gerenciamento de recursos. O Oozie está disponível para agendamento de fluxo de trabalho. | **Gerenciamento de Recursos e Agendamento**   | Possui ferramentas integradas para alocação, programação e monitoramento de recursos.                                                                                            |
-                                                                                         |
 
 
 **PRINCIPAL DIFERENÇA**
