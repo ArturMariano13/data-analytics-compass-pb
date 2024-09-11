@@ -86,6 +86,48 @@ ___
 
 > IDEAL: fazer um **benchmark**
 
+### RDD - Resilient Distributed Datasets
+- Estrutura **básica de baixo nível** do Spark: mais **complexo** de se trabalhar, maior flexibilidade.
+- Dados "imutáveis", distribuídos pelo cluster.
+- Em memória.
+- Pode ser persistido em disco.
+
+**Dataset e DataFrame**
+- Mais alto nível.
+- Semelhantes a tabelas de bancos de dados.
+- Dataset - disponíveis em Java e Scala.
+- DataFrame - disponíveis em Python e R.
+
+### Dataframe
+- Tabelas com linhas e colunas.
+- Imutáveis.
+- Com schema conhecido.
+- Linguagem preservada.
+- Colunas podem ter tipos diferentes.
+- Análises comuns: ordenar, filtrar, agrupar.
+- **Lazy Evaluation:** processamento de transformação de fato só ocorre quando há uma ação.
+- **Schema:** você pode deixar para o Spark inferir a partir de parte dos dados ou pode-se defini-lo manualmente.
+
+### Principais Ações e Transformações
+- `.show()`: retorna os dados na forma de tabela
+- `.take(qtd)`: dados retornados em formato de linha
+- `.collect()`: dados retornados em formato de linha (todos)
+- `.count()`: retorna o número de registros
+
+- `.orderBy("coluna")`: ordena pela coluna desejada.
+- `.orderBy(Func.col("coluna").desc())`: ordena por uma determinada coluna de forma decrescente.
+    - Ordenações podem ser concatenadas, sendo assim a ordem de prioridade de ordenação.
+- `.groupBy("cidade").agg(sum("vendas"))`: agrupa por cidade e soma as vendas em cada uma delas.
+
+### Exportar dados
+`dataframe.write.format("csv").save("/home/artur/dfimportcsv")`
+- Outros tipos também são suportados, como orc, json, parquet.
+
+### Importar dados
+`par = spark.read.format("parquet").load("/caminho")`
+
+
+
 
 --- 
 ## Leitura Obrigatória: Apache Hadoop e Apache Spark
