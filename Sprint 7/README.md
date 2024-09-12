@@ -126,8 +126,178 @@ ___
 ### Importar dados
 `par = spark.read.format("parquet").load("/caminho")`
 
+### Spark SQL
+- **TABELA**
+    - Persistente
+    - Objeto tabular que reside em um banco de dados
+    - Pode ser gerenciado e consultado usando SQL
+    - Totalmente interoperável com DataFrame
+        - DataFrames podem ser transformados em tabelas
+    - **Gerenciadas:** Spark gerencia dados e metadados. Armazenadas no warehouse do spark. Se excluirmos, tudo é apagado.
+    - **Não gerenciadas (externas):** Spark apenas gerencia metadados. Informamos onde a tabela está. Se excluirmos, Spark apenas exclui os metadados, os dados permanecem onde estavam.
 
+- **Views**
+    - Mesmo conceito de bancos de dados relacionais.
+    - "Alias" para uma tabela.
+    - Não contêm dados.
 
+> DataFrames são excluídos ao encerrar a sessão do pyspark
+
+```python
+from pyspark.sql import SparkSession
+from pyspark.sql.types import *
+
+spark.sql("show databases").show()  # mostra os bancos de dados 
+
+# como nenhum foi criado, ele está no default
+
+spark.sql("create database desp")
+
+# agora, precisamos modificar o banco de dados utilizado
+spark.sql("use desp").show()
+
+df.show()
+
+arqschema = "id INT, nome STRING, status STRING, cidade STRING, vendas INT, data STRING"
+
+# ler dados de um arquivo csv
+dados = spark.read.csv("caminho/arquivo.csv", header=False, schema=arqschema)
+
+# salvar como tabela
+dados.write.saveAsTable("dados")
+
+# select na tabela dados - salva como dataframe, por isso necessita do show()
+spark.sql("select * from dados").show()
+```
+
+- **JOIN**
+```python
+# usando tabelas
+spark.sql("select reclamacoes.*, despachantes.nome from despachantes inner join reclamacoes on (despachantes.id = reclamacoes.iddesp)").show()
+
+# usando dataframes
+despachantes.join(reclamacoes, despachantes.id == reclamacoes.iddesp, "inner").select("idrec", "iddesp","nome").show()
+```
+
+- Utilizando **spark-sql**
+
+```bash
+spark-sql
+```
+Será aberto um terminal como se estivesse em um console de banco de dados.
+- Sempre inserir *';'*
+
+### Criando Aplicações
+- Aplicações podem ser criadas ao invés de se utilizar o console.
+
+- **ESCREVENDO NO CONSOLE:**
+
+```python
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import *
+
+if __name__ == '__main__':
+    spark = SparkSession.builder.appName("Exemplo").getOrCreate()
+    arqschema = "id INT, nome STRING, cidade STRING, vendas INT, data STRING"
+    despachantes = spark.read.csv("caminho-para-arquivo", header=False, schema=arqschema)
+    calculo = despachantes.select("data").groupby(year("data")).count()
+    calculo.write.format("console").save()
+    spark.stop()
+```
+- Para executar:
+```bash
+spark-submit aplicativo.py
+```
+
+- **ESCREVENDO NO CONSOLE COM PARÂMETROS:**
+
+```python
+import sys 
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import *
+
+if __name__ == '__main__':
+    spark = SparkSession.builder.appName("Exemplo").getOrCreate()
+    arqschema = "id INT, nome STRING, cidade STRING, vendas INT, data STRING"
+    despachantes = spark.read.csv(sys.argv[1], header=False, schema=arqschema)
+    calculo = despachantes.select("data").groupby(year("data")).count()
+    calculo.write.format("console").save()
+    spark.stop()
+```
+- Para executar:
+```bash
+spark-submit aplicativo.py <caminho-para-arquivo>
+```
+
+- **CONVERSOR DE FORMATOS DE ARQUIVOS EM SPARK:** 
+
+```python
+import sys, getopt
+from pyspark.sql import SparkSession
+
+if __name__ == "__main__":
+    spark = SparkSession.builder.appName("Exemplo").getOrCreate()
+    opts, args = getopt.getopt(sys.argv[1:], "t:i:o:")
+    formato, infile, outdir = "","",""
+
+    for opt, arg in opts:
+        if opt == "-t":
+            formato = arg
+        elif opt == "-i":
+            infile = arg
+        elif opt == "-o":
+            outdir = arg
+    
+    dados = spark.read.csv(infile, header=False, inferSchema=True)
+    dados.write.format(formato).save(outdir)
+```
+
+- Para executar:
+```bash
+spark-submit aplicativo.py -t parquet -i <caminho-arq-entrada> -o <caminho-arq-saida>
+```
+
+### Otimização
+- O Spark é especial devido à sua arquitetura => permite grandes conjuntos de dados.
+
+- **Particionamento**
+    - Por padrão dados são particionados de acordo com o número de núcleos
+    - Cada partição fica em um nó e tem uma task
+    - ***Shuffle*:** redistribuição de dados entre partições.
+    - Podemos particionar explicitamente em disco (`partitionBy`)
+    - **Bucketing:** semelhante a particionamento, porém com número fixo de partições.
+        - Ideal para coluna com **alta cardinalidade** (muitos valores únicos - exemplo: municípios)
+        - Pode ser usado com conjunto com particionamento    
+
+### Conversão de Pandas para DataFrame do Spark
+
+```python
+import findspark
+findspark.init()
+import pyspark
+
+import pandas as pd
+
+df_pandas = pd.read_csv("arquivo", sep=",")
+
+# mostrar duas primeiras linhas
+df_pandas.head(2)
+
+from pyspark.sql import SparkSession
+
+# criação do contexto do Spark
+spark = SparkSession.builder.appName("Pandas").getOrCreate()
+
+# CONVERSÃO
+df_spark = spark.createDataFrame(df_pandas)
+
+# mostra duas primeiras linhas
+df_spark.show(2)
+
+# PROCESSO CONTRÁRIO
+df_pandas_teste = df_spark.toPandas()
+
+```
 
 --- 
 ## Leitura Obrigatória: Apache Hadoop e Apache Spark
