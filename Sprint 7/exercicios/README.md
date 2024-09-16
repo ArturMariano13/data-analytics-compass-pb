@@ -34,7 +34,7 @@ docker run --name <nome-container> -it -p 8888:8888 jupyter/all-spark-notebook
 
 Primeiramente necessita-se fazer o download do arquivo README do meu GitHub. Para isso, primeiramente deve-se executar o container abrindo o terminal bin/bash dele.
 
-`docker exec -it <nome-container> bin/bash`
+`docker exec -it <nome-container> /bin/bash`
 
 Com isso, no terminal do container, pode-se fazer o download do arquivo por meio do comando `wget`.
 
@@ -71,52 +71,67 @@ arquivo = spark.read.text("README.md")
 ```
 Isso cria um DataFrame arquivo onde cada linha representa uma linha do arquivo.
 
-3. **Divisão do Texto em Palavras**
+3. **Limpeza e Preparação do Texto**
 
-O conteúdo do arquivo foi dividido em palavras. 
-
-Para isso, utilizou-se a função `split` para separar o texto por espaços e a função `explode` para transformar cada linha em várias linhas, cada uma contendo uma palavra:
+Para garantir que apenas palavras efetivas fossem consideradas, o texto foi limpo de tags HTML e caracteres especiais. Utilizou-se a função `regexp_replace` para realizar a limpeza:
 
 ```python
+from pyspark.sql.functions import col, regexp_replace
 
-from pyspark.sql.functions import col, split, explode
+# Remove tags HTML utilizadas
+texto_limpo = arquivo.select(regexp_replace(col("value"), "<[^>]*>", "").alias("value"))
 
-palavras = arquivo.select(
+# Remove caracteres não alfanuméricos e múltiplos espaços
+texto_limpo = texto_limpo.select(
+    regexp_replace(col("value"), "[^a-zA-Z0-9\\s]", "").alias("value")
+)
+
+```
+
+4. **Divisão do Texto em Palavras**
+
+O texto limpo foi dividido em palavras. Utilizou-se a função split para separar o texto por espaços e a função explode para transformar cada linha em várias linhas, cada uma contendo uma palavra:
+
+```python
+from pyspark.sql.functions import split, explode, lower
+
+palavras = texto_limpo.select(
     explode(
-        split(col("value"), " ")
+        split(lower(col("value")), "\\s+")
     ).alias("palavra")
 )
 ```
 
-4. **Filtragem de Palavras Vazias**
+5. **Filtragem de Palavras Vazias**
 
-Em seguida, filtrou-se as palavras vazias para garantir uma contagem precisa:
+As palavras vazias foram filtradas para garantir uma contagem precisa:
 
 ```python
 palavras_filtradas = palavras.filter(col("palavra") != "")
 ```
 
-5. **Contagem Total de Palavras**
+6. **Contagem das Ocorrências de Palavras**
 
-Finalmente, realizou-se a contagem do número total de palavras:
-
-```python
-total_palavras = palavras_filtradas.count()
-```
-
-6. **Exibição do Resultado**
-
-O total de palavras foi exibido no console com o seguinte comando:
+A contagem das ocorrências de cada palavra foi realizada, agrupando as palavras e contando suas aparições:
 
 ```python
-print(f"Total de palavras: {total_palavras}")
+contagem_palavras = palavras_filtradas.groupBy("palavra").count()
 ```
 
-7. **O resultado obtido foi:**
+7. **Ordenação e Exibição das Palavras Mais Frequentes**
 
-Total de palavras: 499
+As palavras foram ordenadas pela contagem em ordem decrescente, e as palavras mais frequentes foram exibidas:
+
+```python
+palavras_ordenadas = contagem_palavras.orderBy(col("count").desc())
+palavras_ordenadas.show()
+```
 
 ![Imagem comandos pyspark](../evidencias/4-apache-spark-execucao-comandos.png)
+
+8. **Resultado obtido**
+
+![Imagem resultado script pyspark](../evidencias/5-apache-spark-resultado.png)
 
 ___
 
@@ -151,7 +166,47 @@ ___
 - Deve-se prover acesso total ao S3 para leitura e escrita.
 
 **EXECUÇÃO**
-- Ao selecionar a opção de selecionar usuários, não possuía nenhum. Com isso, criei um usuário IAM para este exercício.
+- Ao selecionar a opção de selecionar usuários, não possuía nenhum. Com isso, criei um usuário IAM para este exercício (**user-glue**).
+
+![Imagem sem usuários encontrados](../evidencias/2-lab-aws-glue-select-usuario.png)
+
+![Imagem criação usuário IAM](../evidencias/2.1-lab-aws-glue-setup-users.png)
+
+
+### 3. Criação de IAM Role para os jobs do AWS Glue
+- Após isso, tornou-se necessária a criação de credenciais temporárias - *roles*.
+- Bastou seguir o passo a passo conforme imagens abaixo.
+
+![Imagem configuração roles](../evidencias/3-lab-aws-glue-conf-roles.png)
+![Imagem configuração roles 2](../evidencias/3.1-lab-aws-glue-conf-roles.png)
+![Imagem configuração roles 3](../evidencias/3.2-lab-aws-glue-conf-roles.png)
+
+
+### 4. Configuração das permissões no AWS Lake Formation
+- Primeiramente, criei o banco de dados **"glue-lab"**.
+
+![Imagem criação banco de dados](../evidencias/4-lab-aws-glue-database-criado.png)
+
+- Em seguida, alterei as permissões, concedendo ao usuário user-glue, criado conforme item 2 acima.
+
+![Imagem adição administrador](../evidencias/4.1-lab-aws-glue-acesso-iam-user.png)
+![Imagem garantia permissões](../evidencias/4.2-lab-aws-glue-conf-database.png)
+
+### 5. Criação de job no AWS Glue
+- Primeiramente criei o job conforme requerido no pdf [glue-lab](glue-lab.pdf).
+
+![Imagem criação job](../evidencias/5-lab-aws-glue-create-job.png)
+
+
+- Em seguida, realizei o teste fornecido como exemplo:
+
+![Imagem job](../evidencias/5.1-lab-aws-glue-script-job.png)
+
+Para isso, necessitei alterar os parâmetros S3_INPUT_PATH e S3_TARGET_PATH, sendo eles o caminho para o arquivo movies.csv, no bucket criado para o desafio final, e o destino inseri no próprio bucket criado para o presente exercício, fornecendo o caminho s3://<bucket>/lab-glue/output/.
+
+![Imagem execução bem sucedida](../evidencias/5.1.2-lab-aws-glue-job-run-succeeded.png)
+![Imagem execução arquivos](../evidencias/5.1.3-lab-aws-glue-job-run-succeeded.png)
+
 
 
 ___
