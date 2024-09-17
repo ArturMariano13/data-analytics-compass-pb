@@ -207,7 +207,142 @@ Para isso, necessitei alterar os parâmetros S3_INPUT_PATH e S3_TARGET_PATH, sen
 ![Imagem execução bem sucedida](../evidencias/5.1.2-lab-aws-glue-job-run-succeeded.png)
 ![Imagem execução arquivos](../evidencias/5.1.3-lab-aws-glue-job-run-succeeded.png)
 
+### 5.1. Eliminação de execuções de jobs
+- Após, verifiquei se havia algum "run" para ser eliminado, o que não havia. Portanto, segui para o próximo passo.
 
+### 5.2. Sua vez ([script completo](script-glue-lab.py))
+- Deveríamos construir um job Glue nos moldes dos exemplos anteriores. Ele deveria resolver os seguintes problemas:
+
+1. Ler o arquivo nomes.csv no S3 (lembre-se de realizar upload do arquivo antes).
+2. Imprima o schema do dataframe gerado no passo anterior.
+3. Escrever o código necessário para alterar a caixa dos valores da coluna nome para MAIÚSCULO.
+4. Imprimir a contagem de linhas presentes no dataframe.
+5. Imprimir a contagem de nomes, agrupando os dados do dataframe pelas colunas ano e sexo. Ordene os dados de modo que o ano mais recente apareça como primeiro registro do dataframe.
+6. Apresentar qual foi o nome feminino com mais registros e em que ano ocorreu.
+7. Apresentar qual foi o nome masculino com mais registros e em que ano ocorreu.
+8. Apresentar o total de registros (masculinos e femininos) para cada ano presente no dataframe. Considere apenas as primeiras 10 linhas, ordenadas pelo ano, de forma crescente.
+9. Escrever o conteúdo do dataframe com os valores de nome em maiúsculo no S3.
+    - Atenção aos requisitos:
+        - A gravação deve ocorrer no subdiretório frequencia_registro_nomes_eua do path
+        - s3://<BUCKET>/lab-glue/
+        - O formato deve ser JSON
+        - O particionamento deverá ser realizado pelas colunas sexo e ano (nesta ordem)
+
+**RESOLUÇÃO**
+- Para resolver, necessitei alterar os parâmetros, inserindo como **origem** **s3://<bucket>/lab-glue/input/nomes.csv** e como **destino** o caminho **s3://<bucket>/lab-glue/frequencia_registro_nomes_eua**.
+- Em seguida, parti para a implementação no script base fazendo as modificações necessárias:
+
+0. Bibliotecas e configurações iniciais
+
+```python
+import sys
+from awsglue.transforms import *
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+from pyspark.sql import functions as F
+
+args = getResolvedOptions(sys.argv, ['JOB_NAME', 'S3_INPUT_PATH', 'S3_TARGET_PATH'])
+
+sc = SparkContext()
+glueContext = GlueContext(sc)
+spark = glueContext.spark_session
+job = Job(glueContext)
+job.init(args['JOB_NAME'], args)
+
+# Paths
+source_file = args['S3_INPUT_PATH']
+target_path = args['S3_TARGET_PATH']
+```
+
+1. Leitura do arquivo CSV
+```python
+df_dynamic = glueContext.create_dynamic_frame.from_options(
+    "s3",
+    {
+        "paths": [source_file]
+    },
+    "csv",
+    {"withHeader": True, "separator": ","},
+)
+```
+
+2. Impressão do schema do DataFrame
+- Nesse caso, primeiramente converti para DataFrame Spark para aproveitar a flexibilidade e as funcionalidades avançadas da API DataFrame do Spark. 
+
+```python
+df_spark = df_dynamic.toDF()
+
+df_spark.printSchema()
+```
+
+3. Alteração dos nomes para maiúsculo
+```python
+df_spark = df_spark.withColumn('nome', F.upper(F.col('nome')))
+```
+
+4. Impressão do total de linhas do arquivo
+```python
+print("Total de linhas: ", df_spark.count())
+```
+
+![Imagem execução esquema e total de linhas](../evidencias/5.2.1-lab-aws-glue-resultado.png)
+
+5. Impressão do total de nomes agrupados por ano e sexo, e ordenados por ano
+```python
+df_grouped = df_spark.groupBy('ano', 'sexo').count()
+df_grouped_ordered = df_grouped.orderBy('ano')
+df_grouped_ordered.show()
+```
+
+6. Nome feminino mais frequente e ano
+```python
+df_female = df_spark.filter(F.col('sexo') == 'F')
+most_frequent_female = df_female.groupBy('nome', 'ano').count().orderBy(F.col('count').desc()).first()
+print(f"Nome feminino mais frequente: {most_frequent_female['nome']}, Ano: {most_frequent_female['ano']}")
+```
+
+7. Nome masculino com mais registros e o ano
+```python
+df_male = df_spark.filter(F.col('sexo') == 'M')
+most_frequent_male = df_male.groupBy('nome', 'ano').count().orderBy(F.col('count').desc()).first()
+print(f"Nome masculino mais frequente: {most_frequent_male['nome']}, Ano: {most_frequent_male['ano']}")
+```
+
+![Imagem resultados total por ano e sexo, feminino e masculino mais comuns](../evidencias/5.2.2-lab-aws-glue-resultado.png)
+
+8. Total de registros (masculinos e femininos) para cada ano (10 primeiros crescente)
+```python
+df_total_per_year_top_10 = df_spark.groupBy('ano').count().orderBy(F.col('ano').asc()).limit(10)
+df_total_per_year_top_10.show()
+```
+
+![Imagem resultados registros masc e fem para cada ano (10 primeiros)](../evidencias/5.2.3-lab-aws-glue-resultado.png)
+
+9. Gravação do DataFrame no S3 com valores de nome em maiúsculo
+```python
+df_spark.write.partitionBy('sexo', 'ano').format('json').mode('overwrite').save(f"{target_path}")
+```
+![Imagem diretórios criados](../evidencias/5.2.4-lab-aws-glue-resultado.png)
+![Imagem diretórios criados 2](../evidencias/5.2.5-lab-aws-glue-resultado.png)
+
+
+### 6. Criação de Crawler
+Nessa parte do exercício, deveríamos criar um Crawler para monitorar o armazenamento de dados.
+
+1. Criação
+![Imagem criação Crawler](../evidencias/6-lab-aws-glue-create-crawler.png)
+
+2. Verificação Crawler
+![Imagem verificação do Crawler](../evidencias/6.1-lab-aws-glue-execucao-crawler-sucesso.png)
+
+### 7. Extra: adição de permissões ao Lake Formation
+Nessa parte, deveríamos conceder privilégios de **DESCRIBE** e **SELECT** no Lake Formation. Isso pode ser comprovado com a imagem abaixo:
+
+![Imagem privilégios lake formation](../evidencias/7-lab-aws-glue-desafio-lake-formation.png)
+
+- **[Ver script completo](script-glue-lab.py)**
 
 ___
 

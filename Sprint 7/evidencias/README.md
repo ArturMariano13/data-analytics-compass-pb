@@ -3,10 +3,9 @@ Este diretório contém as evidências da sprint 6. Aqui você encontrará print
 
 
 ## Seção 1: Exercícios
-### Exercício 1: Apache Spark - Contador de Palavras
 
-
-### Exercício 2: Lab AWS Glue
+Os exercícios e suas respectivas execuções foram explicados no README do diretório de EXERCÍCIOS.
+- [Ver exercícios](../exercicios/README.md)
 
 ---
 

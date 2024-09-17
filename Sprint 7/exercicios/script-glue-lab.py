@@ -43,7 +43,7 @@ print("Total de linhas: ", df_spark.count())
 
 # 5. Imprimindo a contagem de nomes, agrupando por ano e sexo
 df_grouped = df_spark.groupBy('ano', 'sexo').count()
-df_grouped_ordered = df_grouped.orderBy('ano')  # Ordena por ano em ordem crescente
+df_grouped_ordered = df_grouped.orderBy(F.col('ano').desc())  
 df_grouped_ordered.show()
 
 # 6. Nome feminino com mais registros e o ano
