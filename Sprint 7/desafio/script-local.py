@@ -1,47 +1,72 @@
-from tmdbv3api import TMDb, Movie
-import requests
-import boto3
+from tmdbv3api import TMDb, Movie, Person
 import json
-import os
-from datetime import datetime
+from secrets import API_KEY
 
 # Configurando TMDB
 tmdb = TMDb()
-tmdb.api_key = os.getenv('TMDB_API_KEY')  # Armazene a chave de API em uma variável de ambiente
+tmdb.api_key = API_KEY  
+
 
 movie = Movie()
+person = Person()
 
-def get_movie_details(movie_id):
-    details = movie.details(movie_id)
-    return details
+# Função para obter os filmes dirigidos por Christopher Nolan e salvar em JSON
+def get_director_movies_to_json(director_name, max_size_mb=10):
+    # Buscar pelo ID do diretor
+    director = person.search(director_name)
+    
+    if director:
+        director_id = director[0].id  # Pega o ID do primeiro resultado (Christopher Nolan)
+        print(f"Encontrado {director_name} com ID: {director_id}")
+        
+        # Buscar todos os créditos do diretor
+        credits = person.movie_credits(director_id)
 
-# Função para salvar os dados no S3
-def save_to_s3(data, bucket_name, path):
-    s3_client = boto3.client('s3')
-    json_data = json.dumps(data, indent=4)
-    s3_client.put_object(Bucket=bucket_name, Key=path, Body=json_data)
+        # Lista para armazenar os detalhes dos filmes
+        directed_movies = []
+        
+        # Buscar detalhes de cada filme onde ele foi diretor
+        for crew_member in credits.crew:
+            if crew_member['job'] == 'Director':
+                # Obter detalhes do filme usando o ID
+                movie_details = movie.details(crew_member['id'])
+                
+                # Adicionar os detalhes relevantes, incluindo orçamento e receita
+                directed_movies.append({
+                    'title': movie_details.title,
+                    'release_date': movie_details.release_date,
+                    'overview': movie_details.overview,
+                    'vote_average': movie_details.vote_average,
+                    'vote_count': movie_details.vote_count,
+                    'popularity': movie_details.popularity,
+                    'budget': movie_details.budget,  # Orçamento do filme
+                    'revenue': movie_details.revenue,  # Receita do filme
+                    'genres': [genre['name'] for genre in movie_details.genres]  # Converte os gêneros em uma lista de strings
+                })
 
-def lambda_handler(event, context):
-    bucket_name = 'data-lake-artur-mariano'
-    now = datetime.now()
-    data_atual = now.strftime('%Y/%m/%d')
+        # Converte a lista de filmes em JSON
+        json_data = json.dumps(directed_movies, indent=4)
+        
+        # Verifica o tamanho do JSON gerado
+        json_size_mb = len(json_data.encode('utf-8')) / (1024 * 1024)  # Converte o tamanho para MB
+        
+        if json_size_mb > max_size_mb:
+            print(f"O tamanho do JSON é {json_size_mb:.2f} MB, excedendo o limite de {max_size_mb} MB.")
+            # Limitar o número de filmes para reduzir o tamanho do arquivo
+            limit = int(len(directed_movies) * (max_size_mb / json_size_mb))
+            limited_movies = directed_movies[:limit]
+            
+            # Recriar o JSON com a lista limitada
+            json_data = json.dumps(limited_movies, indent=4)
+            print(f"O arquivo foi reduzido para {len(limited_movies)} filmes.")
+        
+        # Salvar o JSON em um arquivo
+        with open('nolan_movies.json', 'w') as f:
+            f.write(json_data)
+        
+        print(f"JSON salvo com sucesso! Tamanho final: {len(json_data.encode('utf-8')) / (1024 * 1024):.2f} MB")
+    else:
+        print(f"Diretor {director_name} não encontrado.")
 
-    # IDs de filmes que você quer complementar (pode ser obtido dos arquivos CSV)
-    movie_ids = [550, 578, 597]  # Exemplo de IDs de filmes do TMDB
-
-    # Captura de dados
-    dados_filmes = []
-    for movie_id in movie_ids:
-        detalhes = get_movie_details(movie_id)
-        dados_filmes.append(detalhes)
-
-        # Agrupar arquivos em lotes de 100
-        if len(dados_filmes) >= 100:
-            file_name = f"Raw/TMDB/JSON/{data_atual}/filmes_{now.strftime('%H%M%S')}.json"
-            save_to_s3(dados_filmes, bucket_name, file_name)
-            dados_filmes.clear()  # Limpar para o próximo grupo
-
-    # Salvar o restante dos dados
-    if dados_filmes:
-        file_name = f"Raw/TMDB/JSON/{data_atual}/filmes_{now.strftime('%H%M%S')}.json"
-        save_to_s3(dados_filmes, bucket_name, file_name)
+# Buscar filmes dirigidos por Christopher Nolan e salvar em JSON
+get_director_movies_to_json("Christopher Nolan")

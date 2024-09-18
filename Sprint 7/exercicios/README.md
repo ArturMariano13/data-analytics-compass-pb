@@ -277,10 +277,18 @@ df_spark = df_dynamic.toDF()
 df_spark.printSchema()
 ```
 
+Conforme poderá ser percebido na imagem abaixo, devido à leitura dos dados do CSV, todas as colunas são reconhecidas como String. No entanto, adaptações devem ser realizadas, modificando os campos 'ano' e 'total' para Integer, para que esses campos numéricos possam ser manipulados corretamente:
+
+```python
+df_spark = df_spark.withColumn('ano', F.col('ano').cast(IntegerType()))
+df_spark = df_spark.withColumn('total', F.col('total').cast(IntegerType()))
+```
+
 3. Alteração dos nomes para maiúsculo
 ```python
 df_spark = df_spark.withColumn('nome', F.upper(F.col('nome')))
 ```
+
 
 4. Impressão do total de linhas do arquivo
 ```python
@@ -292,40 +300,42 @@ print("Total de linhas: ", df_spark.count())
 5. Impressão do total de nomes agrupados por ano e sexo, e ordenados por ano
 ```python
 df_grouped = df_spark.groupBy('ano', 'sexo').count()
-df_grouped_ordered = df_grouped.orderBy('ano')
+df_grouped_ordered = df_grouped.orderBy(F.col('ano').desc())
 df_grouped_ordered.show()
 ```
+
+![Imagem resultados total por ano e sexo](../evidencias/5.2.2-lab-aws-glue-resultado.png)
 
 6. Nome feminino mais frequente e ano
 ```python
 df_female = df_spark.filter(F.col('sexo') == 'F')
-most_frequent_female = df_female.groupBy('nome', 'ano').count().orderBy(F.col('count').desc()).first()
+most_frequent_female = df_female.orderBy('total', ascending=False).first()
 print(f"Nome feminino mais frequente: {most_frequent_female['nome']}, Ano: {most_frequent_female['ano']}")
 ```
 
 7. Nome masculino com mais registros e o ano
 ```python
 df_male = df_spark.filter(F.col('sexo') == 'M')
-most_frequent_male = df_male.groupBy('nome', 'ano').count().orderBy(F.col('count').desc()).first()
+most_frequent_male = df_male.orderBy('total', ascending=False).first()
 print(f"Nome masculino mais frequente: {most_frequent_male['nome']}, Ano: {most_frequent_male['ano']}")
 ```
 
-![Imagem resultados total por ano e sexo, feminino e masculino mais comuns](../evidencias/5.2.2-lab-aws-glue-resultado.png)
+![Imagem resultados feminino e masculino mais comuns](../evidencias/5.2.3-lab-aws-glue-resultado.png)
 
 8. Total de registros (masculinos e femininos) para cada ano (10 primeiros crescente)
 ```python
-df_total_per_year_top_10 = df_spark.groupBy('ano').count().orderBy(F.col('ano').asc()).limit(10)
+df_total_per_year_top_10 = df_spark.groupBy('ano').sum('total').orderBy(F.col('ano').asc()).limit(10)
 df_total_per_year_top_10.show()
 ```
 
-![Imagem resultados registros masc e fem para cada ano (10 primeiros)](../evidencias/5.2.3-lab-aws-glue-resultado.png)
+![Imagem resultados registros masc e fem para cada ano (10 primeiros)](../evidencias/5.2.4-lab-aws-glue-resultado.png)
 
 9. Gravação do DataFrame no S3 com valores de nome em maiúsculo
 ```python
 df_spark.write.partitionBy('sexo', 'ano').format('json').mode('overwrite').save(f"{target_path}")
 ```
-![Imagem diretórios criados](../evidencias/5.2.4-lab-aws-glue-resultado.png)
-![Imagem diretórios criados 2](../evidencias/5.2.5-lab-aws-glue-resultado.png)
+![Imagem diretórios criados](../evidencias/5.2.5-lab-aws-glue-resultado.png)
+![Imagem diretórios criados 2](../evidencias/5.2.6-lab-aws-glue-resultado.png)
 
 
 ### 6. Criação de Crawler
