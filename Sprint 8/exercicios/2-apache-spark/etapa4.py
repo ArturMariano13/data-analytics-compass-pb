@@ -11,6 +11,7 @@ spark = SparkSession \
         .appName("Exercicio Intro") \
         .getOrCreate()
 
+# Etapa 1
 df_nomes = spark.read.csv('../1-spark-batch/nomes_aleatorios.txt')
 
 # Etapa 2
@@ -23,5 +24,15 @@ def escolher_escolaridade():
 escolher_escolaridade_udf = udf(escolher_escolaridade, StringType())
 
 df_nomes = df_nomes.withColumn("Escolaridade", escolher_escolaridade_udf())
+
+
+# Etapa 4
+def escolher_pais():
+    return random.choice(["Argentina", "Bolívia", "Brasil", "Chile", "Colômbia", "Equador", "Guiana", 
+          "Guiana Francesa", "Paraguai", "Peru", "Suriname", "Uruguai", "Venezuela"])
+
+escolher_pais_udf = udf(escolher_pais, StringType())
+
+df_nomes = df_nomes.withColumn("Pais", escolher_pais_udf())
 
 df_nomes.show(10)

@@ -128,7 +128,7 @@ Executei duas vezes para mostrar a pseudo-aleatoriedade para geração dos valor
 
 ![Imagem evidência execução](../evidencias/ev_exercicios/2-ESB1.4-execucao.png)
 
-- [**SCRIPT FINAL**](2-apache-spark/etapa1.py)
+- [**SCRIPT 1**](2-apache-spark/etapa1.py)
 
 ### Etapa 2 - Renomear coluna para Nomes, imprimir esquema e mostrar 10 linhas do dataframe
 
@@ -163,10 +163,146 @@ Executei duas vezes para mostrar a pseudo-aleatoriedade para geração dos valor
 
 ![Imagem execução script inteiro](../evidencias/ev_exercicios/2-ESB2.8-execucaototal.png)
 
-- [**SCRIPT FINAL**](2-apache-spark/etapa2.py)
+- [**SCRIPT 2**](2-apache-spark/etapa2.py)
 
-### Etapa 3 - 
+### Etapa 3 - Inclusão da coluna "Escolaridade"
 
+1. O código das etapas anteriores permanece, conforme as figuras abaixo:
+
+![Imagem código etapas anteriores](../evidencias/ev_exercicios/2-ESB3.1-libs.png)
+
+![Imagem código etapas anteriores 2](../evidencias/ev_exercicios/2-ESB3.2-sparksession-etapa2.png)
+
+2. Primeiramente, criei o método `escolher_escolaridade()`, o qual retorna uma opção aleatória entre "Fundamental", "Médio" e "Superior", utilizando a lib random.
+
+3. Além disso, criei uma UDF (*User Defined Function*), a qual consiste em uma função do PySpark que converte uma função do Python simples em uma função que pode ser aplicada sobre colunas de um DataFrame.
+
+4. Dessa forma, com o `withColumn()`, criei a nova coluna "Escolaridade". 
+
+5. Por fim, são mostradas as 10 primeiras linhas do DataFrame.
+
+![Imagem funcionalidade etapa 3](../evidencias/ev_exercicios/2-ESB3.3-etapa3.png)
+
+6. **Execução**
+
+![Imagem execução etapa 3](../evidencias/ev_exercicios/2-ESB3.4-execucao.png)
+
+[**SCRIPT 3**](2-apache-spark/etapa3.py)
+
+### Etapa 4 - Inclusão da coluna "País"
+
+A inclusão da coluna país correu de modo similar à etapa anterior:
+
+1. Manteve-se as etapas anteriores no código desta etapa:
+
+![Imagem etapas anteriores](../evidencias/ev_exercicios/2-ESB4.1-etapas123.png)
+
+2. Criou-se uma função `escolher_pais()`, a qual foi utilizada como `udf()`, retornando uma escolha aleatória entre os 13 paízes da América do Sul.
+
+![Imagem código etapa 4](../evidencias/ev_exercicios/2-ESB4.2-resolucao.png)
+
+3. O restante ficou exatamente igual à etapa anterior.
+
+4. **Execução**
+
+![Imagem execução etapa 4](../evidencias/ev_exercicios/2-ESB4.3-execucao.png)
+
+### Etapa 5 - Inclusão da coluna "AnoNascimento"
+
+A inclusão da coluna AnoNascimento ocorreu basicamente da mesma forma que as duas etapas anteriores, porém com a diferença de ser valores inteiros.
+
+Com isso, necessitou-se adicionar o módulo IntegerType. 
+
+![Imagem código](../evidencias/ev_exercicios/2-ESB5.1-imports.png)
+
+- **Execução**
+
+![Imagem execução](../evidencias/ev_exercicios/2-ESB5.2-execucao.png)
+
+
+### Etapa 6 - Pessoas que nasceram neste século
+
+A etapa 6, por outro lado, solicitou uma filtragem e a utilização do método `select` do Spark, selecionando apenas pessoas que nasceram no século XXI.
+
+Para isso, utilizei o método `.filter()` filtrando apenas pelos anos de nascimento a partir do ano 2000, além de selecionar nomes e AnoNascimento.
+
+![Imagem código desenvolvido](../evidencias/ev_exercicios/2-ESB6.1-codigo.png)
+
+- **Execução**
+
+![Imagem execução](../evidencias/ev_exercicios/2-ESB6.2-execucao.png)
+
+
+### Etapa 7 - Utilizar SparkSQL no mesmo caso da etapa 6
+
+A etapa 7 visa realizar a mesma atividade da etapa anterior, porém com a utilização do Spark SQL.
+
+![Imagem código](../evidencias/ev_exercicios/2-ESB7.1-codigo.png)
+
+- **Execução**
+
+![Imagem execução](../evidencias/ev_exercicios/2-ESB7.2-execucao.png)
+
+
+### Etapa 8 - Pessoas da geração *Millenials* (select Dataframe)
+
+A etapa 8 é bastante similar à 6ª etapa, porém necessita incluir duas validações: maior ou igual a 1980 e menor ou igual a 1994.
+
+![Imagem código](../evidencias/ev_exercicios/2-ESB8.1-codigo.png)
+
+- **Execução**
+
+![Imagem execução](../evidencias/ev_exercicios/2-ESB8.2-execucao.png)
+
+### Etapa 9 - SparkSQL na etapa 8
+
+A etapa 9 é bastante similar à etapa 7, basta solucionar o problema da etapa 8 com a utilização de Spark SQL.
+
+![Imagem código](../evidencias/ev_exercicios/2-ESB9.1-codigo.png)
+
+- **Execução**
+
+![Imagem execução](../evidencias/ev_exercicios/2-ESB9.2-execucao.png)
+
+### Etapa 10 - SparkSQL para dividir em gerações e países
+
+A etapa 10 pediu uma query que contasse todos os registros de gerações por país, ordenando por país e por geração.
+
+Dessa forma, primeiramente defini uma *string* chamada *query* e realizei a query da mesma forma que nas etapa 9 e 7.
+
+![Imagem código](../evidencias/ev_exercicios/2-ESB10.1-codigo.png)
+
+- **Execução**
+
+![Imagem execução](../evidencias/ev_exercicios/2-ESB10.2-execucao.png)
+
+
+Dessa forma, finaliza-se os exercícios de Spark. Ao final produzi um script final com todas as operações, uma a uma:
+
+[**SCRIPT FINAL**](2-apache-spark/script-final.py)
+
+---
+
+## 2 - Exercícios TMDB
+
+### Etapa 1 - Criação da conta TMDB
+
+A conta de desenvolvedor no TMDB já havia sido criada na Sprint anterior para realizar o desafio. Por isso, apenas insiro um print comprovando a criação de minha conta:
+
+![Imagem conta TMDB](../evidencias/ev_exercicios/3.1-conta-tmdb.png)
+
+### Etapa 2 - Teste de credenciais e biblioteca
+
+O código deste exercício foi fornecido pelo enunciado, portanto apenas o copiei e adaptei para utilizar a minha API_KEY (que inseri em outro arquivo - `config.py`).
+
+![Imagem código](../evidencias/ev_exercicios/3.2-codigo.png)
+
+**Execução**
+
+![Imagem execução](../evidencias/ev_exercicios/3.3-execucao.png)
+
+
+[**SCRIPT FINAL**](3-tmdb/etapa2.py)
 
 
 
