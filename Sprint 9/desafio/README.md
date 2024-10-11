@@ -45,10 +45,15 @@ Por conseguinte, realizei a modelagem dos dados. Necessitei rever conceitos apre
 
 Para realizar a modelagem, utilizei a ferramenta **brmodelo**, criando os seguintes fatos e dimensões:
 
-![Imagem modelagem dos dados]()
+![Imagem modelagem dos dados](../evidencias/2-modelagem.png)
 
 - **dim_tempo:** contém a data de lançamento do filme, além dos campos ano, mês e dia, para facilitar análises posteriores.
-- **dim_valores:** contém o orçamento e a receita de cada filme, além de um cálculo do lucro por filme.
+- **dim_diretor:** contém o nome do diretor, no caso apenas filmes de Christopher Nolan conterão, os outros não foram coletados, pois não havia necessidade.
+- **dim_genero:** contém o(s) gênero(s) dos filmes.
+- **dim_titulo:** contém o título dos filmes.
+- **fato_filme:** considerei o filme como o fato, contendo todas as informações numéricas do meu dataset: id, número de votos, nota média, orçamento e receita.
+
+As cardinalidades são todas **1-n** devido à limitação da ferramenta brmodelo, porém entre o fato e a dimensão tempo deveria ser **1-1**, e a cardinalidade do lado da dimensão gênero deveria ser **1-n**, não 0-n. O restante está correto.
 
 
 ### 3. Criação do script local
