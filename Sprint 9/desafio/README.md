@@ -68,9 +68,17 @@ Busquei os arquivos .PARQUET processados na Sprint anterior e localizados na cam
 
 **3.2 - Criação do script**
 
-Primeiro, criei um script que lia os arquivos .parquet e exibia os schemas, para entender todos os campos e como faria organizaria os dados para a modelagem efetuada.
+- **3.2.1**
+    - Primeiro, criei um script que lia os arquivos .parquet e exibia os schemas, para entender todos os campos e como faria organizaria os dados para a modelagem efetuada.
 
 ![Imagem printSchemas](../evidencias/3.2-schemas.png)
+
+- **3.2.2**
+    - Posteriormente, realizei alguns testes de junção entre os dados do CSV (batch) e do TMDB, unindo pelo título do filme, haja vista que os ids eram diferentes.
+    - Além disso, removi campos desnecessários, que não seriam efetivamente utilizados na análise final.
+
+![Imagem dataframes unidos e limpos](../evidencias/3.3-dfLimpo.png) 
+
 
 
 
@@ -84,10 +92,13 @@ Primeiro, criei um script que lia os arquivos .parquet e exibia os schemas, para
 
 Primeiramente, criei o job no AWS Glue conforme solicitado no enunciado do exercício. A imagem abaixo comprova a criação do job.
 
-![Imagem criação do job no AWS Glue](../evidencias/2-criacao-job.png)
+![Imagem criação do job no AWS Glue](../evidencias/4.1-criacao-job.png)
 
 **4.2 - Ajuste de parâmetros do job**
 
+Agora, inseri os parâmetros com local de origem dos dados (camada Trusted) e onde eles serão salvos após execução do script (camada Refined).
+
+![Imagem parâmetros job](../evidencias/4.2-parametros-job.png)
 
 **4.3 - Criação do script do job**
 
