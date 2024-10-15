@@ -102,6 +102,10 @@ Agora, inseri os parâmetros com local de origem dos dados (camada Trusted) e on
 
 **4.3 - Criação do script do job**
 
+Com o job criado e os parâmetros definidos, iniciei a construção do script do job no Glue. Para isso, utilizei como base o script local desenvolvido anteriormente.
+
+
+
 
 
 
