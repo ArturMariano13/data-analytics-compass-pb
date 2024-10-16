@@ -5,9 +5,7 @@ from pyspark.context import SparkContext
 from awsglue.context import GlueContext
 from awsglue.job import Job
 from pyspark.sql import functions as F
-from pyspark.sql.types import IntegerType, FloatType
-from pyspark.sql.functions import regexp_replace, col
-from datetime import datetime
+from pyspark.sql.functions import col
 
 # @params: [JOB_NAME, S3_INPUT_PATH, S3_TARGET_PATH]
 args = getResolvedOptions(sys.argv, ['JOB_NAME', 'S3_INPUT_PATH', 'S3_TARGET_PATH'])
@@ -19,8 +17,8 @@ spark = glueContext.spark_session
 job = Job(glueContext)
 job.init(args['JOB_NAME'], args)
 
-source_file = args['S3_INPUT_PATH']  # Caminho de entrada (Raw Zone)
-target_path = args['S3_TARGET_PATH']  # Caminho de saída (Trusted Zone)
+source_file = args['S3_INPUT_PATH']  # Caminho de entrada (Trusted Zone)
+target_path = args['S3_TARGET_PATH']  # Caminho de saída (Refined Zone)
 
 df_csv = spark.read.parquet(f'{source_file}/Local/PARQUET/2024/10/03')
 df_tmdb = spark.read.parquet(f'{source_file}/TMDB/PARQUET/data_criacao=2024-09-23')
@@ -79,8 +77,6 @@ if 'produtoras' in df_unido.columns and df_unido.filter(F.col("produtoras").isNo
     # Define o valor do diretor como 'Christopher Nolan' quando há produtoras
     dim_diretor = df_unido.withColumn("diretor", F.lit("Christopher Nolan")) \
                           .select("id", "diretor")
-
-
 
 dim_diretor.write \
     .format("parquet") \

@@ -102,14 +102,123 @@ Agora, inseri os parâmetros com local de origem dos dados (camada Trusted) e on
 
 **4.3 - Criação do script do job**
 
-Com o job criado e os parâmetros definidos, iniciei a construção do script do job no Glue. Para isso, utilizei como base o script local desenvolvido anteriormente.
+Com o job criado e os parâmetros definidos, iniciei a construção do [script](script-glue.py) do job no Glue. Para isso, utilizei como base o script local desenvolvido anteriormente.
+
+1. Imports necessários
+
+![Imagem imports](../evidencias/4.3-script1.png)
+
+- O código importa bibliotecas essenciais para executar um job no AWS Glue e manipular dados com PySpark.
+- Bibliotecas essenciais para o uso do AWS Glue, o qual é utilizado para ETL (*Extract*, *Transform*, *Load*) na AWS.
+- PySpark: usado para manipulação e processamento de dados distribuídos.
+- Função `col` do PySpark para tratamento das colunas.
 
 
+2. Configurações de ambiente (parâmetros, SparkContext e caminhos de arquivos)
+
+![Imagem configurações de ambiente](../evidencias/4.3-script2.png)
+
+- **Linha 11:** `getResolvedOptions` obtém os parâmetros necessários para rodar o job. Eles incluem o nome do job, o caminho de entrada `(S3_INPUT_PATH)`, e o caminho de saída `(S3_TARGET_PATH)`.
+- **Linhas 14-18:** configurações necessárias para script no AWS Glue (fornecido pelo próprio serviço ao criar o job).
+- **Linhas 20-21:** definição dos caminhos dos arquivos de entrada e saída, Trusted e Refined Zone respectivamente.
+- **Linhas 23-24:** Leitura dos arquivos PARQUET para Spark DataFrames: `df_csv` com dados da ingestão batch (local) e `df_tmdb` com os dados da ingestão da API do TMDB.
 
 
+3. Transformações nos DataFrames
+
+![Imagem transformações DataFrames](../evidencias/4.3-script3.png)
+
+- **Linha 27:** removi o id do `df_csv`, pois ambos os DataFrames possuíam id, porém esse id não era o mesmo, para que pudesse ser realizado um `join` por esse id. Por isso, escolhi remover o DataFrame do CSV.
+- **Linha 28:** transformei a coluna `id` do DataFrame do TMDB em `long`, haja vista que ela era do tipo String.
+- **Linha 31:** uni os DataFrames baseando-me pelo título do filme. Apesar de não ser a estratégia mais adequada, não havia outra informação (esperava que fosse o id) para realizar o `join`.
+- **Linha 34:** removi alguns campos que julguei não serem mais necessários para a minha análise final.
+- **Linha 35:** removi os duplicados pelo id do filme.
+- **Linha 38:** printei o Schema do DataFrame para entender como havia ficado após essas transformações.
 
 
+4. Ajuste no local de salvamento dos arquivos PARQUET
 
+![Imagem salvamento PARQUET Movies](../evidencias/4.3-script4.png)
+
+- Necessitei ajustar o local de salvamento dos arquivos PARQUET, inserindo mais um diretório: "Movies".
+
+5. Tabela Fato `fato_filme`
+
+![Imagem tabela fato_filme](../evidencias/4.3-script5.png)
+
+- Para criar a tabela fato_filme, que conteria todos os campos numéricos e que se relacionaria com as demais dimensões, selecionei os campos: "id", "numeroVotos", "notaMedia", "orcamento" e "receita".
+- Os dados são salvos no formato parquet no diretório /fato_filme dentro do caminho de destino.
+
+6. Tabela Dimensional `dim_titulo`
+
+![Imagem tabela dim_titulo](../evidencias/4.3-script6.png)
+
+- A tabela armazena o id e o titulo do filme, e os dados são salvos no diretório /dim_titulo.
+
+7. Tabela Dimensional `dim_tempo`
+
+![Imagem tabela dim_tempo](../evidencias/4.3-script7.png)
+
+- Colunas ano, mes, e dia são extraídas da coluna data_lancamento.
+- Os dados são gravados no diretório /dim_tempo.
+
+8. Tabela Dimensional dim_genero
+
+![Imagem tabela dim_genero](../evidencias/4.3-script8.png)
+
+- Seleciona as colunas id e genero e grava os dados no diretório /dim_genero.
+
+
+9. Tabela Dimensional dim_diretor
+
+![Imagem tabela dim_diretor](../evidencias/4.3-script9.png)
+
+- Verifica se a coluna produtoras existe e contém valores não nulos. Se sim, cria-se uma coluna diretor com o valor fixo "Christopher Nolan" e grava esses dados no diretório /dim_diretor.
+
+> Fiz essa validação, pois ao extrair os dados da API do TMDB, apenas os filmes cujas produtoras foram resgatadas pertencem à Christopher Nolan. Isso ocorreu, pois não busquei os diretores de todos os filmes, portanto a distinção entre ser de Christopher Nolan, ou não, ficou a critério de possuir ou não produtoras.
+
+10. Finalização do job
+
+![Imagem job commit](../evidencias/4.3-script91.png)
+
+**4.4 - Job Runs**
+
+Após desenvolver o script, executei o job. Fiz isso por diversas vezes, pois obtive erros no meio do caminho, os quais tiveram de ser solucionados resultando no script explicitado no item anterior.
+
+![Imagem job runs](../evidencias/4.4-jobRuns.png)
+
+**4.5 - Diretórios criados**
+
+Os diretórios criados após a execução do job ficaram da seguinte maneira:
+
+![Imagem diretórios pós execução do job](../evidencias/4.5-diretoriosExecucao.png)
+
+
+### 5. Crawler
+
+**5.1 - Criação**
+
+Para criar as tabelas conforme requisitado, necessitei criar novamente um *crawler*, da mesma forma que na Sprint anterior. A imagem a seguir comprova a criação do Crawler, com a origem dos dados sendo a Refined Zone.
+
+![Imagem criação Crawler](../evidencias/5.1-criandoCrawler.png)
+
+**5.2 - Execução**
+
+Após criar o *crawler*, executei-o para que ele criasse as tabelas baseado nos arquivos PARQUET gerados.
+
+![Imagem execução crawler](../evidencias/5.2runCrawler.png)
+
+**5.3 - Consulta das tabelas criadas**
+
+Com isso, verifiquei se as tabelas haviam sido criadas corretamente no AWS Glue Data Catalog.
+
+![Imagem tabelas criadas](../evidencias/5.3-tabelasCriadas.png)
+
+**5.4 - Consulta no Amazon Athena**
+
+Por fim, performei uma consulta no Amazon Athena para ver se as tabelas estavam preenchidas corretamente conforme o script desenvolvido.
+
+![Imagem consulta Athena](../evidencias/5.4-consultaAthena.png)
 
 ___
 
