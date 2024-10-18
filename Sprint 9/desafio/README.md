@@ -295,6 +295,7 @@ Com isso, verifiquei se as tabelas haviam sido criadas corretamente no AWS Glue 
 
 **5.4 - Consulta no Amazon Athena**
 
+
 Por fim, performei uma consulta no Amazon Athena para ver se as tabelas estavam preenchidas corretamente conforme o script desenvolvido.
 
 ![Imagem consulta Athena](../evidencias/5.4-consultaAthena.png)
