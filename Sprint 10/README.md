@@ -165,7 +165,10 @@ Para maiores informações sobre os exercícios, siga o link: [exercícios](exer
 
 ### AWS QuickSight
 
+#### Tabelas Dinâmicas (*Pivot table*)
 
+- Linhas e colunas;
+- Diferença entre este tipo de tabela e as tabelas "convencionais": **podemos ter um campo nas colunas e ele será criado**.
 
 
 ___

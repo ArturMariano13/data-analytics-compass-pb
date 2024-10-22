@@ -18,6 +18,18 @@ Extrair insights dos dados ingeridos e processados nas Sprints anteriores. Isso 
 
 ## Resolução
 
+### 1. Criação de Dataset no QuickSight
+
+Primeiramente, criei um dataset (dados-refinados) no QuickSight para poder acessar os dados em minha análise.
+
+![Imagem criação dataset QuickSight](../evidencias/1-criacaoDataset.png)
+
+Dessa forma, selecionei como fonte de dados o Amazon Athena, mais especificamente a tabela "fato_filme", que é a tabela central da modelagem dos meus dados (tabela fato). Essa tabela, juntamente às tabelas de dimensões, foi criada pelo *crawler* que buscou os dados salvos no S3 camada *Refined*.
+
+![Imagem seleção tabela fato_filme](../evidencias/1.1-escolhaTabelaPrincipal.png)
+
+
+
 ___
 
 ### ↩️ [Retornar ao início](../../README.md)
