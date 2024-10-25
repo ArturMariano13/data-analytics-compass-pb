@@ -28,6 +28,10 @@ Dessa forma, selecionei como fonte de dados o Amazon Athena, mais especificament
 
 ![Imagem seleção tabela fato_filme](../evidencias/1.1-escolhaTabelaPrincipal.png)
 
+Fazendo isso, obtive um erro de permissão. Para isso, necessitei alterar as permissões de acesso do QuickSight para que acessasse os arquivos do S3. As instruções de configuração da conta do QuickSight não continham permissões para o S3, apenas para o Athena, Redshift, IAM e RDS. A imagem abaixo comprova essa modificação.
+
+![Imagem permissão S3](../evidencias/1.2-modificacaoPermissao.png)
+
 
 
 ___

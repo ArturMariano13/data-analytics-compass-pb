@@ -165,10 +165,27 @@ Para maiores informações sobre os exercícios, siga o link: [exercícios](exer
 
 ### AWS QuickSight
 
-#### Tabelas Dinâmicas (*Pivot table*)
+Serviço gerenciado de *Business Intelligence* que permite a **criação e compartilhamento de análises de dados** a fim de **obter insights de inteligência de negócios de forma rápida e fácil**.
 
-- Linhas e colunas;
-- Diferença entre este tipo de tabela e as tabelas "convencionais": **podemos ter um campo nas colunas e ele será criado**.
+Pode ser integrado com diversas fontes de dados, como Redshift, S3, RDS.
+
+#### Termos básicos
+- **Preparação de dados:** filtragem, renomeação de campos, alteração de tipos, adição de campos calculadores ou criação de consultas SQL no momento da criação/edição do dataset.
+- **Dataset:** coleção de dados de interesse, obtidos através de um ou mais *data sources*.
+- ***Data sources*:** representação de uma conexão a uma fonte de dados específica (banco de dados relacional, arquivo, Athena, Spark).
+- **SPICE (Super-fast, Paralell, In-memory Calculation Engine):** *motor in-memory* com armazenamento associada que acelera o processamento de cálculos e a recuperação de dados. Atua como um mecanismo de cache que favorece o rápido processamento de dados sem comprometer a experiência do usuário.
+- **Análise:** espaço de trabalho onde se criam visualizações - representações gráficas.
+- **Visualização:** é uma representação visual específica dos dados, como um gráfico, KPI, insight, etc.
+- **Planilha:** divisão de uma análise, tal qual uma aba de navegação. Compreende uma ou mais visualizações.
+- **Dashboard:** é a versão publicada de uma análise.
+
+#### Datasets
+- Conjuntos de dados utilizados em análises.
+- O QuickSight possibilita a conexão com diversas fontes de dados (RDS, Redshift, S3, PostgreSQL...).
+- Pode-se realizar junções (joins) entre datasets.
+- **Campos calculados:** novas colunas que podemos criar por meio da aplicação de funções e/ou combinação de colunas já existentes.
+- **Filtros:** critérios que restringem os dados que efetivamente estarão disponíveis em todas as análises que fizerem uso do dataset.
+- **Excluded fields:** campos que estão no dataset, mas que não devem ser disponibilizados para uso em análises.
 
 
 ___
