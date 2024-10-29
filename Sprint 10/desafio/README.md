@@ -66,9 +66,27 @@ Para criar uma análise com base nos dados ajustados na seção anterior, basta 
 
 ![Imagem criar análise](../evidencias/3-criarAnalise.png)
 
+#### 3.1. Criação de visualizações KPI
 
+Primeiramente, tive a ideia de criar algumas visualizações KPI, com informações gerais a respeito do diretor por mim escolhido: Christopher Nolan.
 
+![Imagem KPIs](../evidencias/3.1-kpi_views.png)
 
+#### 3.2. Criação de gráfico de área
+
+Tive a ideia de realizar um comparativo dos orçamentos e das receitas (bilheterias) atingidas por Christopher Nolan, evidenciando a crescente da carreira do diretor.
+
+Para isso, selecionei o **gráfico de área** e coloquei no **eixo X** o **ano de lançamento**, e no **eixo Y** os campos **orcamento** e **receita**.
+
+No entanto, inicialmente, apareciam dados referentes a todos os filmes do dataset. Para isso, necessitei adicionar um filtro, limitando para os filmes de Nolan.
+
+Filtrando pelo diretor "Christopher Nolan", criei o seguinte filtro:
+
+![Imagem filtro Christopher Nolan](../evidencias/3.2-filtro.png)
+
+Realizando isso, meu gráfico ficou da seguinte maneira:
+
+![Imagem gráfico de área orçamento x bilheteria](../evidencias/3.2.1-graficoarea.png)
 
 ___
 
