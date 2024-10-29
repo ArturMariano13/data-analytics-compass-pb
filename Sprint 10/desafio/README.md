@@ -18,7 +18,7 @@ Extrair insights dos dados ingeridos e processados nas Sprints anteriores. Isso 
 
 ## Resolução
 
-### 1. Criação de Dataset no QuickSight
+### 1. Criação de Datasets no QuickSight
 
 Primeiramente, criei um dataset (dados-refinados) no QuickSight para poder acessar os dados em minha análise.
 
@@ -26,11 +26,47 @@ Primeiramente, criei um dataset (dados-refinados) no QuickSight para poder acess
 
 Dessa forma, selecionei como fonte de dados o Amazon Athena, mais especificamente a tabela "fato_filme", que é a tabela central da modelagem dos meus dados (tabela fato). Essa tabela, juntamente às tabelas de dimensões, foi criada pelo *crawler* que buscou os dados salvos no S3 camada *Refined*.
 
-![Imagem seleção tabela fato_filme](../evidencias/1.1-escolhaTabelaPrincipal.png)
+Fazendo isso, obtive um **erro de permissão**. Para isso, necessitei alterar as permissões de acesso do QuickSight para que acessasse os arquivos do S3. As instruções de configuração da conta do QuickSight não continham permissões para o S3, apenas para o Athena, Redshift, IAM e RDS. A imagem abaixo comprova essa modificação.
 
-Fazendo isso, obtive um erro de permissão. Para isso, necessitei alterar as permissões de acesso do QuickSight para que acessasse os arquivos do S3. As instruções de configuração da conta do QuickSight não continham permissões para o S3, apenas para o Athena, Redshift, IAM e RDS. A imagem abaixo comprova essa modificação.
+![Imagem permissão S3](../evidencias/1.1-modificacaoPermissao.png)
 
-![Imagem permissão S3](../evidencias/1.2-modificacaoPermissao.png)
+Com isso, para juntar todos os dados das dimensões e do fato_filme, criei todos os datasets das outras tabelas para trazer todos os dados necessários para a análise.
+
+![Imagem datasets criados](../evidencias/1.2-allDatasets.png)
+
+### 2. Junções entre datasets
+
+Para unir os dados, bastou selecionar o dataset "fato_filme", clicar nos **três pontinhos** -> **Editar**.
+
+![Imagem editar dataset](../evidencias/2.1-editarDatasets.png)
+
+Após, seleciona-se a opção **Adicionar dados** no canto superior direito da tela.
+
+![Imagem adição de dados](../evidencias/2.2-addData.png)
+
+Seleciona-se, então, a opção **conjunto de dados**.
+
+![Imagem seleção conjunto de dados](../evidencias/2.3-conjuntoDados.png)
+
+Agora, deve-se selecionar cada tabela criada a partir da modelagem realizada, realizando as junções com a tabela fato_filme.
+
+![Imagem tabelas selecionadas](../evidencias/2.4-tabelas.png)
+
+Na sequência, seleciona-se a junção ao centro das tabelas e configura-se o campo responsável pela junção. Exemplo:
+
+![Imagem join dim_tempo](../evidencias/2.5-join.png)
+
+Posteriormente, fiz para todas as outras dimensões criadas, resultando no seguinte esquema:
+
+![Imagem dataset final](../evidencias/2.6-finalDataset.png)
+
+### 3. Construção do dashboard
+
+Para criar uma análise com base nos dados ajustados na seção anterior, basta selecionar o conjunto de dados, clicar nos **três pontinhos** e selecionar a opção **Criar análise**.
+
+![Imagem criar análise](../evidencias/3-criarAnalise.png)
+
+
 
 
 
