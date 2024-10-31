@@ -72,21 +72,24 @@ Primeiramente, tive a ideia de criar algumas visualizações KPI, com informaç�
 
 ![Imagem KPIs](../evidencias/3.1-kpi_views.png)
 
-#### 3.2. Criação de gráfico de área
+#### 3.2. Criação de gráfico de linha (orçamento x receita no decorrer dos anos)
 
 Tive a ideia de realizar um comparativo dos orçamentos e das receitas (bilheterias) atingidas por Christopher Nolan, evidenciando a crescente da carreira do diretor.
 
-Para isso, selecionei o **gráfico de área** e coloquei no **eixo X** o **ano de lançamento**, e no **eixo Y** os campos **orcamento** e **receita**.
+Para isso, selecionei o **gráfico de linhas** e coloquei no **eixo X** o **ano de lançamento**, e no **eixo Y** os campos **orcamento** e **receita**.
 
-No entanto, inicialmente, apareciam dados referentes a todos os filmes do dataset. Para isso, necessitei adicionar um filtro, limitando para os filmes de Nolan.
+O gráfico ficou da seguinte maneira:
 
-Filtrando pelo diretor "Christopher Nolan", criei o seguinte filtro:
+![Imagem gráfico Orçamento X Receita](../evidencias/3.2.1-graficolinha.png)
 
-![Imagem filtro Christopher Nolan](../evidencias/3.2-filtro.png)
+Para possuir os dados apenas do diretor Christopher Nolan, adicionei um filtro em toda a planilha, para que apenas selecionasse os dados do diretor.
 
-Realizando isso, meu gráfico ficou da seguinte maneira:
+![Imagem filtro Nolan](../evidencias/3.2-filtro.png)
 
-![Imagem gráfico de área orçamento x bilheteria](../evidencias/3.2.1-graficoarea.png)
+### 3.3. Criação do gráfico de pizza (distribuição dos gêneros dos filmes de Nolan)
+
+
+
 
 ___
 
