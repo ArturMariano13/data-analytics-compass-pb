@@ -66,13 +66,32 @@ Para criar uma análise com base nos dados ajustados na seção anterior, basta 
 
 ![Imagem criar análise](../evidencias/3-criarAnalise.png)
 
-#### 3.1. Criação de visualizações KPI
+Decidi criar mais de uma página para a minha análise, dividindo em três:
+
+1. **Visão Geral**
+2. **Filmes do gênero Crime/Guerra - Trilogia Batman e Dunkirk**
+3. **Análise temporal**
+
+### 1. Visão Geral
+
+#### 3.1.1. Criação de visualizações KPI
 
 Primeiramente, tive a ideia de criar algumas visualizações KPI, com informações gerais a respeito do diretor por mim escolhido: Christopher Nolan.
 
-![Imagem KPIs](../evidencias/3.1-kpi_views.png)
+Para criar uma dessas visualizações, criei o campo calculado "lucro":
 
-#### 3.2. Criação de gráfico de linha (orçamento x receita no decorrer dos anos)
+![Imagem campo calculado lucro](../evidencias/3.1.1-campoLucro.png)
+
+Os campos selecionados para cada visualização foram:
+
+![Imagem campos selecionados para KPIs](../evidencias/3.1.1-campos.png)
+
+Por fim, o resultado das visualizações KPI foi o seguinte:
+
+![Imagem KPIs](../evidencias/3.1.1-kpiviews.png)
+
+
+#### 3.1.2. Criação de gráfico de linha (orçamento x receita no decorrer dos anos)
 
 Tive a ideia de realizar um comparativo dos orçamentos e das receitas (bilheterias) atingidas por Christopher Nolan, evidenciando a crescente da carreira do diretor.
 
@@ -80,13 +99,135 @@ Para isso, selecionei o **gráfico de linhas** e coloquei no **eixo X** o **ano 
 
 O gráfico ficou da seguinte maneira:
 
-![Imagem gráfico Orçamento X Receita](../evidencias/3.2.1-graficolinha.png)
+![Imagem gráfico Orçamento X Receita](../evidencias/3.1.2-graficolinha.png)
 
 Para possuir os dados apenas do diretor Christopher Nolan, adicionei um filtro em toda a planilha, para que apenas selecionasse os dados do diretor.
 
-![Imagem filtro Nolan](../evidencias/3.2-filtro.png)
+![Imagem filtro Nolan](../evidencias/3.1.2-filtro.png)
 
-### 3.3. Criação do gráfico de pizza (distribuição dos gêneros dos filmes de Nolan)
+
+#### 3.1.3. Criação do gráfico de pizza (distribuição dos gêneros dos filmes de Nolan)
+
+Também desenvolvi um gráfico de pizza, o qual conteria a distribuição dos gêneros dos filmes de Christopher Nolan. Para isso, selecionei o tipo de gráfico e selecionei apenas o campo "genero".
+
+**Campos**
+
+![Imagem campo selecionado](../evidencias/3.1.3-campos.png)
+
+**Filtros**
+
+Para selecionar apenas os filmes de Christopher Nolan, utilizei os seguintes filtros:
+
+![Imagem filtros para o gráfico de pizza](../evidencias/3.1.3-graficopizzafiltros.png)
+
+Pode-se perceber que utilizei o filtro de excluir o gênero "*Family*". Fiz isso para "poluir" menos o visual, haja vista que o gênero não afetaria em minha análise, ainda mais por ter apenas 1 filme do gênero.
+
+**Resultado**
+
+![Imagem gráfico resultante](../evidencias/3.1.3-graficopizza.png)
+
+
+### 3.1.4. Gráfico de barras (maiores bilheterias de Christopher Nolan)
+
+Além disso, realizei um gráfico de barras para ver os 10 títulos com maiores bilheterias de Christopher Nolan, a fim de perceber quais filmes tiveram mais sucesso do ponto de vista financeiro.
+
+**Campos**
+Para isso, selecionei o *titulo* para o **eixo x** e a *receita* para o **eixo y**.
+
+![Imagem campos selecionados](../evidencias/3.1.4-campos.png)
+
+**Filtros**
+Nesta visualização, o único filtro foi para selecionar os filmes de Christopher Nolan, fazendo um comparativo apenas entre os filmes do diretor.
+
+**Resultado**
+
+![Imagem gráfico resultante](../evidencias/3.1.4-graficobarra.png)
+
+Além disso, inseri uma imagem do diretor, o nome dele e um breve resumo da carreira dele no Dashboard.
+
+Por fim, a página de **Visão Geral** resultou no seguinte:
+
+![Imagem página Visão Geral](../evidencias/3.1.5-resultadopg1.png)
+
+
+
+### 2. Filmes do gênero Crime/Guerra
+
+Essa análise optei por realizar devido à designação desses dois gêneros para a minha Squad (2). Dessa forma, busquei filmes desses gêneros do diretor por mim selecionado.
+
+- **Trilogia Batman** - filmes do gênero Crime, sendo um dos maiores sucessos do diretor.
+- **Dunkirk** - uma nova proposta no cenário dos filmes de Guerra, conquistando o público e tendo um ótimo desempenho no cinema.
+
+### 3.2.1 - Gráfico de barras (comparação dos filmes com outros filmes do mesmo gênero)
+
+Para realizar isso, necessitei criar campos calculados chamados "Categoria Batman" e "Categoria Dunkirk". Eles fazem a distinção se consiste nos filmes que estou analisando, ou se é algum outro filme dos gêneros Crime ou Guerra. As imagens abaixo ilustram como foram criados esses campos:
+
+![Imagem campo calculado Batman](../evidencias/3.2.1-campoBatman.png)
+
+![Imagem campo calculado Dunkirk](../evidencias/3.2.1-campoDunkirk.png)
+
+Depois disso, selecionei para o eixo Y as médias dos campos "orcamento" e "receita":
+
+![Imagem campos selecionados](../evidencias/3.2.1-campos.png)
+![Imagem campos selecionados](../evidencias/3.2.1-campos2.png)
+
+Personalizei as cores, ajustei o título e outros atributos visuais e ficou da seguinte forma:
+
+![Imagem gráfico de barras Batman vs Crime](../evidencias/3.2-graficoBatman.png)
+
+![Imagem gráfico Dunkirk](../evidencias/3.2.1-campoDunkirk.png)
+
+Com esses gráficos, pode-se perceber que essas obras de Christopher Nolan tiveram desempenho muito acima da média em comparação a outras obras de mesmo gênero sob o ponto de vista da receita e do orçamento.
+
+Vale ressaltar, ademais, que esses filmes foram produzidos após o diretor já ter tido outros filmes de sucesso, o que o permitiu possuir orçamentos maiores, gerando receitas ainda maiores.
+
+Em suma, do mesmo modo que ele tem orçamentos consideráveis, as receitas são proporcionalmente elevadas, elucidando o sucesso do diretor no cenário do cinema mundial.
+
+### 3.2.2 - Tabelas de notas e lucros
+
+Além disso, para incrementar a análise, optei por colocar a nota média (popular) e o lucro das obras em comparação aos outros filmes, visando elucidar que ao passo que Christopher Nolan tem filmes que agradam a opinião popular, os filmes dele também lucram.
+
+Novamente necessitei utilizar os campos calculados "CategoriaBatman" e "CategoriaDunkirk", além dos campos de *notamedia* e *lucro* (também calculado).
+
+![Imagem campos selecionados para as tabelas](../evidencias/3.2.2-campos.png)
+
+Dessa forma, após editar alguns parâmetros visuais, o resultado foi o seguinte:
+
+![Imagem tabelas criadas](../evidencias/3.2.2-tabelas.png)
+
+
+### 3.2.3 - Gráfico de Gauge (participação dos filmes na receita obtida pelo diretor)
+
+Para a criação desse gráfico, necessitei criar campos calculados: "Receita Batman" e "Receita Dunkirk". Os cálculos estão representados a seguir:
+
+![Imagem campo calculado Receita Batman](../evidencias/3.2.3-campoBatman.png)
+
+Esse campo contém o total da receita obtida apenas pelos filmes do Batman.
+
+![Imagem campo calculado Receita Dunkirk](../evidencias/3.2.3-campoDunkirk.png)
+
+Esse campo contém o total da receita obtida apenas pelo filme Dunkirk.
+
+Dessa forma, selecionei a receita total (soma) e a receita de cada filme em comparação a esse todo, evidenciando por qual percentual da receita esses filmes são responsáveis.
+
+![Imagem campos selecionados](../evidencias/3.2.3-campos.png)
+
+Por conseguinte, ajustei os valores para aparecerem como moeda ($) e a unidade inseri bilhão (B). Os gráficos de Gauge ficaram assim:
+
+![Imagem gráfico de Gauge Batman](../evidencias/3.2.3-graficoBatman.png)
+
+![Imagem gráfico de Gauge Dunkirk](../evidencias/3.2.3-graficoDunkirk.png)
+
+
+Vale ressaltar que, além dessas visualizações citadas acima, inseri os cartazes dos filmes e um breve sumário de cada um deles, resultando no seguinte dashboard:
+
+![Imagem página Filmes gênero Crime/Guerra](../evidencias/3.2.4-resultadopg2.png)
+
+
+
+
+
+
 
 
 
