@@ -66,6 +66,7 @@ Essa seção possui os links para o arquivo README.md de cada Sprint, em que se 
 7. [Sprint 7](Sprint%207/README.md): Plataformas Big Data (Spark, Hadoop)
 8. [Sprint 8](Sprint%208/README.md): Apache Spark
 9. [Sprint 9](Sprint%209/README.md): Apache Spark
+10. [Sprint 10](Sprint%2010/README.md): Visualização de Dados
 
 
 No decorrer do programa, serão inseridas as outras Sprints no repositório, além de seus respectivos arquivos.
