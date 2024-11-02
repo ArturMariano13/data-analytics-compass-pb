@@ -224,14 +224,6 @@ Vale ressaltar que, além dessas visualizações citadas acima, inseri os cartaz
 ![Imagem página Filmes gênero Crime/Guerra](../evidencias/3.2.4-resultadopg2.png)
 
 
-
-
-
-
-
-
-
-
 ___
 
 ### ↩️ [Retornar ao início](../../README.md)
