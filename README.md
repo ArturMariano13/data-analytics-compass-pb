@@ -8,7 +8,7 @@
 
 
 <p align="center">
-  Artur Mariano da Silva, 20 anos
+  Artur Mariano da Silva, 21 anos
 </p>
 
 <p align="center">
